@@ -14,7 +14,11 @@
 </svelte:head>
 
 <div class="overflow-auto snap-y snap-mandatory h-screen">
-	<section class={classes}>Welcome</section>
+	<section
+		class="h-screen items-center justify-center snap-start mx-auto prose prose-zinc flex flex-col prose-lg px-6 max-w-prose prose-fuchsia md:prose-xl md:px-0 xl:prose-2xl"
+	>
+		Welcome
+	</section>
 	<section class={classes}>Devologic is a digital agency specializing in web development and web applications.</section>
 	<section class={classes}>
 		We create websites and web applications that are easy to use, reliable, robust, and secure.

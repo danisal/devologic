@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Facebook from './Facebook.svelte';
+	import LinkedIn from './LinkedIn.svelte';
+
 	const year = new Date().getFullYear();
 
 	export let rights: string;
@@ -10,6 +13,14 @@
 >
 	<div class="">
 		<img src="/devologic-logo.svg" alt="Devologic logotype" class="mx-auto w-40" loading="lazy" />
+		<div class="flex gap-2 justify-center">
+			<a href="https://facebook.com" target="_blank" rel="noreferrer">
+				<Facebook />
+			</a>
+			<a href="https://linkedin.com" target="_blank" rel="noreferrer">
+				<LinkedIn />
+			</a>
+		</div>
 		<p class="mt-5 text-center text-sm leading-6 text-slate-500">
 			© {year} Devologic Unipessoal Lda. {rights}
 		</p>

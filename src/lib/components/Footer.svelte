@@ -1,17 +1,20 @@
 <script lang="ts">
-	import LL from '$i18n/i18n-svelte';
-
 	const year = new Date().getFullYear();
+
+	export let rights: string;
+	export let privacy: string;
 </script>
 
-<footer class="mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
-	<div class="border-t border-slate-900/5 py-10">
+<footer
+	class="h-screen items-center justify-center snap-start mx-auto prose prose-zinc flex flex-col prose-lg px-6 max-w-prose prose-fuchsia md:prose-xl md:px-0 xl:prose-2xl"
+>
+	<div class="">
 		<img src="/devologic-logo.svg" alt="Devologic logotype" class="mx-auto w-40" loading="lazy" />
 		<p class="mt-5 text-center text-sm leading-6 text-slate-500">
-			© {year} Devologic Unipessoal Lda. {$LL.footer.allRights()}
+			© {year} Devologic Unipessoal Lda. {rights}
 		</p>
 		<div class="mt-16 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">
-			<a href="/privacy-policy">{$LL.footer.privacyPolicy()}</a>
+			<a href="/privacy-policy">{privacy}</a>
 		</div>
 	</div>
 </footer>

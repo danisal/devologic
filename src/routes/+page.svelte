@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ContactForm from '$lib/components/ContactForm.svelte';
-
-	const year = new Date().getFullYear();
+	import Footer from '$lib/components/Footer.svelte';
+	import Section from '$lib/components/Section.svelte';
 
 	const copy = [
 		'Welcome',
@@ -23,15 +23,11 @@
 
 <div class="overflow-auto snap-y snap-mandatory h-screen">
 	{#each copy as sentence}
-		<section
-			class="h-screen items-center justify-center snap-start mx-auto prose prose-zinc flex flex-col prose-lg px-6 max-w-prose prose-fuchsia md:prose-xl md:px-0 xl:prose-2xl"
-		>
+		<Section>
 			{sentence}
-		</section>
+		</Section>
 	{/each}
-	<section
-		class="h-screen items-center justify-center snap-start mx-auto prose prose-zinc flex flex-col prose-lg px-6 max-w-prose prose-fuchsia md:prose-xl md:px-0 xl:prose-2xl"
-	>
+	<Section>
 		Let's work together to bring your online presence to the next level.
 
 		<ContactForm
@@ -42,19 +38,7 @@
 			subject="Subject"
 			subjectPlaceholder="Request for a quote for a new website"
 		/>
-	</section>
+	</Section>
 
-	<footer
-		class="h-screen items-center justify-center snap-start mx-auto prose prose-zinc flex flex-col prose-lg px-6 max-w-prose prose-fuchsia md:prose-xl md:px-0 xl:prose-2xl"
-	>
-		<div class="">
-			<img src="/devologic-logo.svg" alt="Devologic logotype" class="mx-auto w-40" loading="lazy" />
-			<p class="mt-5 text-center text-sm leading-6 text-slate-500">
-				© {year} Devologic Unipessoal Lda. All rights reserved.
-			</p>
-			<div class="mt-16 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">
-				<a href="/privacy-policy">Privacy Policy</a>
-			</div>
-		</div>
-	</footer>
+	<Footer privacy="Privacy Policy" rights="All rights reserved." />
 </div>

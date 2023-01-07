@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ContactForm from '$lib/components/ContactForm.svelte';
-
-	const year = new Date().getFullYear();
+	import Footer from '$lib/components/Footer.svelte';
+	import Section from '$lib/components/Section.svelte';
 
 	const copy = [
 		'Bem vindo',
@@ -18,20 +18,16 @@
 
 <svelte:head>
 	<title>Devologic | Digital Studio</title>
-	<meta name="description" content="Devologic Studio" />
+	<meta name="description" content="Devologic Estúdio Digital" />
 </svelte:head>
 
 <div class="overflow-auto snap-y snap-mandatory h-screen">
 	{#each copy as sentence}
-		<section
-			class="h-screen items-center justify-center snap-start mx-auto prose prose-zinc flex flex-col prose-lg px-6 max-w-prose prose-fuchsia md:prose-xl md:px-0 xl:prose-2xl"
-		>
+		<Section>
 			{sentence}
-		</section>
+		</Section>
 	{/each}
-	<section
-		class="h-screen items-center justify-center snap-start mx-auto prose prose-zinc flex flex-col prose-lg px-6 max-w-prose prose-fuchsia md:prose-xl md:px-0 xl:prose-2xl"
-	>
+	<Section>
 		Vamos trabalhar em conjunto para trazer a sua presença online para o próximo nível.
 
 		<ContactForm
@@ -42,18 +38,7 @@
 			subject="Assunto"
 			subjectPlaceholder="Pedido de orçamento para um novo website"
 		/>
-	</section>
-	<footer
-		class="h-screen items-center justify-center snap-start mx-auto prose prose-zinc flex flex-col prose-lg px-6 max-w-prose prose-fuchsia md:prose-xl md:px-0 xl:prose-2xl"
-	>
-		<div class="">
-			<img src="/devologic-logo.svg" alt="Devologic logotype" class="mx-auto w-40" loading="lazy" />
-			<p class="mt-5 text-center text-sm leading-6 text-slate-500">
-				© {year} Devologic Unipessoal Lda. Todos os direitos reservados.
-			</p>
-			<div class="mt-16 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">
-				<a href="/privacy-policy">Politica de Privacidade</a>
-			</div>
-		</div>
-	</footer>
+	</Section>
+
+	<Footer privacy="Política de Privacidade" rights="Todos os direitos reservados." />
 </div>

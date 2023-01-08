@@ -7,11 +7,11 @@
 	export let messagePlaceholder: string;
 </script>
 
-<form class="flex flex-col gap-3 max-w-xs w-screen accent-fuchsia-400" method="POST">
+<form class="flex flex-col gap-3 max-w-xs w-screen accent-purple-600 text-xl mx-auto" method="POST">
 	<label>
 		{name}
 		<input
-			class="block placeholder:italic placeholder:text-slate-300 placeholder:text-md px-2 py-1 w-full rounded text-sm"
+			class="block placeholder:italic placeholder:text-slate-300 placeholder:text-md px-2 py-2 w-full rounded text-sm"
 			name="name"
 			placeholder={namePlaceholder}
 			required
@@ -21,7 +21,7 @@
 	<label>
 		Email
 		<input
-			class="block placeholder:italic placeholder:text-slate-300 placeholder:text-md px-2 py-1 w-full rounded text-sm"
+			class="block placeholder:italic placeholder:text-slate-300 placeholder:text-md px-2 py-2 w-full rounded text-sm"
 			name="email"
 			placeholder="jane@doe.com"
 			required
@@ -31,7 +31,7 @@
 	<label>
 		{subject}
 		<input
-			class="block placeholder:italic placeholder:text-slate-300 placeholder:text-md px-2 py-1 w-full rounded text-sm"
+			class="block placeholder:italic placeholder:text-slate-300 placeholder:text-md px-2 py-2 w-full rounded text-sm"
 			name="subject"
 			placeholder={subjectPlaceholder}
 			required
@@ -41,7 +41,7 @@
 	<label>
 		{message}
 		<textarea
-			class="placeholder:italic placeholder:text-slate-300 placeholder:text-md px-2 py-1 w-full rounded text-sm"
+			class="placeholder:italic placeholder:text-slate-300 placeholder:text-md px-2 py-2 w-full rounded text-sm"
 			id="message"
 			name="message"
 			placeholder={messagePlaceholder}
@@ -49,5 +49,8 @@
 			rows="6"
 		/>
 	</label>
-	<button class="bg-fuchsia-400 text-fuchsia-800 rounded hover:shadow focus-visible:shadow" type="submit">Send</button>
+	<button
+		class="rounded hover:shadow focus-visible:shadow py-2 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600"
+		type="submit"><span class="text-fuchsia-900 text-lg">Send</span></button
+	>
 </form>

@@ -22,7 +22,7 @@
 </svelte:head>
 
 <div class="overflow-auto snap-y snap-mandatory h-screen">
-	{#each copy as sentence}
+	{#each copy as sentence, index}
 		<Section>
 			{sentence}
 		</Section>

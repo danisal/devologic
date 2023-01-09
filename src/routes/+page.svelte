@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Mail from '$lib/components/Mail.svelte';
 	import Section from '$lib/components/Section.svelte';
 
 	const copy = [
@@ -43,3 +44,16 @@
 
 	<Footer privacy="Privacy Policy" rights="All rights reserved." />
 </div>
+
+<a
+	aria-label="Link to contact form"
+	href="#contact-form"
+	target="_top"
+	class="group absolute bottom-2 right-2 flex items-center rounded-full bg-green-50 p-2 text-green-800 shadow transition-all duration-200"
+>
+	<Mail width={20} height={20} />
+	<span
+		class="h-auto w-0 overflow-hidden whitespace-nowrap text-sm transition-all duration-200 group-hover:ml-2 group-hover:w-[70px]"
+		>Contact us</span
+	>
+</a>

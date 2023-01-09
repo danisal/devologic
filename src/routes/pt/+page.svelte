@@ -21,7 +21,7 @@
 	<meta name="description" content="Devologic Estúdio Digital" />
 </svelte:head>
 
-<div class="overflow-auto snap-y snap-mandatory h-screen">
+<div class="h-screen snap-y snap-mandatory overflow-auto">
 	{#each copy as sentence}
 		<Section>
 			{sentence}
@@ -31,6 +31,7 @@
 		Vamos trabalhar em conjunto para trazer a sua presença online para o próximo nível.
 
 		<ContactForm
+			button="Enviar"
 			message="Mensagem"
 			messagePlaceholder="Olá, estou interessado em criar um novo website para o meu negócio e gostaria de solicitar um orçamento para os vossos serviços de design e desenvolvimento web. Poderia por favor fornecer mais informações sobre o seu processo e preços?"
 			name="Nome"

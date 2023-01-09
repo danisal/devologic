@@ -9,11 +9,11 @@
 </script>
 
 <footer
-	class="h-screen items-center justify-center snap-start mx-auto prose flex flex-col prose-lg px-6 max-w-prose md:prose-xl md:px-0 xl:prose-2xl bg-clip-text bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 text-transparent"
+	class="prose prose-lg mx-auto flex h-screen max-w-prose snap-start flex-col items-center justify-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 bg-clip-text px-6 text-transparent md:prose-xl md:px-0 xl:prose-2xl"
 >
 	<div class="">
 		<img src="/devologic-logo.svg" alt="Devologic logotype" class="mx-auto w-40" loading="lazy" />
-		<div class="flex gap-2 justify-center">
+		<div class="flex justify-center gap-2">
 			<a
 				aria-label="Facebook page"
 				class="text-green-400 hover:text-green-300"
@@ -38,7 +38,7 @@
 		</p>
 		<div class="mt-16 flex items-center justify-center space-x-4 leading-6">
 			<a
-				class="text-sm bg-clip-text bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 text-transparent hover:text-green-300"
+				class="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 bg-clip-text text-sm text-transparent hover:text-green-300"
 				href="/privacy-policy">{privacy}</a
 			>
 		</div>

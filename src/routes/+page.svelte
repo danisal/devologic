@@ -25,11 +25,11 @@
 </svelte:head>
 
 <div class="h-screen snap-y snap-mandatory overflow-auto overscroll-none">
-	<!-- {#each copy as sentence, index}
+	{#each copy as sentence, index}
 		<Section>
 			{sentence}
 		</Section>
-	{/each} -->
+	{/each}
 	<Section>
 		Let's work together to bring your online presence to the next level.
 

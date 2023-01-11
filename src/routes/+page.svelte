@@ -22,7 +22,7 @@
 	<meta name="description" content="Devologic Digital Studio" />
 </svelte:head>
 
-<div class="h-screen snap-y snap-mandatory overflow-auto">
+<div class="h-screen snap-y snap-mandatory overflow-auto overscroll-none">
 	{#each copy as sentence, index}
 		<Section>
 			{sentence}

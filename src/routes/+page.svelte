@@ -15,6 +15,8 @@
 		'By combining great design with innovative technologies, we are here to help you increase your business growth.',
 		`Our mission is to be in tune with our client's needs to deliver their projects on time, within budget, and with the best quality.`,
 	];
+
+	export let form;
 </script>
 
 <svelte:head>
@@ -23,11 +25,11 @@
 </svelte:head>
 
 <div class="h-screen snap-y snap-mandatory overflow-auto overscroll-none">
-	{#each copy as sentence, index}
+	<!-- {#each copy as sentence, index}
 		<Section>
 			{sentence}
 		</Section>
-	{/each}
+	{/each} -->
 	<Section>
 		Let's work together to bring your online presence to the next level.
 
@@ -39,6 +41,7 @@
 			namePlaceholder="Jane Doe"
 			subject="Subject"
 			subjectPlaceholder="Request for a quote for a new website"
+			errors={form?.errors}
 		/>
 	</Section>
 

@@ -6,6 +6,14 @@
 	export let message: string;
 	export let messagePlaceholder: string;
 	export let button: string;
+	export let errors:
+		| {
+				name: string[];
+				email: string[];
+				subject: string[];
+				message: string[];
+		  }
+		| undefined;
 </script>
 
 <form
@@ -22,6 +30,9 @@
 			required
 			type="text"
 		/>
+		{#if errors?.name}
+			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">{errors.name[0]}</span>
+		{/if}
 	</label>
 	<label>
 		Email
@@ -32,6 +43,9 @@
 			required
 			type="email"
 		/>
+		{#if errors?.email}
+			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">{errors.email[0]}</span>
+		{/if}
 	</label>
 	<label>
 		{subject}
@@ -42,6 +56,9 @@
 			required
 			type="text"
 		/>
+		{#if errors?.subject}
+			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">Subject{errors.subject[0]}</span>
+		{/if}
 	</label>
 	<label>
 		{message}
@@ -53,6 +70,9 @@
 			required
 			rows="6"
 		/>
+		{#if errors?.message}
+			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">{errors.message[0]}</span>
+		{/if}
 	</label>
 	<button
 		class="group rounded bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 py-2 transition-colors delay-300 ease-in  hover:from-purple-600 hover:to-green-300  hover:shadow focus:from-purple-600 focus:to-green-300 focus-visible:shadow"

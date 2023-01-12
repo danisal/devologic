@@ -1,7 +1,9 @@
 <script lang="ts">
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Mail from '$lib/components/Mail.svelte';
 	import Section from '$lib/components/Section.svelte';
+	import type { ActionData } from '../$types';
 
 	const copy = [
 		'Bem vindo',
@@ -14,6 +16,8 @@
 		'Ao combinar um grande design com tecnologias inovadoras, estamos aqui para o ajudar a aumentar o crescimento do seu negócio.',
 		'A nossa missão é estar em sintonia com as necessidades dos nossos clientes para entregar os seus projectos a tempo, dentro do orçamento, e com a melhor qualidade.',
 	];
+
+	export let form: ActionData;
 </script>
 
 <svelte:head>
@@ -38,6 +42,8 @@
 			namePlaceholder="Jane Doe"
 			subject="Assunto"
 			subjectPlaceholder="Pedido de orçamento para um novo website"
+			errors={form?.errors}
+			data={form?.data}
 		/>
 	</Section>
 

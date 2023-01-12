@@ -1,5 +1,6 @@
 import type { Actions, PageServerLoad } from './$types';
-import { z } from 'zod';
+import { z, ZodError } from 'zod';
+import { fail } from '@sveltejs/kit';
 
 const FormSchema = z.object({
 	name: z
@@ -20,25 +21,27 @@ const FormSchema = z.object({
 		.trim(),
 });
 
+type Form = z.infer<typeof FormSchema>;
+
 export const load = (async () => {
 	return {};
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-	default: async ({ request }) => {
+	contact: async ({ request }) => {
 		const data = await request.formData();
 		const formData = Object.fromEntries(data);
-
-		console.log(formData);
 
 		try {
 			const result = FormSchema.parse(formData);
 
 			return { data: result };
 		} catch (error) {
-			const { fieldErrors: errors } = error.flatten();
+			if (error instanceof ZodError<Form>) {
+				const { fieldErrors: errors } = error.flatten();
 
-			return { errors };
+				return fail(400, { errors, data: formData });
+			}
 		}
 	},
 };

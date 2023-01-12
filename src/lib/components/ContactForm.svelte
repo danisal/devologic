@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
+
 	export let name: string;
 	export let namePlaceholder: string;
 	export let subject: string;
@@ -14,12 +16,22 @@
 				message: string[];
 		  }
 		| undefined;
+	export let data:
+		| {
+				name: string;
+				email: string;
+				subject: string;
+				message: string;
+		  }
+		| undefined;
 </script>
 
 <form
 	id="contact-form"
 	class="mx-auto mt-4 flex w-screen max-w-xs flex-col gap-3 text-xl accent-green-300"
 	method="POST"
+	use:enhance
+	action="?/contact"
 >
 	<label>
 		{name}
@@ -29,6 +41,7 @@
 			placeholder={namePlaceholder}
 			required
 			type="text"
+			value={data?.name || ''}
 		/>
 		{#if errors?.name}
 			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">{errors.name[0]}</span>
@@ -42,6 +55,7 @@
 			placeholder="jane@doe.com"
 			required
 			type="email"
+			value={data?.email || ''}
 		/>
 		{#if errors?.email}
 			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">{errors.email[0]}</span>
@@ -55,9 +69,10 @@
 			placeholder={subjectPlaceholder}
 			required
 			type="text"
+			value={data?.subject || ''}
 		/>
 		{#if errors?.subject}
-			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">Subject{errors.subject[0]}</span>
+			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">{errors.subject[0]}</span>
 		{/if}
 	</label>
 	<label>
@@ -69,6 +84,7 @@
 			placeholder={messagePlaceholder}
 			required
 			rows="6"
+			value={data?.message || ''}
 		/>
 		{#if errors?.message}
 			<span class="rounded bg-red-50 p-1 text-xs font-normal text-red-700">{errors.message[0]}</span>

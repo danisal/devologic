@@ -3,6 +3,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Mail from '$lib/components/Mail.svelte';
 	import Section from '$lib/components/Section.svelte';
+	import type { ActionData } from './$types';
 
 	const copy = [
 		'Welcome',
@@ -16,7 +17,7 @@
 		`Our mission is to be in tune with our client's needs to deliver their projects on time, within budget, and with the best quality.`,
 	];
 
-	export let form;
+	export let form: ActionData;
 </script>
 
 <svelte:head>
@@ -42,6 +43,7 @@
 			subject="Subject"
 			subjectPlaceholder="Request for a quote for a new website"
 			errors={form?.errors}
+			data={form?.data}
 		/>
 	</Section>
 

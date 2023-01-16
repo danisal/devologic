@@ -28,7 +28,7 @@
 
 <form
 	id="contact-form"
-	class="mx-auto mt-4 flex w-screen max-w-xs flex-col gap-3 text-xl accent-green-300"
+	class="mx-auto mt-4 flex w-screen max-w-xs flex-col gap-3 text-xl accent-green-300 md:max-w-xl"
 	method="POST"
 	use:enhance
 	action="?/contact"

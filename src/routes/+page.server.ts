@@ -1,6 +1,7 @@
-import type { Actions, PageServerLoad } from './$types';
-import { z, ZodError } from 'zod';
 import { fail } from '@sveltejs/kit';
+import { z, ZodError } from 'zod';
+
+import type { Actions } from './$types';
 
 const FormSchema = z.object({
 	name: z
@@ -23,14 +24,12 @@ const FormSchema = z.object({
 
 type Form = z.infer<typeof FormSchema>;
 
-export const load = (async () => {
-	return {};
-}) satisfies PageServerLoad;
-
 export const actions: Actions = {
 	contact: async ({ request }) => {
 		const data = await request.formData();
 		const formData = Object.fromEntries(data);
+
+		console.log(formData);
 
 		try {
 			const result = FormSchema.parse(formData);

@@ -25,7 +25,7 @@ const FormSchema = z.object({
 type Form = z.infer<typeof FormSchema>;
 
 export const actions: Actions = {
-	contact: async ({ request }) => {
+	contact: async ({ request, fetch }) => {
 		const data = await request.formData();
 		const formData = Object.fromEntries(data);
 
@@ -33,6 +33,14 @@ export const actions: Actions = {
 
 		try {
 			const result = FormSchema.parse(formData);
+
+			await fetch('https://webhook.site/e72b80d0-1eeb-4d40-b7da-c10b3473fb55', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(result),
+			});
 
 			return { data: result };
 		} catch (error) {

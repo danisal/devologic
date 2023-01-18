@@ -1,7 +1,21 @@
+import {
+	MAIL_GUN_EMAIL_FROM,
+	MAIL_GUN_EMAIL_TO,
+	MAIL_GUN_ENDPOINT,
+	MAIL_GUN_KEY,
+	MAIL_GUN_USERNAME,
+} from '$env/static/private';
 import { fail } from '@sveltejs/kit';
+import formData from 'form-data';
+import Mailgun from 'mailgun.js';
 import { z, ZodError } from 'zod';
-
 import type { Actions } from './$types';
+
+const mailgun = new Mailgun(formData);
+const mg = mailgun.client({
+	username: MAIL_GUN_USERNAME,
+	key: MAIL_GUN_KEY,
+});
 
 const FormSchema = z.object({
 	name: z
@@ -25,21 +39,21 @@ const FormSchema = z.object({
 type Form = z.infer<typeof FormSchema>;
 
 export const actions: Actions = {
-	contact: async ({ request, fetch }) => {
+	contact: async ({ request }) => {
 		const data = await request.formData();
 		const formData = Object.fromEntries(data);
-
-		console.log(formData);
 
 		try {
 			const result = FormSchema.parse(formData);
 
-			await fetch('https://webhook.site/e72b80d0-1eeb-4d40-b7da-c10b3473fb55', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(result),
+			mg.messages.create(MAIL_GUN_ENDPOINT, {
+				from: MAIL_GUN_EMAIL_FROM,
+				to: [MAIL_GUN_EMAIL_TO],
+				subject: 'Devologic - New Contact',
+				text: `Devologic contact form received a new message.
+          Message:
+          ${JSON.stringify(result, null, 2)}
+        `,
 			});
 
 			return { data: result };

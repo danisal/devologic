@@ -1,21 +1,7 @@
-import {
-	MAIL_GUN_EMAIL_FROM,
-	MAIL_GUN_EMAIL_TO,
-	MAIL_GUN_ENDPOINT,
-	MAIL_GUN_KEY,
-	MAIL_GUN_USERNAME,
-} from '$env/static/private';
+import { MAIL_GUN_EMAIL_FROM, MAIL_GUN_EMAIL_TO, MAIL_GUN_ENDPOINT, MAIL_GUN_KEY } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
-import formData from 'form-data';
-import Mailgun from 'mailgun.js';
 import { z, ZodError } from 'zod';
 import type { Actions } from './$types';
-
-const mailgun = new Mailgun(formData);
-const mg = mailgun.client({
-	username: MAIL_GUN_USERNAME,
-	key: MAIL_GUN_KEY,
-});
 
 const FormSchema = z.object({
 	name: z
@@ -39,29 +25,39 @@ const FormSchema = z.object({
 type Form = z.infer<typeof FormSchema>;
 
 export const actions: Actions = {
-	contact: async ({ request }) => {
+	contact: async ({ fetch, request }) => {
 		const data = await request.formData();
-		const formData = Object.fromEntries(data);
+		const contactFormData = Object.fromEntries(data);
 
 		try {
-			const result = FormSchema.parse(formData);
+			const result = FormSchema.parse(contactFormData);
 
-			mg.messages.create(MAIL_GUN_ENDPOINT, {
-				from: MAIL_GUN_EMAIL_FROM,
-				to: [MAIL_GUN_EMAIL_TO],
-				subject: 'Devologic - New Contact',
-				text: `Devologic contact form received a new message.
-          Message:
-          ${JSON.stringify(result, null, 2)}
-        `,
+			const body = new FormData();
+			body.append('from', MAIL_GUN_EMAIL_FROM);
+			body.append('to', MAIL_GUN_EMAIL_TO);
+			body.append('subject', 'Devologic - New Contact');
+			body.append(
+				'text',
+				`Devologic contact form received a new message.
+      Message:
+      ${JSON.stringify(result, null, 2)}
+    `
+			);
+
+			await fetch(`https://api.mailgun.net/v3/${MAIL_GUN_ENDPOINT}/messages`, {
+				method: 'POST',
+				body,
+				headers: {
+					Authorization: 'Basic ' + btoa('api' + ':' + `${MAIL_GUN_KEY}`),
+				},
 			});
 
-			return { data: result };
+			return { data: { success: true } };
 		} catch (error) {
 			if (error instanceof ZodError<Form>) {
 				const { fieldErrors: errors } = error.flatten();
 
-				return fail(400, { errors, data: formData });
+				return fail(400, { errors, data: contactFormData });
 			}
 		}
 	},

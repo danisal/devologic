@@ -11,7 +11,7 @@
 <footer
 	class="prose prose-lg mx-auto flex h-screen max-w-prose snap-start flex-col items-center justify-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 bg-clip-text px-6 text-transparent md:prose-xl md:px-0 xl:prose-2xl"
 >
-	<div class="">
+	<div>
 		<img src="/devologic-logo.svg" alt="Devologic logotype" class="mx-auto w-40" loading="lazy" />
 		<div class="flex justify-center gap-2">
 			<a

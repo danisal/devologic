@@ -3,6 +3,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Mail from '$lib/components/Mail.svelte';
 	import Section from '$lib/components/Section.svelte';
+	import toast from 'svelte-french-toast';
 	import type { ActionData } from './$types';
 
 	const copy = [
@@ -20,12 +21,16 @@
 	export let form: ActionData;
 </script>
 
+{#if form?.success}
+	{toast.success('Successfully submitted', { position: 'top-right' })}
+{/if}
+
 <svelte:head>
 	<title>Devologic | Digital Studio</title>
 	<meta name="description" content="Devologic Digital Studio" />
 </svelte:head>
 
-<div class="h-screen snap-y snap-mandatory overflow-auto overscroll-none">
+<div class="h-screen snap-y snap-mandatory overflow-auto">
 	{#each copy as sentence, index}
 		<Section>
 			{sentence}
@@ -42,8 +47,7 @@
 			namePlaceholder="Jane Doe"
 			subject="Subject"
 			subjectPlaceholder="Request for a quote for a new website"
-			errors={form?.errors}
-			data={form?.data}
+			{...form}
 		/>
 	</Section>
 

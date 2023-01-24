@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import Error from './Error.svelte';
 
 	export let name: string;
 	export let namePlaceholder: string;
@@ -27,11 +28,11 @@
 </script>
 
 <form
-	id="contact-form"
+	action="?/contact"
 	class="mx-auto mt-4 flex w-screen max-w-xs flex-col gap-3 text-xl accent-green-300 md:max-w-xl"
+	id="contact-form"
 	method="POST"
 	use:enhance
-	action="?/contact"
 >
 	<label>
 		{name}
@@ -50,9 +51,7 @@
 			type="text"
 			value={data?.name || ''}
 		/>
-		<span class="hidden rounded bg-red-50 p-1 text-xs font-normal text-red-700" class:inline-block={errors?.name}>
-			{errors?.name[0] ?? 'Name should have between 2 and 64 characters'}
-		</span>
+		<Error error={errors?.name?.[0]} message={errors?.name?.[0]} />
 	</label>
 	<label>
 		Email
@@ -70,9 +69,7 @@
 			type="email"
 			value={data?.email || ''}
 		/>
-		<span class="hidden rounded bg-red-50 p-1 text-xs font-normal text-red-700" class:inline-block={errors?.email}>
-			{errors?.email[0] ?? 'Please enter a valid email address'}
-		</span>
+		<Error error={errors?.email?.[0]} message={errors?.email?.[0]} />
 	</label>
 	<label>
 		{subject}
@@ -91,9 +88,7 @@
 			type="text"
 			value={data?.subject || ''}
 		/>
-		<span class="hidden rounded bg-red-50 p-1 text-xs font-normal text-red-700" class:inline-block={errors?.subject}>
-			{errors?.subject[0] ?? 'Subject should have between 2 and 64 characters'}
-		</span>
+		<Error error={errors?.subject?.[0]} message={errors?.subject?.[0]} />
 	</label>
 	<label>
 		{message}
@@ -113,9 +108,7 @@
 			minlength="10"
 			value={data?.message || ''}
 		/>
-		<span class="hidden rounded bg-red-50 p-1 text-xs font-normal text-red-700" class:inline-block={errors?.message}>
-			{errors?.message[0] ?? 'Message should have between 10 and 500 characters'}
-		</span>
+		<Error error={errors?.message?.[0]} message={errors?.message?.[0]} />
 	</label>
 	<button
 		class="group rounded bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 py-2 transition-colors delay-300 ease-in  hover:from-purple-600 hover:to-green-300  hover:shadow focus:from-purple-600 focus:to-green-300 focus-visible:shadow"

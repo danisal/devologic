@@ -1,4 +1,4 @@
-import { MAIL_GUN_EMAIL_FROM, MAIL_GUN_EMAIL_TO, MAIL_GUN_KEY } from '$env/static/private';
+import { MAIL_GUN_EMAIL_FROM, MAIL_GUN_EMAIL_TO, MAIL_GUN_ENDPOINT, MAIL_GUN_KEY } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
 import { z, ZodError } from 'zod';
 import type { Actions } from './$types';

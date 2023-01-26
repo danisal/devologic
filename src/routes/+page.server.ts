@@ -1,5 +1,5 @@
 import { MAIL_GUN_EMAIL_FROM, MAIL_GUN_EMAIL_TO, MAIL_GUN_ENDPOINT, MAIL_GUN_KEY } from '$env/static/private';
-import { fail } from '@sveltejs/kit';
+import { error, fail } from '@sveltejs/kit';
 import { z, ZodError } from 'zod';
 import type { Actions } from './$types';
 
@@ -54,13 +54,13 @@ export const actions: Actions = {
 
 			return { success: true };
 		} catch (err) {
-			if (err) {
-				if (err instanceof ZodError) {
-					const { fieldErrors } = err.flatten() satisfies FlattenedErrors;
+			if (err instanceof ZodError) {
+				const { fieldErrors } = err.flatten() satisfies FlattenedErrors;
 
-					return fail(400, { errors: fieldErrors, data: contactFormData });
-				}
+				return fail(400, { errors: fieldErrors, data: contactFormData });
 			}
+
+			throw error(err.status, err.message);
 		}
 	},
 };

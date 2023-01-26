@@ -3,7 +3,6 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Mail from '$lib/components/Mail.svelte';
 	import Section from '$lib/components/Section.svelte';
-	import toast from 'svelte-french-toast';
 	import type { ActionData } from './$types';
 
 	const copy = [
@@ -20,10 +19,6 @@
 
 	export let form: ActionData;
 </script>
-
-{#if form?.success}
-	{toast.success('Successfully submitted', { position: 'top-right' })}
-{/if}
 
 <svelte:head>
 	<title>Devologic | Digital Studio</title>

@@ -6,6 +6,7 @@
 
 	export let rights: string;
 	export let privacy: string;
+	export let privacyLink: string;
 </script>
 
 <footer
@@ -39,7 +40,7 @@
 		<div class="mt-16 flex items-center justify-center space-x-4 leading-6">
 			<a
 				class="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 bg-clip-text text-sm text-transparent hover:text-green-300"
-				href="/privacy-policy">{privacy}</a
+				href={privacyLink}>{privacy}</a
 			>
 		</div>
 	</div>

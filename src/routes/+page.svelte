@@ -47,7 +47,7 @@
 		/>
 	</Section>
 
-	<Footer privacy="Privacy Policy" rights="All rights reserved." />
+	<Footer privacy="Privacy Policy" privacyLink="/privacy-policy" rights="All rights reserved." />
 </div>
 
 <a

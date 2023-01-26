@@ -6,7 +6,7 @@
 <main class="bg-gradient-to-r from-rose-100 to-teal-100 bg-clip-text">
 	<div class="prose mx-auto my-24 max-w-prose text-center">
 		<h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Privacy policy</h1>
-		<p class="mt-4 text-base leading-7 text-slate-700">Last updated on November 2, 2021</p>
+		<p class="mt-4 text-base leading-7 text-slate-700">Last updated on January 30, 2021</p>
 	</div>
 
 	<div class="prose prose-lg prose-purple mx-auto mb-24 max-w-prose px-6 drop-shadow md:prose-xl md:px-0 xl:prose-2xl">
@@ -24,9 +24,7 @@
 		<p>
 			This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to
 			the information that they shared and/or collect in Devologic. This policy is not applicable to any information
-			collected offline or via channels other than this website. Our Privacy Policy was created with the help of the <a
-				href="https://www.privacypolicygenerator.info/">Free Privacy Policy Generator</a
-			>.
+			collected offline or via channels other than this website.
 		</p>
 
 		<h2>Consent</h2>

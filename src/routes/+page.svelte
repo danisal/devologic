@@ -42,6 +42,7 @@
 			namePlaceholder="Jane Doe"
 			subject="Subject"
 			subjectPlaceholder="Request for a quote for a new website"
+			successToast="Thank you for submitting your contact form. We have received your inquiry and will respond to you as soon as possible"
 			{...form}
 		/>
 	</Section>

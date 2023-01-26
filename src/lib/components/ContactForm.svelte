@@ -1,17 +1,18 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import type { ActionResult } from '@sveltejs/kit';
-	import toast from 'svelte-french-toast';
 	import { cx } from 'class-variance-authority';
+	import toast from 'svelte-french-toast';
 	import Error from './Error.svelte';
 
+	export let button: string;
+	export let message: string;
+	export let messagePlaceholder: string;
 	export let name: string;
 	export let namePlaceholder: string;
 	export let subject: string;
 	export let subjectPlaceholder: string;
-	export let message: string;
-	export let messagePlaceholder: string;
-	export let button: string;
+	export let successToast: string;
 	export let errors:
 		| {
 				name: string[];
@@ -36,7 +37,7 @@
 		return async ({ result, update }: { result: ActionResult }) => {
 			switch (result.type) {
 				case 'success':
-					toast.success('Your contact has been submitted, we will get back to you as soon as possible', {
+					toast.success(successToast, {
 						position: 'top-right',
 						duration: 7000,
 					});

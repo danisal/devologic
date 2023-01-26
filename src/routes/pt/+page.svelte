@@ -7,7 +7,7 @@
 
 	const copy = [
 		'Bem vindo',
-		'Devologic é uma agência digital especializada em desenvolvimento e aplicações web.',
+		'Devologic é uma agência digital especializada em desenvolvimento de aplicações web.',
 		'Criamos websites e aplicações web que são fáceis de utilizar, fiáveis, robustas e seguras.',
 		'Gostamos de construir produtos digitais que coloquem os nossos clientes no topo dos seus mercados.',
 		'Prestamos um serviço profissional e amigável. Trabalhamos arduamente para manter os nossos clientes satisfeitos enquanto utilizamos a mais recente tecnologia para os ajudar a ter sucesso.',
@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>Devologic | Digital Studio</title>
+	<title>Devologic | Estúdio Digital</title>
 	<meta name="description" content="Devologic Estúdio Digital" />
 </svelte:head>
 
@@ -42,8 +42,8 @@
 			namePlaceholder="Jane Doe"
 			subject="Assunto"
 			subjectPlaceholder="Pedido de orçamento para um novo website"
-			errors={form?.errors}
-			data={form?.data}
+			successToast="Obrigado por enviar o seu formulário de contacto. Recebemos a sua consulta e responder-lhe-emos o mais rapidamente possível."
+			{...form}
 		/>
 	</Section>
 
@@ -58,7 +58,7 @@
 >
 	<Mail width={20} height={20} />
 	<span
-		class="h-auto w-0 overflow-hidden whitespace-nowrap text-sm transition-all duration-200 group-hover:ml-2 group-hover:w-[70px]"
-		>Contact us</span
+		class="h-auto w-0 overflow-hidden whitespace-nowrap text-sm transition-all duration-200 group-hover:ml-2 group-hover:w-[90px]"
+		>Contacte-nos</span
 	>
 </a>

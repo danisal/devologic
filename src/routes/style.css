@@ -7,7 +7,7 @@
 		font-family: 'Nunito';
 		font-weight: 300;
 		font-style: light;
-		display: swap;
+		font-display: swap;
 		src: url('/fonts/NunitoSans-Light.ttf');
 	}
 
@@ -15,7 +15,7 @@
 		font-family: 'Nunito';
 		font-weight: 400;
 		font-style: normal;
-		display: swap;
+		font-display: swap;
 		src: url('/fonts/NunitoSans-Regular.ttf');
 	}
 
@@ -23,7 +23,7 @@
 		font-family: 'Nunito';
 		font-weight: 600;
 		font-style: bolder;
-		display: swap;
+		font-display: swap;
 		src: url('/fonts/NunitoSans-SemiBold.ttf');
 	}
 
@@ -31,7 +31,7 @@
 		font-family: 'Nunito';
 		font-weight: 700;
 		font-style: boldest;
-		display: swap;
+		font-display: swap;
 		src: url('/fonts/NunitoSans-SemiBold.ttf');
 	}
 
@@ -39,7 +39,7 @@
 		font-family: 'Nunito';
 		font-weight: 900;
 		font-style: boldest;
-		display: swap;
+		font-display: swap;
 		src: url('/fonts/NunitoSans-ExtraBold.ttf');
 	}
 
@@ -47,7 +47,7 @@
 		font-family: 'Roboto';
 		font-weight: 700;
 		font-style: normal;
-		display: swap;
+		font-display: swap;
 		src: url('/fonts/Roboto-Bold.ttf');
 	}
 
@@ -55,7 +55,7 @@
 		font-family: 'Roboto';
 		font-weight: 500;
 		font-style: normal;
-		display: swap;
+		font-display: swap;
 		src: url('/fonts/Roboto-Medium.ttf');
 	}
 
@@ -63,7 +63,7 @@
 		font-family: 'Roboto';
 		font-weight: 400;
 		font-style: normal;
-		display: swap;
+		font-display: swap;
 		src: url('/fonts/Roboto-Regular.ttf');
 	}
 }

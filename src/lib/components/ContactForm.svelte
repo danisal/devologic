@@ -145,6 +145,7 @@
 			/>
 		</label>
 		<Error error={errors?.message?.[0]} message={errors?.message?.[0]} />
+		<div class="cf-turnstile" data-sitekey="0x4AAAAAAACLeJAuRkOu75JG" data-callback="javascriptCallback" />
 		<button
 			class={cx(
 				'group rounded bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 py-2 transition-colors delay-300 ease-in',

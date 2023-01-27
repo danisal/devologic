@@ -23,6 +23,11 @@
 <svelte:head>
 	<title>Devologic | Estúdio Digital</title>
 	<meta name="description" content="Devologic Estúdio Digital" />
+	<meta
+		name="description"
+		content="Devologic é uma agência digital especializada em desenvolvimento web e aplicações web"
+	/>
+	<meta name="language" content="Portuguese" />
 </svelte:head>
 
 <div class="h-screen snap-y snap-mandatory overflow-auto">

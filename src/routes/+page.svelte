@@ -22,7 +22,12 @@
 
 <svelte:head>
 	<title>Devologic | Digital Studio</title>
-	<meta name="description" content="Devologic Digital Studio" />
+	<meta name="title" content="Devologic Digital Agency" />
+	<meta
+		name="description"
+		content="Devologic is a digital agency specializing in web development and web applications"
+	/>
+	<meta name="language" content="English" />
 </svelte:head>
 
 <div class="h-screen snap-y snap-mandatory overflow-auto">

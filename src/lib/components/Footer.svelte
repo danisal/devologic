@@ -13,7 +13,15 @@
 	class="prose prose-lg mx-auto flex h-screen max-w-prose snap-start flex-col items-center justify-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 bg-clip-text px-6 text-transparent md:prose-xl md:px-0 xl:prose-2xl"
 >
 	<div>
-		<img src="/devologic-logo.svg" alt="Devologic logotype" class="mx-auto w-40" loading="lazy" />
+		<img
+			alt="Devologic logotype"
+			class="mx-auto w-40"
+			decoding="async"
+			height="42"
+			loading="lazy"
+			src="/devologic-logo.svg"
+			width="160"
+		/>
 		<div class="flex justify-center gap-2">
 			<a
 				aria-label="Facebook page"

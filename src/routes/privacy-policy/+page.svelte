@@ -165,14 +165,9 @@
 	</div>
 </main>
 
-<style>
-	a {
-		@apply no-underline;
-	}
-
+<style lang="postcss">
 	p,
-	li,
-	a {
+	li {
 		@apply font-medium;
 	}
 

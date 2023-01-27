@@ -66,30 +66,21 @@
 		font-display: swap;
 		src: url('/fonts/Roboto-Regular.ttf');
 	}
-}
 
-@layer utilities {
-	.animation-delay-2000 {
-		animation-delay: 2s;
+	html {
+		@apply min-h-full overscroll-none scroll-smooth font-sans text-slate-900;
 	}
-	.animation-delay-4000 {
-		animation-delay: 4s;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-serif font-bold;
 	}
-}
 
-html {
-	@apply min-h-full overscroll-none scroll-smooth font-sans text-slate-900;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@apply font-serif font-bold;
-}
-
-body {
-	@apply bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600;
+	body {
+		@apply bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600;
+	}
 }

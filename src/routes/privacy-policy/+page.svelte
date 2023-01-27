@@ -3,13 +3,13 @@
 	<meta name="description" content="Privacy policy" />
 </svelte:head>
 
-<main class="bg-gradient-to-r from-rose-100 to-teal-100 bg-clip-text">
-	<div class="prose mx-auto my-24 max-w-prose text-center">
-		<h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Privacy policy</h1>
-		<p class="mt-4 text-base leading-7 text-slate-700">Last updated on January 30, 2021</p>
+<main class="prose prose-lg mx-auto max-w-prose px-6 md:prose-xl md:px-0 xl:prose-2xl">
+	<div class="!my-24 text-center">
+		<h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">Privacy policy</h1>
+		<p class="mt-4 text-base leading-7">Last updated on January 30, 2021</p>
 	</div>
 
-	<div class="prose prose-lg prose-purple mx-auto mb-24 max-w-prose px-6 drop-shadow md:prose-xl md:px-0 xl:prose-2xl">
+	<div class="!mb-24 drop-shadow">
 		<p>
 			At Devologic, accessible from https://devologic.digital, one of our main priorities is the privacy of our
 			visitors. This Privacy Policy document contains types of information that is collected and recorded by Devologic
@@ -166,6 +166,10 @@
 </main>
 
 <style lang="postcss">
+	* {
+		@apply bg-gradient-to-r from-rose-100 to-teal-100 bg-clip-text text-transparent;
+	}
+
 	p,
 	li {
 		@apply font-medium;

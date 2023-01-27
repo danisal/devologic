@@ -3,13 +3,13 @@
 	<meta name="description" content="Política de privacidade" />
 </svelte:head>
 
-<main class="bg-gradient-to-r from-rose-100 to-teal-100 bg-clip-text">
-	<div class="prose mx-auto my-24 max-w-prose text-center">
-		<h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Política de privacidade</h1>
-		<p class="mt-4 text-base leading-7 text-slate-700">Última actualização em 30 de Janeiro de 2023</p>
+<main class="prose prose-lg mx-auto max-w-prose px-6 md:prose-xl md:px-0 xl:prose-2xl">
+	<div class="!my-24 text-center">
+		<h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">Política de privacidade</h1>
+		<p class="mt-4 text-base leading-7">Última actualização em 30 de Janeiro de 2023</p>
 	</div>
 
-	<div class="prose prose-lg prose-purple mx-auto mb-24 max-w-prose px-6 drop-shadow md:prose-xl md:px-0 xl:prose-2xl">
+	<div class="!mb-24 px-6 drop-shadow">
 		<p>
 			Na Devologic, acessível a partir de https://devologic.digital, uma das nossas principais prioridades é a
 			privacidade dos nossos visitantes. Este documento de Política de Privacidade contém tipos de informação que é
@@ -180,6 +180,10 @@
 </main>
 
 <style lang="postcss">
+	* {
+		@apply bg-gradient-to-r from-rose-100 to-teal-100 bg-clip-text text-transparent;
+	}
+
 	p,
 	li {
 		@apply font-medium;

@@ -39,13 +39,13 @@
 								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Marketing</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Analytics</a>
+								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">SEO</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Commerce</a>
+								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Training</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Insights</a>
+								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Ecommerce</a>
 							</li>
 						</ul>
 					</div>
@@ -72,19 +72,19 @@
 						<h3 class="text-sm font-semibold leading-6 text-white">Company</h3>
 						<ul role="list" class="mt-6 space-y-4">
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">About</a>
+								<a href="/about" class="text-sm leading-6 text-gray-300 hover:text-white">About</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Blog</a>
+								<a href="/blog" class="text-sm leading-6 text-gray-300 hover:text-white">Blog</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Jobs</a>
+								<a href="/jobs" class="text-sm leading-6 text-gray-300 hover:text-white">Jobs</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Press</a>
+								<a href="/press" class="text-sm leading-6 text-gray-300 hover:text-white">Press</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Partners</a>
+								<a href="/partners" class="text-sm leading-6 text-gray-300 hover:text-white">Partners</a>
 							</li>
 						</ul>
 					</div>

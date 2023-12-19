@@ -91,15 +91,15 @@
 					<div class="mt-10 md:mt-0">
 						<h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
 						<ul role="list" class="mt-6 space-y-4">
-							<li>
+							<!-- <li>
 								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Claim</a>
-							</li>
+							</li> -->
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Privacy</a>
+								<a href="/privacy-policy" class="text-sm leading-6 text-gray-300 hover:text-white">Privacy</a>
 							</li>
-							<li>
+							<!-- <li>
 								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Terms</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</div>

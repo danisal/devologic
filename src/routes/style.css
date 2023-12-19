@@ -68,7 +68,7 @@
 	}
 
 	html {
-		@apply min-h-full overscroll-none scroll-smooth font-sans text-slate-900;
+		@apply min-h-full overscroll-none scroll-smooth font-sans;
 	}
 
 	h1,
@@ -80,7 +80,7 @@
 		@apply font-serif font-bold;
 	}
 
-	body {
+	/* body {
 		@apply bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600;
-	}
+	} */
 }

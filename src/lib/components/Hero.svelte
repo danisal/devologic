@@ -1,3 +1,8 @@
+<script lang="ts">
+	export let heading: string;
+	export let subHeading: string;
+</script>
+
 <div class="relative isolate">
 	<svg
 		class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
@@ -37,10 +42,10 @@
 			<div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
 				<div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
 					<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-						We’re changing the way people connect.
+						{heading}
 					</h1>
 					<p class="mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-						We provide innovative solutions for your web presence. Let's create something amazing together.
+						{subHeading}
 					</p>
 					<div class="mt-10 flex items-center gap-x-6">
 						<a

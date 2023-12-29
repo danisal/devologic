@@ -1,0 +1,11 @@
+query Home {
+	homePage(where: { id: "clq6sh5rsbbyb0bl521rzk9f7" }) {
+		heading
+		subHeading
+		testimony {
+			name
+			position
+			testimony
+		}
+	}
+}

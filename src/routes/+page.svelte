@@ -4,6 +4,11 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import LogoClouds from '$lib/components/LogoClouds.svelte';
 	import Testimonial from '$lib/components/Testimonial.svelte';
+	import type { PageData } from './$houdini';
+
+	export let data: PageData;
+
+	$: ({ Home } = data);
 </script>
 
 <svelte:head>
@@ -12,7 +17,7 @@
 	<meta name="language" content="English" />
 </svelte:head>
 
-<Hero />
+<Hero heading={$Home.data?.homePage?.heading ?? ''} subHeading={$Home.data?.homePage?.subHeading ?? ''} />
 <Feature />
 <Testimonial />
 <LogoClouds />

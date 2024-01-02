@@ -39,13 +39,13 @@
 								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Marketing</a>
 							</li>
 							<li>
+								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">E-Commerce</a>
+							</li>
+							<li>
 								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">SEO</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Training</a>
-							</li>
-							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Ecommerce</a>
+								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Social Media Management</a>
 							</li>
 						</ul>
 					</div>

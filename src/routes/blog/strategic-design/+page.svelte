@@ -5,7 +5,7 @@
 			Crafting Digital Experiences with Purpose
 		</h1>
 		<p class="mt-6 text-xl leading-8">
-			In the dynamic and ever-evolving digital landscape, the role of design extends far beyond aesthetics. Enter the
+			In the dynamic and ever-evolving digital landscape, the role of Design extends far beyond aesthetics. Enter the
 			realm of Strategic Design – a powerful approach that goes beyond visual appeal, focusing on purpose,
 			functionality, and the seamless fusion of creativity with strategy.
 		</p>
@@ -29,28 +29,28 @@
 		<div class="mt-16 max-w-2xl">
 			<h2 class="text-2xl font-bold tracking-tight text-gray-900">Aligning Design with Business Goals</h2>
 			<p class="mt-6">
-				In the realm of Strategic Design, every visual element serves a purpose. From the layout of a website to the
-				user interface of an app, each design decision is a deliberate step towards achieving specific business
-				objectives. It's about creating a user experience that not only delights but also guides users seamlessly
-				through the desired journey – be it making a purchase, signing up for a newsletter, or engaging with content.
+				In the realm of Strategic Design, every visual element serves a purpose. From a website's layout to an app's
+				user interface, each design decision is a deliberate step toward achieving specific business objectives. It's
+				about creating a user experience that delights and guides users seamlessly through the desired journey – making
+				a purchase, signing up for a newsletter, or engaging with content.
 			</p>
 		</div>
 		<div class="mt-16 max-w-2xl">
 			<h2 class="text-2xl font-bold tracking-tight text-gray-900">User-Centric Approach</h2>
 			<p class="mt-6">
-				Strategic Design puts the user at the center of the creative process. By understanding the needs, behaviors, and
-				preferences of the target audience, designers can craft experiences that resonate and build meaningful
-				connections. It's not just about what looks good to the designer but what feels right for the end user, ensuring
-				a harmonious blend of aesthetics and functionality.
+				Strategic Design puts the user at the center of the creative process. By understanding the target audience's
+				needs, behaviors, and preferences, designers can craft experiences that resonate and build meaningful
+				connections. It's not just about what looks good to the designer but what feels suitable for the end user,
+				ensuring a harmonious blend of aesthetics and functionality.
 			</p>
 		</div>
 		<div class="mt-16 max-w-2xl">
 			<h2 class="text-2xl font-bold tracking-tight text-gray-900">Adapting to Change</h2>
 			<p class="mt-6">
-				In a digital landscape that's in a constant state of flux, Strategic Design embraces adaptability. Whether it's
+				In a digital landscape that's in a constant state of flux, Strategic Design embraces adaptability. Whether
 				evolving technologies, changing user expectations, or emerging design trends, this approach anticipates and
-				embraces change. It's about future-proofing designs, ensuring they remain relevant and effective in the face of
-				evolving digital dynamics.
+				embraces change. It's about future-proofing designs, ensuring they remain relevant and effective in evolving
+				digital dynamics.
 			</p>
 		</div>
 
@@ -59,16 +59,16 @@
 			<p class="mt-6">
 				One of the defining features of Strategic Design is its commitment to measurable outcomes. Beyond subjective
 				opinions, success is gauged through analytics, user feedback, and key performance indicators. This data-driven
-				approach allows for continuous refinement, ensuring that design decisions are not only visually appealing but
-				also contribute to the overall success of the digital experience.
+				approach allows for continuous refinement, ensuring that design decisions are visually appealing and contribute
+				to the digital experience's overall success.
 			</p>
 		</div>
 		<div class="mt-16 max-w-2xl">
 			<h2 class="text-2xl font-bold tracking-tight text-gray-900">Conclusion</h2>
 			<p class="mt-6">
-				Strategic Design is the compass that guides digital experiences towards success. It's the marriage of creativity
+				Strategic Design is the compass that guides digital experiences toward success. It's the marriage of creativity
 				and strategy, aesthetics and functionality, form and purpose. As we navigate the intricate digital landscape,
-				let's not just design for design's sake but design with intent – crafting experiences that not only captivate
+				let's not just design for Design's sake but Design with intent – crafting experiences that not only captivate
 				but also convert, leaving a lasting impact on users and businesses alike.
 			</p>
 		</div>

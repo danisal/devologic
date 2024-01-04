@@ -1,0 +1,30 @@
+query Services {
+	marketing: blogPosts(where: { tag: "Marketing" }) {
+		id
+		name
+		tag
+		url
+		description
+	}
+	eCommerce: blogPosts(where: { tag: "E-Commerce" }) {
+		id
+		name
+		tag
+		url
+		description
+	}
+	seo: blogPosts(where: { tag: "Search Engine Optimization" }) {
+		id
+		name
+		tag
+		url
+		description
+	}
+	socialMedia: blogPosts(where: { tag: "Social Media Management" }) {
+		id
+		name
+		tag
+		url
+		description
+	}
+}

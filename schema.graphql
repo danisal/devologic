@@ -4,6 +4,9 @@ type Aggregate {
 
 """Asset system model"""
 type Asset implements Entity & Node {
+  """Alternative name"""
+  alt: String
+
   """The time the document was created"""
   createdAt(
     """
@@ -57,6 +60,35 @@ type Asset implements Entity & Node {
 
   """The height of the file"""
   height: Float
+  heroImageBlogPost(
+    after: String
+    before: String
+    first: Int
+
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `heroImageBlogPost` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+    last: Int
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `heroImageBlogPost` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+    orderBy: BlogPostOrderByInput
+    skip: Int
+    where: BlogPostWhereInput
+  ): [BlogPost!]!
 
   """List of Asset versions"""
   history(
@@ -93,6 +125,7 @@ type Asset implements Entity & Node {
     """
     locales: [Locale!]! = [en]
   ): [Asset!]!
+  metadata: Json
 
   """The mime type of the file"""
   mimeType: String
@@ -222,15 +255,19 @@ type AssetConnection {
 }
 
 input AssetCreateInput {
+  """alt input for default locale (en)"""
+  alt: String
   createdAt: DateTime
   fileName: String!
   handle: String!
   height: Float
+  heroImageBlogPost: BlogPostCreateManyInlineInput
 
   """
   Inline mutations for managing document localizations excluding the default locale
   """
   localizations: AssetCreateLocalizationsInput
+  metadata: Json
   mimeType: String
   size: Float
   updatedAt: DateTime
@@ -238,6 +275,7 @@ input AssetCreateInput {
 }
 
 input AssetCreateLocalizationDataInput {
+  alt: String
   createdAt: DateTime
   fileName: String!
   handle: String!
@@ -323,6 +361,9 @@ input AssetManyWhereInput {
   documentInStages_every: AssetWhereStageInput
   documentInStages_none: AssetWhereStageInput
   documentInStages_some: AssetWhereStageInput
+  heroImageBlogPost_every: BlogPostWhereInput
+  heroImageBlogPost_none: BlogPostWhereInput
+  heroImageBlogPost_some: BlogPostWhereInput
   id: ID
 
   """All values containing the given string."""
@@ -351,6 +392,17 @@ input AssetManyWhereInput {
 
   """All values starting with the given string."""
   id_starts_with: ID
+
+  """All values containing the given json path."""
+  metadata_json_path_exists: String
+
+  """
+  Recursively tries to find the provided JSON scalar value inside the field.
+  It does use an exact match when comparing values.
+  If you pass `null` as value the filter will be ignored. 
+  Note: This filter fails if you try to look for a non scalar JSON value!
+  """
+  metadata_value_recursive: Json
   publishedAt: DateTime
 
   """All values greater than the given value."""
@@ -403,6 +455,8 @@ input AssetManyWhereInput {
 }
 
 enum AssetOrderByInput {
+  alt_ASC
+  alt_DESC
   createdAt_ASC
   createdAt_DESC
   fileName_ASC
@@ -435,18 +489,23 @@ input AssetTransformationInput {
 }
 
 input AssetUpdateInput {
+  """alt input for default locale (en)"""
+  alt: String
   fileName: String
   handle: String
   height: Float
+  heroImageBlogPost: BlogPostUpdateManyInlineInput
 
   """Manage document localizations"""
   localizations: AssetUpdateLocalizationsInput
+  metadata: Json
   mimeType: String
   size: Float
   width: Float
 }
 
 input AssetUpdateLocalizationDataInput {
+  alt: String
   fileName: String
   handle: String
   height: Float
@@ -498,17 +557,21 @@ input AssetUpdateManyInlineInput {
 }
 
 input AssetUpdateManyInput {
+  """alt input for default locale (en)"""
+  alt: String
   fileName: String
   height: Float
 
   """Optional updates to localizations"""
   localizations: AssetUpdateManyLocalizationsInput
+  metadata: Json
   mimeType: String
   size: Float
   width: Float
 }
 
 input AssetUpdateManyLocalizationDataInput {
+  alt: String
   fileName: String
   height: Float
   mimeType: String
@@ -607,6 +670,34 @@ input AssetWhereInput {
 
   """Contains search across all appropriate fields."""
   _search: String
+  alt: String
+
+  """All values containing the given string."""
+  alt_contains: String
+
+  """All values ending with the given string."""
+  alt_ends_with: String
+
+  """All values that are contained in given list."""
+  alt_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  alt_not: String
+
+  """All values not containing the given string."""
+  alt_not_contains: String
+
+  """All values not ending with the given string"""
+  alt_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  alt_not_in: [String]
+
+  """All values not starting with the given string."""
+  alt_not_starts_with: String
+
+  """All values starting with the given string."""
+  alt_starts_with: String
   createdAt: DateTime
 
   """All values greater than the given value."""
@@ -711,6 +802,9 @@ input AssetWhereInput {
 
   """All values that are not contained in given list."""
   height_not_in: [Float]
+  heroImageBlogPost_every: BlogPostWhereInput
+  heroImageBlogPost_none: BlogPostWhereInput
+  heroImageBlogPost_some: BlogPostWhereInput
   id: ID
 
   """All values containing the given string."""
@@ -739,6 +833,17 @@ input AssetWhereInput {
 
   """All values starting with the given string."""
   id_starts_with: ID
+
+  """All values containing the given json path."""
+  metadata_json_path_exists: String
+
+  """
+  Recursively tries to find the provided JSON scalar value inside the field.
+  It does use an exact match when comparing values.
+  If you pass `null` as value the filter will be ignored. 
+  Note: This filter fails if you try to look for a non scalar JSON value!
+  """
+  metadata_value_recursive: Json
   mimeType: String
 
   """All values containing the given string."""
@@ -945,6 +1050,27 @@ type BlogPost implements Entity & Node {
     """Potential stages that should be returned"""
     stages: [Stage!]! = [DRAFT, PUBLISHED]
   ): [BlogPost!]!
+  heroImage(
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `heroImage` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `heroImage` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+  ): Asset
 
   """List of BlogPost versions"""
   history(
@@ -1107,6 +1233,7 @@ input BlogPostCreateInput {
 
   """description input for default locale (en)"""
   description: String!
+  heroImage: AssetCreateOneInlineInput
 
   """
   Inline mutations for managing document localizations excluding the default locale
@@ -1206,6 +1333,7 @@ input BlogPostManyWhereInput {
   documentInStages_every: BlogPostWhereStageInput
   documentInStages_none: BlogPostWhereStageInput
   documentInStages_some: BlogPostWhereStageInput
+  heroImage: AssetWhereInput
   id: ID
 
   """All values containing the given string."""
@@ -1333,6 +1461,7 @@ input BlogPostUpdateInput {
 
   """description input for default locale (en)"""
   description: String
+  heroImage: AssetUpdateOneInlineInput
 
   """Manage document localizations"""
   localizations: BlogPostUpdateLocalizationsInput
@@ -1556,6 +1685,7 @@ input BlogPostWhereInput {
   documentInStages_every: BlogPostWhereStageInput
   documentInStages_none: BlogPostWhereStageInput
   documentInStages_some: BlogPostWhereStageInput
+  heroImage: AssetWhereInput
   id: ID
 
   """All values containing the given string."""

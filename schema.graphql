@@ -129,6 +129,35 @@ type Asset implements Entity & Node {
 
   """The mime type of the file"""
   mimeType: String
+  photoPerson(
+    after: String
+    before: String
+    first: Int
+
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `photoPerson` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+    last: Int
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `photoPerson` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+    orderBy: PersonOrderByInput
+    skip: Int
+    where: PersonWhereInput
+  ): [Person!]!
 
   """The time the document was published. Null on documents in draft stage."""
   publishedAt(
@@ -269,6 +298,7 @@ input AssetCreateInput {
   localizations: AssetCreateLocalizationsInput
   metadata: Json
   mimeType: String
+  photoPerson: PersonCreateManyInlineInput
   size: Float
   updatedAt: DateTime
   width: Float
@@ -403,6 +433,9 @@ input AssetManyWhereInput {
   Note: This filter fails if you try to look for a non scalar JSON value!
   """
   metadata_value_recursive: Json
+  photoPerson_every: PersonWhereInput
+  photoPerson_none: PersonWhereInput
+  photoPerson_some: PersonWhereInput
   publishedAt: DateTime
 
   """All values greater than the given value."""
@@ -500,6 +533,7 @@ input AssetUpdateInput {
   localizations: AssetUpdateLocalizationsInput
   metadata: Json
   mimeType: String
+  photoPerson: PersonUpdateManyInlineInput
   size: Float
   width: Float
 }
@@ -872,6 +906,9 @@ input AssetWhereInput {
 
   """All values starting with the given string."""
   mimeType_starts_with: String
+  photoPerson_every: PersonWhereInput
+  photoPerson_none: PersonWhereInput
+  photoPerson_some: PersonWhereInput
   publishedAt: DateTime
 
   """All values greater than the given value."""
@@ -1000,6 +1037,29 @@ type BatchPayload {
 }
 
 type BlogPost implements Entity & Node {
+  """The blog post author"""
+  author(
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `author` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `author` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+  ): Person
+
   """The blog post content"""
   content: RichText!
 
@@ -1086,6 +1146,9 @@ type BlogPost implements Entity & Node {
   """The unique identifier"""
   id: ID!
 
+  """Main paragraph"""
+  intro: String
+
   """System Locale field"""
   locale: Locale!
 
@@ -1107,6 +1170,9 @@ type BlogPost implements Entity & Node {
     """
     locales: [Locale!]! = [en]
   ): [BlogPost!]!
+
+  """Blog post main heading"""
+  mainHeading: String
   name: String!
 
   """The time the document was published. Null on documents in draft stage."""
@@ -1227,6 +1293,8 @@ type BlogPostConnection {
 }
 
 input BlogPostCreateInput {
+  author: PersonCreateOneInlineInput
+
   """content input for default locale (en)"""
   content: RichTextAST!
   createdAt: DateTime
@@ -1235,10 +1303,16 @@ input BlogPostCreateInput {
   description: String!
   heroImage: AssetCreateOneInlineInput
 
+  """intro input for default locale (en)"""
+  intro: String
+
   """
   Inline mutations for managing document localizations excluding the default locale
   """
   localizations: BlogPostCreateLocalizationsInput
+
+  """mainHeading input for default locale (en)"""
+  mainHeading: String
 
   """name input for default locale (en)"""
   name: String!
@@ -1253,6 +1327,8 @@ input BlogPostCreateLocalizationDataInput {
   content: RichTextAST!
   createdAt: DateTime
   description: String!
+  intro: String
+  mainHeading: String
   name: String!
   updatedAt: DateTime
   url: String
@@ -1307,6 +1383,7 @@ input BlogPostManyWhereInput {
 
   """Contains search across all appropriate fields."""
   _search: String
+  author: PersonWhereInput
   createdAt: DateTime
 
   """All values greater than the given value."""
@@ -1443,6 +1520,10 @@ enum BlogPostOrderByInput {
   description_DESC
   id_ASC
   id_DESC
+  intro_ASC
+  intro_DESC
+  mainHeading_ASC
+  mainHeading_DESC
   name_ASC
   name_DESC
   publishedAt_ASC
@@ -1456,6 +1537,8 @@ enum BlogPostOrderByInput {
 }
 
 input BlogPostUpdateInput {
+  author: PersonUpdateOneInlineInput
+
   """content input for default locale (en)"""
   content: RichTextAST
 
@@ -1463,8 +1546,14 @@ input BlogPostUpdateInput {
   description: String
   heroImage: AssetUpdateOneInlineInput
 
+  """intro input for default locale (en)"""
+  intro: String
+
   """Manage document localizations"""
   localizations: BlogPostUpdateLocalizationsInput
+
+  """mainHeading input for default locale (en)"""
+  mainHeading: String
 
   """name input for default locale (en)"""
   name: String
@@ -1477,6 +1566,8 @@ input BlogPostUpdateInput {
 input BlogPostUpdateLocalizationDataInput {
   content: RichTextAST
   description: String
+  intro: String
+  mainHeading: String
   name: String
   url: String
 }
@@ -1530,14 +1621,22 @@ input BlogPostUpdateManyInput {
   """description input for default locale (en)"""
   description: String
 
+  """intro input for default locale (en)"""
+  intro: String
+
   """Optional updates to localizations"""
   localizations: BlogPostUpdateManyLocalizationsInput
+
+  """mainHeading input for default locale (en)"""
+  mainHeading: String
   tag: [String!]
 }
 
 input BlogPostUpdateManyLocalizationDataInput {
   content: RichTextAST
   description: String
+  intro: String
+  mainHeading: String
 }
 
 input BlogPostUpdateManyLocalizationInput {
@@ -1631,6 +1730,7 @@ input BlogPostWhereInput {
 
   """Contains search across all appropriate fields."""
   _search: String
+  author: PersonWhereInput
   createdAt: DateTime
 
   """All values greater than the given value."""
@@ -1714,6 +1814,62 @@ input BlogPostWhereInput {
 
   """All values starting with the given string."""
   id_starts_with: ID
+  intro: String
+
+  """All values containing the given string."""
+  intro_contains: String
+
+  """All values ending with the given string."""
+  intro_ends_with: String
+
+  """All values that are contained in given list."""
+  intro_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  intro_not: String
+
+  """All values not containing the given string."""
+  intro_not_contains: String
+
+  """All values not ending with the given string"""
+  intro_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  intro_not_in: [String]
+
+  """All values not starting with the given string."""
+  intro_not_starts_with: String
+
+  """All values starting with the given string."""
+  intro_starts_with: String
+  mainHeading: String
+
+  """All values containing the given string."""
+  mainHeading_contains: String
+
+  """All values ending with the given string."""
+  mainHeading_ends_with: String
+
+  """All values that are contained in given list."""
+  mainHeading_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  mainHeading_not: String
+
+  """All values not containing the given string."""
+  mainHeading_not_contains: String
+
+  """All values not ending with the given string"""
+  mainHeading_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  mainHeading_not_in: [String]
+
+  """All values not starting with the given string."""
+  mainHeading_not_starts_with: String
+
+  """All values starting with the given string."""
+  mainHeading_starts_with: String
   name: String
 
   """All values containing the given string."""
@@ -2556,6 +2712,10 @@ enum EntityTypeName {
 
   """The website landing page"""
   HomePage
+
+  """Person information"""
+  Person
+  Post
   PrivacyPolicy
 
   """Scheduled Operation system model"""
@@ -3465,6 +3625,9 @@ type Mutation {
   """Create one homePage"""
   createHomePage(data: HomePageCreateInput!): HomePage
 
+  """Create one person"""
+  createPerson(data: PersonCreateInput!): Person
+
   """Create one privacyPolicy"""
   createPrivacyPolicy(data: PrivacyPolicyCreateInput!): PrivacyPolicy
 
@@ -3547,6 +3710,24 @@ type Mutation {
     where: HomePageManyWhereInput
   ): HomePageConnection!
 
+  """Delete many Person documents"""
+  deleteManyPeople(
+    """Documents to delete"""
+    where: PersonManyWhereInput
+  ): BatchPayload! @deprecated(reason: "Please use the new paginated many mutation (deleteManyPeopleConnection)")
+
+  """Delete many Person documents, return deleted documents"""
+  deleteManyPeopleConnection(
+    after: ID
+    before: ID
+    first: Int
+    last: Int
+    skip: Int
+
+    """Documents to delete"""
+    where: PersonManyWhereInput
+  ): PersonConnection!
+
   """Delete many PrivacyPolicy documents"""
   deleteManyPrivacyPolicies(
     """Documents to delete"""
@@ -3564,6 +3745,14 @@ type Mutation {
     """Documents to delete"""
     where: PrivacyPolicyManyWhereInput
   ): PrivacyPolicyConnection!
+
+  """
+  Delete one person from _all_ existing stages. Returns deleted document.
+  """
+  deletePerson(
+    """Document to delete"""
+    where: PersonWhereUniqueInput!
+  ): Person
 
   """
   Delete one privacyPolicy from _all_ existing stages. Returns deleted document.
@@ -3776,6 +3965,51 @@ type Mutation {
     withDefaultLocale: Boolean = true
   ): HomePageConnection!
 
+  """Publish many Person documents"""
+  publishManyPeople(
+    """Document localizations to publish"""
+    locales: [Locale!]
+
+    """Whether to publish the base document"""
+    publishBase: Boolean = true
+
+    """Stages to publish documents to"""
+    to: [Stage!]! = [PUBLISHED]
+
+    """Identifies documents in each stage to be published"""
+    where: PersonManyWhereInput
+
+    """Whether to include the default locale when publishBase is true"""
+    withDefaultLocale: Boolean = true
+  ): BatchPayload! @deprecated(reason: "Please use the new paginated many mutation (publishManyPeopleConnection)")
+
+  """Publish many Person documents"""
+  publishManyPeopleConnection(
+    after: ID
+    before: ID
+    first: Int
+
+    """Stage to find matching documents in"""
+    from: Stage = DRAFT
+    last: Int
+
+    """Document localizations to publish"""
+    locales: [Locale!]
+
+    """Whether to publish the base document"""
+    publishBase: Boolean = true
+    skip: Int
+
+    """Stages to publish documents to"""
+    to: [Stage!]! = [PUBLISHED]
+
+    """Identifies documents in each stage to be published"""
+    where: PersonManyWhereInput
+
+    """Whether to include the default locale when publishBase is true"""
+    withDefaultLocale: Boolean = true
+  ): PersonConnection!
+
   """Publish many PrivacyPolicy documents"""
   publishManyPrivacyPolicies(
     """Document localizations to publish"""
@@ -3820,6 +4054,24 @@ type Mutation {
     """Whether to include the default locale when publishBase is true"""
     withDefaultLocale: Boolean = true
   ): PrivacyPolicyConnection!
+
+  """Publish one person"""
+  publishPerson(
+    """Optional localizations to publish"""
+    locales: [Locale!]
+
+    """Whether to publish the base document"""
+    publishBase: Boolean = true
+
+    """Publishing target stage"""
+    to: [Stage!]! = [PUBLISHED]
+
+    """Document to publish"""
+    where: PersonWhereUniqueInput!
+
+    """Whether to include the default locale when publishBase is set"""
+    withDefaultLocale: Boolean = true
+  ): Person
 
   """Publish one privacyPolicy"""
   publishPrivacyPolicy(
@@ -3916,6 +4168,32 @@ type Mutation {
     """Whether to include the default locale when publishBase is set"""
     withDefaultLocale: Boolean = true
   ): HomePage
+
+  """Schedule to publish one person"""
+  schedulePublishPerson(
+    """Optional localizations to publish"""
+    locales: [Locale!]
+
+    """Whether to publish the base document"""
+    publishBase: Boolean = true
+
+    """
+    Release at point in time, will create new release containing this operation
+    """
+    releaseAt: DateTime
+
+    """Optionally attach this scheduled operation to an existing release"""
+    releaseId: String
+
+    """Publishing target stage"""
+    to: [Stage!]! = [PUBLISHED]
+
+    """Document to publish"""
+    where: PersonWhereUniqueInput!
+
+    """Whether to include the default locale when publishBase is set"""
+    withDefaultLocale: Boolean = true
+  ): Person
 
   """Schedule to publish one privacyPolicy"""
   schedulePublishPrivacyPolicy(
@@ -4029,6 +4307,35 @@ type Mutation {
     """Document to unpublish"""
     where: HomePageWhereUniqueInput!
   ): HomePage
+
+  """
+  Unpublish one person from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only.
+  """
+  scheduleUnpublishPerson(
+    """Stages to unpublish document from"""
+    from: [Stage!]! = [PUBLISHED]
+
+    """
+    Optional locales to unpublish. Unpublishing the default locale will completely remove the document from the selected stages
+    """
+    locales: [Locale!]
+
+    """
+    Release at point in time, will create new release containing this operation
+    """
+    releaseAt: DateTime
+
+    """Optionally attach this scheduled operation to an existing release"""
+    releaseId: String
+
+    """
+    Unpublish complete document including default localization and relations from stages. Can be disabled.
+    """
+    unpublishBase: Boolean = true
+
+    """Document to unpublish"""
+    where: PersonWhereUniqueInput!
+  ): Person
 
   """
   Unpublish one privacyPolicy from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only.
@@ -4245,6 +4552,47 @@ type Mutation {
     where: HomePageManyWhereInput
   ): HomePageConnection!
 
+  """Unpublish many Person documents"""
+  unpublishManyPeople(
+    """Stages to unpublish documents from"""
+    from: [Stage!]! = [PUBLISHED]
+
+    """Locales to unpublish"""
+    locales: [Locale!]
+
+    """Whether to unpublish the base document and default localization"""
+    unpublishBase: Boolean = true
+
+    """Identifies documents in each stage"""
+    where: PersonManyWhereInput
+  ): BatchPayload! @deprecated(reason: "Please use the new paginated many mutation (unpublishManyPeopleConnection)")
+
+  """
+  Find many Person documents that match criteria in specified stage and unpublish from target stages
+  """
+  unpublishManyPeopleConnection(
+    after: ID
+    before: ID
+    first: Int
+
+    """Stages to unpublish documents from"""
+    from: [Stage!]! = [PUBLISHED]
+    last: Int
+
+    """Locales to unpublish"""
+    locales: [Locale!]
+    skip: Int
+
+    """Stage to find matching documents in"""
+    stage: Stage = DRAFT
+
+    """Whether to unpublish the base document and default localization"""
+    unpublishBase: Boolean = true
+
+    """Identifies documents in draft stage"""
+    where: PersonManyWhereInput
+  ): PersonConnection!
+
   """Unpublish many PrivacyPolicy documents"""
   unpublishManyPrivacyPolicies(
     """Stages to unpublish documents from"""
@@ -4285,6 +4633,27 @@ type Mutation {
     """Identifies documents in draft stage"""
     where: PrivacyPolicyManyWhereInput
   ): PrivacyPolicyConnection!
+
+  """
+  Unpublish one person from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only.
+  """
+  unpublishPerson(
+    """Stages to unpublish document from"""
+    from: [Stage!]! = [PUBLISHED]
+
+    """
+    Optional locales to unpublish. Unpublishing the default locale will completely remove the document from the selected stages
+    """
+    locales: [Locale!]
+
+    """
+    Unpublish complete document including default localization and relations from stages. Can be disabled.
+    """
+    unpublishBase: Boolean = true
+
+    """Document to unpublish"""
+    where: PersonWhereUniqueInput!
+  ): Person
 
   """
   Unpublish one privacyPolicy from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only.
@@ -4388,6 +4757,30 @@ type Mutation {
     where: HomePageManyWhereInput
   ): HomePageConnection!
 
+  """Update many people"""
+  updateManyPeople(
+    """Updates to document content"""
+    data: PersonUpdateManyInput!
+
+    """Documents to apply update on"""
+    where: PersonManyWhereInput
+  ): BatchPayload! @deprecated(reason: "Please use the new paginated many mutation (updateManyPeopleConnection)")
+
+  """Update many Person documents"""
+  updateManyPeopleConnection(
+    after: ID
+    before: ID
+
+    """Updates to document content"""
+    data: PersonUpdateManyInput!
+    first: Int
+    last: Int
+    skip: Int
+
+    """Documents to apply update on"""
+    where: PersonManyWhereInput
+  ): PersonConnection!
+
   """Update many privacyPolicies"""
   updateManyPrivacyPolicies(
     """Updates to document content"""
@@ -4412,6 +4805,9 @@ type Mutation {
     where: PrivacyPolicyManyWhereInput
   ): PrivacyPolicyConnection!
 
+  """Update one person"""
+  updatePerson(data: PersonUpdateInput!, where: PersonWhereUniqueInput!): Person
+
   """Update one privacyPolicy"""
   updatePrivacyPolicy(data: PrivacyPolicyUpdateInput!, where: PrivacyPolicyWhereUniqueInput!): PrivacyPolicy
 
@@ -4426,6 +4822,9 @@ type Mutation {
 
   """Upsert one homePage"""
   upsertHomePage(upsert: HomePageUpsertInput!, where: HomePageWhereUniqueInput!): HomePage
+
+  """Upsert one person"""
+  upsertPerson(upsert: PersonUpsertInput!, where: PersonWhereUniqueInput!): Person
 
   """Upsert one privacyPolicy"""
   upsertPrivacyPolicy(upsert: PrivacyPolicyUpsertInput!, where: PrivacyPolicyWhereUniqueInput!): PrivacyPolicy
@@ -4456,6 +4855,1048 @@ type PageInfo {
 
   """When paginating backwards, the cursor to continue."""
   startCursor: String
+}
+
+"""Person information"""
+type Person implements Entity & Node {
+  """The blog posts a person has written"""
+  blogPosts(
+    after: String
+    before: String
+    first: Int
+
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `blogPosts` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+    last: Int
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `blogPosts` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+    orderBy: BlogPostOrderByInput
+    skip: Int
+    where: BlogPostWhereInput
+  ): [BlogPost!]!
+
+  """The time the document was created"""
+  createdAt(
+    """
+    Variation of DateTime field to return, allows value from base document, current localization, or combined by returning the newer value of both
+    """
+    variation: SystemDateTimeFieldVariation! = COMBINED
+  ): DateTime!
+
+  """User that created this document"""
+  createdBy(
+    """
+    Sets the locale of the resolved parent document as the only locale in the query's subtree.
+    
+    Note that `createdBy` is a model without localized fields and will not be affected directly by this argument, however the locale will be passed on to any relational fields in the query's subtree for filtering.
+    For related models with localized fields in the query's subtree, the first locale matching the provided list of locales will be returned, entries with non matching locales will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `createdBy` is a model without localized fields and will not be affected directly by this argument, however the locales will be passed on to any relational fields in the query's subtree for filtering.
+    For related models with localized fields in the query's subtree, the first locale matching the provided list of locales will be returned, entries with non matching locales will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+  ): User
+
+  """Get the document in other stages"""
+  documentInStages(
+    """Decides if the current stage should be included or not"""
+    includeCurrent: Boolean! = false
+
+    """
+    Decides if the documents should match the parent documents locale or should use the fallback order defined in the tree
+    """
+    inheritLocale: Boolean! = false
+
+    """Potential stages that should be returned"""
+    stages: [Stage!]! = [DRAFT, PUBLISHED]
+  ): [Person!]!
+
+  """List of Person versions"""
+  history(
+    limit: Int! = 10
+    skip: Int! = 0
+
+    """
+    This is optional and can be used to fetch the document version history for a specific stage instead of the current one
+    """
+    stageOverride: Stage
+  ): [Version!]!
+
+  """The unique identifier"""
+  id: ID!
+
+  """System Locale field"""
+  locale: Locale!
+
+  """Get the other localizations for this document"""
+  localizations(
+    """Decides if the current locale should be included or not"""
+    includeCurrent: Boolean! = false
+
+    """
+    Potential locales that should be returned. 
+    
+    The order of locales will also override locale fall-backing behaviour in the query's subtree.
+    
+    Note any related model with localized fields in the query's subtree will be affected.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    
+    Consider using this in conjunction with forceParentLocale on the children relation fields.
+    """
+    locales: [Locale!]! = [en]
+  ): [Person!]!
+
+  """Person's name"""
+  name: String!
+
+  """Person's photo"""
+  photo(
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `photo` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `photo` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+  ): Asset!
+
+  """The time the document was published. Null on documents in draft stage."""
+  publishedAt(
+    """
+    Variation of DateTime field to return, allows value from base document, current localization, or combined by returning the newer value of both
+    """
+    variation: SystemDateTimeFieldVariation! = COMBINED
+  ): DateTime
+
+  """User that last published this document"""
+  publishedBy(
+    """
+    Sets the locale of the resolved parent document as the only locale in the query's subtree.
+    
+    Note that `publishedBy` is a model without localized fields and will not be affected directly by this argument, however the locale will be passed on to any relational fields in the query's subtree for filtering.
+    For related models with localized fields in the query's subtree, the first locale matching the provided list of locales will be returned, entries with non matching locales will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `publishedBy` is a model without localized fields and will not be affected directly by this argument, however the locales will be passed on to any relational fields in the query's subtree for filtering.
+    For related models with localized fields in the query's subtree, the first locale matching the provided list of locales will be returned, entries with non matching locales will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+  ): User
+
+  """Person's role"""
+  role: String!
+  scheduledIn(
+    after: String
+    before: String
+    first: Int
+
+    """
+    Sets the locale of the resolved parent document as the only locale in the query's subtree.
+    
+    Note that `scheduledIn` is a model without localized fields and will not be affected directly by this argument, however the locale will be passed on to any relational fields in the query's subtree for filtering.
+    For related models with localized fields in the query's subtree, the first locale matching the provided list of locales will be returned, entries with non matching locales will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+    last: Int
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `scheduledIn` is a model without localized fields and will not be affected directly by this argument, however the locales will be passed on to any relational fields in the query's subtree for filtering.
+    For related models with localized fields in the query's subtree, the first locale matching the provided list of locales will be returned, entries with non matching locales will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+    skip: Int
+    where: ScheduledOperationWhereInput
+  ): [ScheduledOperation!]!
+
+  """System stage field"""
+  stage: Stage!
+
+  """The time the document was updated"""
+  updatedAt(
+    """
+    Variation of DateTime field to return, allows value from base document, current localization, or combined by returning the newer value of both
+    """
+    variation: SystemDateTimeFieldVariation! = COMBINED
+  ): DateTime!
+
+  """User that last updated this document"""
+  updatedBy(
+    """
+    Sets the locale of the resolved parent document as the only locale in the query's subtree.
+    
+    Note that `updatedBy` is a model without localized fields and will not be affected directly by this argument, however the locale will be passed on to any relational fields in the query's subtree for filtering.
+    For related models with localized fields in the query's subtree, the first locale matching the provided list of locales will be returned, entries with non matching locales will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `updatedBy` is a model without localized fields and will not be affected directly by this argument, however the locales will be passed on to any relational fields in the query's subtree for filtering.
+    For related models with localized fields in the query's subtree, the first locale matching the provided list of locales will be returned, entries with non matching locales will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+  ): User
+}
+
+input PersonConnectInput {
+  """
+  Allow to specify document position in list of connected documents, will default to appending at end of list
+  """
+  position: ConnectPositionInput
+
+  """Document to connect"""
+  where: PersonWhereUniqueInput!
+}
+
+"""A connection to a list of items."""
+type PersonConnection {
+  aggregate: Aggregate!
+
+  """A list of edges."""
+  edges: [PersonEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+input PersonCreateInput {
+  blogPosts: BlogPostCreateManyInlineInput
+  createdAt: DateTime
+
+  """
+  Inline mutations for managing document localizations excluding the default locale
+  """
+  localizations: PersonCreateLocalizationsInput
+  name: String!
+  photo: AssetCreateOneInlineInput!
+
+  """role input for default locale (en)"""
+  role: String!
+  updatedAt: DateTime
+}
+
+input PersonCreateLocalizationDataInput {
+  createdAt: DateTime
+  role: String!
+  updatedAt: DateTime
+}
+
+input PersonCreateLocalizationInput {
+  """Localization input"""
+  data: PersonCreateLocalizationDataInput!
+  locale: Locale!
+}
+
+input PersonCreateLocalizationsInput {
+  """Create localizations for the newly-created document"""
+  create: [PersonCreateLocalizationInput!]
+}
+
+input PersonCreateManyInlineInput {
+  """Connect multiple existing Person documents"""
+  connect: [PersonWhereUniqueInput!]
+
+  """Create and connect multiple existing Person documents"""
+  create: [PersonCreateInput!]
+}
+
+input PersonCreateOneInlineInput {
+  """Connect one existing Person document"""
+  connect: PersonWhereUniqueInput
+
+  """Create and connect one Person document"""
+  create: PersonCreateInput
+}
+
+"""An edge in a connection."""
+type PersonEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Person!
+}
+
+"""Identifies documents"""
+input PersonManyWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PersonWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PersonWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PersonWhereInput!]
+
+  """Contains search across all appropriate fields."""
+  _search: String
+  blogPosts_every: BlogPostWhereInput
+  blogPosts_none: BlogPostWhereInput
+  blogPosts_some: BlogPostWhereInput
+  createdAt: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """Any other value that exists and is not equal to the given value."""
+  createdAt_not: DateTime
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime]
+  createdBy: UserWhereInput
+  documentInStages_every: PersonWhereStageInput
+  documentInStages_none: PersonWhereStageInput
+  documentInStages_some: PersonWhereStageInput
+  id: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID]
+
+  """Any other value that exists and is not equal to the given value."""
+  id_not: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values not ending with the given string"""
+  id_not_ends_with: ID
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID]
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+  name: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values that are contained in given list."""
+  name_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  name_not: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values not ending with the given string"""
+  name_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  name_not_in: [String]
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+  photo: AssetWhereInput
+  publishedAt: DateTime
+
+  """All values greater than the given value."""
+  publishedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  publishedAt_gte: DateTime
+
+  """All values that are contained in given list."""
+  publishedAt_in: [DateTime]
+
+  """All values less than the given value."""
+  publishedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  publishedAt_lte: DateTime
+
+  """Any other value that exists and is not equal to the given value."""
+  publishedAt_not: DateTime
+
+  """All values that are not contained in given list."""
+  publishedAt_not_in: [DateTime]
+  publishedBy: UserWhereInput
+  scheduledIn_every: ScheduledOperationWhereInput
+  scheduledIn_none: ScheduledOperationWhereInput
+  scheduledIn_some: ScheduledOperationWhereInput
+  updatedAt: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """Any other value that exists and is not equal to the given value."""
+  updatedAt_not: DateTime
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime]
+  updatedBy: UserWhereInput
+}
+
+enum PersonOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  publishedAt_ASC
+  publishedAt_DESC
+  role_ASC
+  role_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input PersonUpdateInput {
+  blogPosts: BlogPostUpdateManyInlineInput
+
+  """Manage document localizations"""
+  localizations: PersonUpdateLocalizationsInput
+  name: String
+  photo: AssetUpdateOneInlineInput
+
+  """role input for default locale (en)"""
+  role: String
+}
+
+input PersonUpdateLocalizationDataInput {
+  role: String
+}
+
+input PersonUpdateLocalizationInput {
+  data: PersonUpdateLocalizationDataInput!
+  locale: Locale!
+}
+
+input PersonUpdateLocalizationsInput {
+  """Localizations to create"""
+  create: [PersonCreateLocalizationInput!]
+
+  """Localizations to delete"""
+  delete: [Locale!]
+
+  """Localizations to update"""
+  update: [PersonUpdateLocalizationInput!]
+  upsert: [PersonUpsertLocalizationInput!]
+}
+
+input PersonUpdateManyInlineInput {
+  """Connect multiple existing Person documents"""
+  connect: [PersonConnectInput!]
+
+  """Create and connect multiple Person documents"""
+  create: [PersonCreateInput!]
+
+  """Delete multiple Person documents"""
+  delete: [PersonWhereUniqueInput!]
+
+  """Disconnect multiple Person documents"""
+  disconnect: [PersonWhereUniqueInput!]
+
+  """
+  Override currently-connected documents with multiple existing Person documents
+  """
+  set: [PersonWhereUniqueInput!]
+
+  """Update multiple Person documents"""
+  update: [PersonUpdateWithNestedWhereUniqueInput!]
+
+  """Upsert multiple Person documents"""
+  upsert: [PersonUpsertWithNestedWhereUniqueInput!]
+}
+
+input PersonUpdateManyInput {
+  """Optional updates to localizations"""
+  localizations: PersonUpdateManyLocalizationsInput
+  name: String
+
+  """role input for default locale (en)"""
+  role: String
+}
+
+input PersonUpdateManyLocalizationDataInput {
+  role: String
+}
+
+input PersonUpdateManyLocalizationInput {
+  data: PersonUpdateManyLocalizationDataInput!
+  locale: Locale!
+}
+
+input PersonUpdateManyLocalizationsInput {
+  """Localizations to update"""
+  update: [PersonUpdateManyLocalizationInput!]
+}
+
+input PersonUpdateManyWithNestedWhereInput {
+  """Update many input"""
+  data: PersonUpdateManyInput!
+
+  """Document search"""
+  where: PersonWhereInput!
+}
+
+input PersonUpdateOneInlineInput {
+  """Connect existing Person document"""
+  connect: PersonWhereUniqueInput
+
+  """Create and connect one Person document"""
+  create: PersonCreateInput
+
+  """Delete currently connected Person document"""
+  delete: Boolean
+
+  """Disconnect currently connected Person document"""
+  disconnect: Boolean
+
+  """Update single Person document"""
+  update: PersonUpdateWithNestedWhereUniqueInput
+
+  """Upsert single Person document"""
+  upsert: PersonUpsertWithNestedWhereUniqueInput
+}
+
+input PersonUpdateWithNestedWhereUniqueInput {
+  """Document to update"""
+  data: PersonUpdateInput!
+
+  """Unique document search"""
+  where: PersonWhereUniqueInput!
+}
+
+input PersonUpsertInput {
+  """Create document if it didn't exist"""
+  create: PersonCreateInput!
+
+  """Update document if it exists"""
+  update: PersonUpdateInput!
+}
+
+input PersonUpsertLocalizationInput {
+  create: PersonCreateLocalizationDataInput!
+  locale: Locale!
+  update: PersonUpdateLocalizationDataInput!
+}
+
+input PersonUpsertWithNestedWhereUniqueInput {
+  """Upsert data"""
+  data: PersonUpsertInput!
+
+  """Unique document search"""
+  where: PersonWhereUniqueInput!
+}
+
+"""
+This contains a set of filters that can be used to compare values internally
+"""
+input PersonWhereComparatorInput {
+  """
+  This field can be used to request to check if the entry is outdated by internal comparison
+  """
+  outdated_to: Boolean
+}
+
+"""Identifies documents"""
+input PersonWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PersonWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PersonWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PersonWhereInput!]
+
+  """Contains search across all appropriate fields."""
+  _search: String
+  blogPosts_every: BlogPostWhereInput
+  blogPosts_none: BlogPostWhereInput
+  blogPosts_some: BlogPostWhereInput
+  createdAt: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """Any other value that exists and is not equal to the given value."""
+  createdAt_not: DateTime
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime]
+  createdBy: UserWhereInput
+  documentInStages_every: PersonWhereStageInput
+  documentInStages_none: PersonWhereStageInput
+  documentInStages_some: PersonWhereStageInput
+  id: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID]
+
+  """Any other value that exists and is not equal to the given value."""
+  id_not: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values not ending with the given string"""
+  id_not_ends_with: ID
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID]
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+  name: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values that are contained in given list."""
+  name_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  name_not: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values not ending with the given string"""
+  name_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  name_not_in: [String]
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+  photo: AssetWhereInput
+  publishedAt: DateTime
+
+  """All values greater than the given value."""
+  publishedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  publishedAt_gte: DateTime
+
+  """All values that are contained in given list."""
+  publishedAt_in: [DateTime]
+
+  """All values less than the given value."""
+  publishedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  publishedAt_lte: DateTime
+
+  """Any other value that exists and is not equal to the given value."""
+  publishedAt_not: DateTime
+
+  """All values that are not contained in given list."""
+  publishedAt_not_in: [DateTime]
+  publishedBy: UserWhereInput
+  role: String
+
+  """All values containing the given string."""
+  role_contains: String
+
+  """All values ending with the given string."""
+  role_ends_with: String
+
+  """All values that are contained in given list."""
+  role_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  role_not: String
+
+  """All values not containing the given string."""
+  role_not_contains: String
+
+  """All values not ending with the given string"""
+  role_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  role_not_in: [String]
+
+  """All values not starting with the given string."""
+  role_not_starts_with: String
+
+  """All values starting with the given string."""
+  role_starts_with: String
+  scheduledIn_every: ScheduledOperationWhereInput
+  scheduledIn_none: ScheduledOperationWhereInput
+  scheduledIn_some: ScheduledOperationWhereInput
+  updatedAt: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """Any other value that exists and is not equal to the given value."""
+  updatedAt_not: DateTime
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime]
+  updatedBy: UserWhereInput
+}
+
+"""
+The document in stages filter allows specifying a stage entry to cross compare the same document between different stages
+"""
+input PersonWhereStageInput {
+  """Logical AND on all given filters."""
+  AND: [PersonWhereStageInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PersonWhereStageInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PersonWhereStageInput!]
+
+  """
+  This field contains fields which can be set as true or false to specify an internal comparison
+  """
+  compareWithParent: PersonWhereComparatorInput
+
+  """Specify the stage to compare with"""
+  stage: Stage
+}
+
+"""References Person record uniquely"""
+input PersonWhereUniqueInput {
+  id: ID
+}
+
+type Post implements Entity {
+  """The unique identifier"""
+  id: ID!
+
+  """System stage field"""
+  stage: Stage!
+}
+
+"""A connection to a list of items."""
+type PostConnection {
+  aggregate: Aggregate!
+
+  """A list of edges."""
+  edges: [PostEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+input PostCreateInput {
+  """No fields in create input"""
+  _: String
+}
+
+input PostCreateWithPositionInput {
+  """Document to create"""
+  data: PostCreateInput!
+
+  """
+  Position in the list of existing component instances, will default to appending at the end of list
+  """
+  position: ConnectPositionInput
+}
+
+"""An edge in a connection."""
+type PostEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Post!
+}
+
+"""Identifies documents"""
+input PostManyWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PostWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PostWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PostWhereInput!]
+
+  """Contains search across all appropriate fields."""
+  _search: String
+  id: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID]
+
+  """Any other value that exists and is not equal to the given value."""
+  id_not: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values not ending with the given string"""
+  id_not_ends_with: ID
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID]
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+}
+
+enum PostOrderByInput {
+  id_ASC
+  id_DESC
+}
+
+input PostUpdateInput {
+  """No fields in update input"""
+  _: String
+}
+
+input PostUpdateManyInput {
+  """No fields in updateMany data input"""
+  _: String
+}
+
+input PostUpdateManyWithNestedWhereInput {
+  """Update many input"""
+  data: PostUpdateManyInput!
+
+  """Document search"""
+  where: PostWhereInput!
+}
+
+input PostUpdateWithNestedWhereUniqueAndPositionInput {
+  """Document to update"""
+  data: PostUpdateInput
+
+  """
+  Position in the list of existing component instances, will default to appending at the end of list
+  """
+  position: ConnectPositionInput
+
+  """Unique component instance search"""
+  where: PostWhereUniqueInput!
+}
+
+input PostUpdateWithNestedWhereUniqueInput {
+  """Document to update"""
+  data: PostUpdateInput!
+
+  """Unique document search"""
+  where: PostWhereUniqueInput!
+}
+
+input PostUpsertInput {
+  """Create document if it didn't exist"""
+  create: PostCreateInput!
+
+  """Update document if it exists"""
+  update: PostUpdateInput!
+}
+
+input PostUpsertWithNestedWhereUniqueAndPositionInput {
+  """Document to upsert"""
+  data: PostUpsertInput
+
+  """
+  Position in the list of existing component instances, will default to appending at the end of list
+  """
+  position: ConnectPositionInput
+
+  """Unique component instance search"""
+  where: PostWhereUniqueInput!
+}
+
+input PostUpsertWithNestedWhereUniqueInput {
+  """Upsert data"""
+  data: PostUpsertInput!
+
+  """Unique document search"""
+  where: PostWhereUniqueInput!
+}
+
+"""Identifies documents"""
+input PostWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PostWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PostWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PostWhereInput!]
+
+  """Contains search across all appropriate fields."""
+  _search: String
+  id: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID]
+
+  """Any other value that exists and is not equal to the given value."""
+  id_not: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values not ending with the given string"""
+  id_not_ends_with: ID
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID]
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+}
+
+"""References Post record uniquely"""
+input PostWhereUniqueInput {
+  id: ID
 }
 
 type PrivacyPolicy implements Entity & Node {
@@ -5429,6 +6870,68 @@ type Query {
     stage: Stage! = PUBLISHED
   ): Node
 
+  """Retrieve multiple people"""
+  people(
+    after: String
+    before: String
+    first: Int
+    last: Int
+
+    """
+    Defines which locales should be returned.
+    
+    Note that `Person` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, entries with non matching locales will be filtered out.
+    
+    This argument may be overwritten by another locales definition in a relational child field, this will effectively use the overwritten argument for the affected query's subtree.
+    """
+    locales: [Locale!]! = [en]
+    orderBy: PersonOrderByInput
+    skip: Int
+    stage: Stage! = PUBLISHED
+    where: PersonWhereInput
+  ): [Person!]!
+
+  """Retrieve multiple people using the Relay connection interface"""
+  peopleConnection(
+    after: String
+    before: String
+    first: Int
+    last: Int
+
+    """
+    Defines which locales should be returned.
+    
+    Note that `Person` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, entries with non matching locales will be filtered out.
+    
+    This argument may be overwritten by another locales definition in a relational child field, this will effectively use the overwritten argument for the affected query's subtree.
+    """
+    locales: [Locale!]! = [en]
+    orderBy: PersonOrderByInput
+    skip: Int
+    stage: Stage! = PUBLISHED
+    where: PersonWhereInput
+  ): PersonConnection!
+
+  """Retrieve a single person"""
+  person(
+    """
+    Defines which locales should be returned.
+    
+    Note that `Person` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, entries with non matching locales will be filtered out.
+    
+    This argument may be overwritten by another locales definition in a relational child field, this will effectively use the overwritten argument for the affected query's subtree.
+    """
+    locales: [Locale!]! = [en]
+    stage: Stage! = PUBLISHED
+    where: PersonWhereUniqueInput!
+  ): Person
+
+  """Retrieve document version"""
+  personVersion(where: VersionWhereInput!): DocumentVersion
+
   """Retrieve multiple privacyPolicies"""
   privacyPolicies(
     after: String
@@ -5883,7 +7386,7 @@ type ScheduledOperation implements Entity & Node {
   ): User
 }
 
-union ScheduledOperationAffectedDocument = Asset | BlogPost | HomePage | PrivacyPolicy
+union ScheduledOperationAffectedDocument = Asset | BlogPost | HomePage | Person | PrivacyPolicy
 
 input ScheduledOperationConnectInput {
   """

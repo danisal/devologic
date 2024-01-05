@@ -1,0 +1,41 @@
+query BlogPosts {
+	blogPostsConnection(first: 10) {
+		pageInfo {
+			pageSize
+			hasNextPage
+			hasPreviousPage
+		}
+		aggregate {
+			count
+		}
+		edges {
+			cursor
+			node {
+				id
+				name
+				tag
+				url
+				description
+				publishedAt
+				heroImage {
+					alt
+					id
+					mimeType
+					url(transformation: { document: { output: { format: webp } }, image: { resize: { width: 450, fit: scale } } })
+				}
+				author {
+					id
+					name
+					role
+					photo {
+						alt
+						url(
+							transformation: { document: { output: { format: webp } }, image: { resize: { width: 100, fit: scale } } }
+						)
+						id
+					}
+				}
+			}
+		}
+	}
+}

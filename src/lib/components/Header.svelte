@@ -15,10 +15,10 @@
 			</a>
 		</div>
 		<div class="hidden lg:flex lg:gap-x-12">
-			<a href="/services" class="text-sm font-semibold leading-6 text-gray-900">Service</a>
+			<a href="/services" class="text-sm font-semibold leading-6 text-gray-900">Services</a>
 			<!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a> -->
-			<!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a> -->
 			<a href="/about" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+			<a href="/blog" class="text-sm font-semibold leading-6 text-gray-900">Blog</a>
 		</div>
 		<div class="flex flex-1 items-center justify-end gap-x-6">
 			<!-- <a href="#" class="hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-gray-900">Log in</a> -->

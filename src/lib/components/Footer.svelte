@@ -36,16 +36,18 @@
 						<h3 class="text-sm font-semibold leading-6 text-white">Solutions</h3>
 						<ul role="list" class="mt-6 space-y-4">
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Marketing</a>
+								<a href="/services#marketing" class="text-sm leading-6 text-gray-300 hover:text-white">Marketing</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">E-Commerce</a>
+								<a href="/services#e-commerce" class="text-sm leading-6 text-gray-300 hover:text-white">E-Commerce</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">SEO</a>
+								<a href="/services#seo" class="text-sm leading-6 text-gray-300 hover:text-white">SEO</a>
 							</li>
 							<li>
-								<a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Social Media Management</a>
+								<a href="/services#social-media-management" class="text-sm leading-6 text-gray-300 hover:text-white"
+									>Social Media Management</a
+								>
 							</li>
 						</ul>
 					</div>

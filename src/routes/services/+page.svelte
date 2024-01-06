@@ -69,7 +69,7 @@
 </div>
 
 <!-- Marketing -->
-<div class="bg-white py-24 sm:py-32">
+<div id="marketing" class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-600">Marketing</h2>
@@ -107,7 +107,7 @@
 </div>
 
 <!-- E-Commerce -->
-<div class="bg-gray-900 py-24 sm:py-32">
+<div id="e-commerce" class="bg-gray-900 py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">E-Commerce</h2>
@@ -145,7 +145,7 @@
 </div>
 
 <!-- SEO -->
-<div class="bg-white py-24 sm:py-32">
+<div id="seo" class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-600">Search Engine Optimization</h2>
@@ -181,7 +181,7 @@
 </div>
 
 <!-- Social Media -->
-<div class="bg-gray-900 py-24 sm:py-32">
+<div id="social-media-management" class="bg-gray-900 py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">Social Media Management</h2>

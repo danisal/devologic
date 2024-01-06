@@ -4,21 +4,23 @@
 	export let data: PageData;
 
 	$: ({ BlogPost } = data);
-	// @ts-expect-error
-	$: ({ content, mainHeading, tag, intro, heroImage } = $BlogPost.data?.blogPosts[0]);
 </script>
 
 <div class="bg-white px-6 py-32 lg:px-8">
 	<div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-		<p class="text-base font-semibold leading-7 text-indigo-600">{tag}</p>
+		<p class="text-base font-semibold leading-7 text-indigo-600">{$BlogPost.data?.blogPosts[0].tag}</p>
 		<h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-			{mainHeading}
+			{$BlogPost.data?.blogPosts[0].mainHeading}
 		</h1>
 		<p class="mt-6 text-xl leading-8">
-			{intro}
+			{$BlogPost.data?.blogPosts[0].intro}
 		</p>
 		<figure class="mt-16">
-			<img class="aspect-video rounded-xl bg-gray-50 object-cover" src={heroImage.url} alt={heroImage.alt} />
+			<img
+				class="aspect-video rounded-xl bg-gray-50 object-cover"
+				src={$BlogPost.data?.blogPosts[0].heroImage?.url}
+				alt={$BlogPost.data?.blogPosts[0].heroImage?.alt}
+			/>
 			<figcaption class="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
 				<svg class="mt-0.5 h-5 w-5 flex-none text-gray-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 					<path
@@ -27,9 +29,9 @@
 						clip-rule="evenodd"
 					/>
 				</svg>
-				{heroImage.metadata.credit}
+				{$BlogPost.data?.blogPosts[0].heroImage?.metadata.credit}
 			</figcaption>
 		</figure>
-		<div class="prose mt-16 max-w-2xl">{@html content.html}</div>
+		<div class="prose mt-16 max-w-2xl">{@html $BlogPost.data?.blogPosts[0].content.html}</div>
 	</div>
 </div>

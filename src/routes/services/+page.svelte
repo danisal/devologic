@@ -5,8 +5,12 @@
 	export let data: PageData;
 
 	$: ({ Services } = data);
-	// @ts-expect-error
-	$: ({ eCommerce, marketing, seo, socialMedia } = $Services.data);
+	$: ({ eCommerce, marketing, seo, socialMedia } = $Services.data ?? {
+		eCommerce: [],
+		marketing: [],
+		seo: [],
+		socialMedia: []
+	});
 </script>
 
 <div class="bg-gray-900">

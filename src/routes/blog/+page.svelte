@@ -5,12 +5,7 @@
 	export let data: PageData;
 
 	$: ({ BlogPosts } = data);
-	// @ts-expect-error
-	$: ({ blogPostsConnection } = $BlogPosts.data);
-	$: ({ edges, aggregate, pageInfo } = blogPostsConnection);
-	// $: ({ count } = aggregate);
-	// $: ({ endCursor, hasNextPage, hasPreviousPage, startCursor } = pageInfo);
-	$: console.log({ edges });
+	$: ({ edges } = $BlogPosts.data?.blogPostsConnection ?? { edges: [] });
 </script>
 
 <div class="bg-white py-24 sm:py-32">
@@ -24,8 +19,8 @@
 				<article class="flex flex-col items-start justify-between">
 					<div class="relative w-full">
 						<img
-							alt={edge.node.heroImage.alt}
-							src={edge.node.heroImage.url}
+							alt={edge.node.heroImage?.alt}
+							src={edge.node.heroImage?.url}
 							width="450"
 							class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
 						/>
@@ -33,8 +28,8 @@
 					</div>
 					<div class="max-w-xl">
 						<div class="mt-8 flex items-center gap-x-4 text-xs">
-							<time datetime={format(edge.node.publishedAt, 'dd-MM-yyyy')} class="text-gray-500"
-								>{format(edge.node.publishedAt, 'dd MMM yyyy')}</time
+							<time datetime={format(edge.node.publishedAt ?? '', 'dd-MM-yyyy')} class="text-gray-500"
+								>{format(edge.node.publishedAt ?? '', 'dd MMM yyyy')}</time
 							>
 							<a
 								href="#"
@@ -55,8 +50,8 @@
 						</div>
 						<div class="relative mt-8 flex items-center gap-x-4">
 							<img
-								src={edge.node.author.photo.url}
-								alt={edge.node.author.photo.alt}
+								src={edge.node.author?.photo.url}
+								alt={edge.node.author?.photo.alt}
 								width="100"
 								class="h-10 w-10 rounded-full bg-gray-100"
 							/>
@@ -65,10 +60,10 @@
 									<!-- <a href="#"> -->
 									<span>
 										<span class="absolute inset-0"></span>
-										{edge.node.author.name}
+										{edge.node.author?.name}
 									</span>
 								</p>
-								<p class="text-gray-600">{edge.node.author.role}</p>
+								<p class="text-gray-600">{edge.node.author?.role}</p>
 							</div>
 						</div>
 					</div>

@@ -123,7 +123,7 @@ type Asset implements Entity & Node {
     
     Consider using this in conjunction with forceParentLocale on the children relation fields.
     """
-    locales: [Locale!]! = [en]
+    locales: [Locale!]! = [en, pt_PT]
   ): [Asset!]!
   metadata: Json
 
@@ -1168,7 +1168,7 @@ type BlogPost implements Entity & Node {
     
     Consider using this in conjunction with forceParentLocale on the children relation fields.
     """
-    locales: [Locale!]! = [en]
+    locales: [Locale!]! = [en, pt_PT]
   ): [BlogPost!]!
 
   """Blog post main heading"""
@@ -1268,6 +1268,8 @@ type BlogPost implements Entity & Node {
     """
     locales: [Locale!]
   ): User
+
+  """The URL for the blog post. It's language dependent"""
   url: String
 }
 
@@ -2055,7 +2057,7 @@ type CallOut implements Entity {
     
     Consider using this in conjunction with forceParentLocale on the children relation fields.
     """
-    locales: [Locale!]! = [en]
+    locales: [Locale!]! = [en, pt_PT]
   ): [CallOut!]!
 
   """System stage field"""
@@ -2847,7 +2849,7 @@ type HomePage implements Entity & Node {
     
     Consider using this in conjunction with forceParentLocale on the children relation fields.
     """
-    locales: [Locale!]! = [en]
+    locales: [Locale!]! = [en, pt_PT]
   ): [HomePage!]!
 
   """The time the document was published. Null on documents in draft stage."""
@@ -3595,6 +3597,7 @@ scalar Json
 enum Locale {
   """System locale"""
   en
+  pt_PT
 }
 
 """Representing a geolocation point with latitude and longitude"""
@@ -4968,7 +4971,7 @@ type Person implements Entity & Node {
     
     Consider using this in conjunction with forceParentLocale on the children relation fields.
     """
-    locales: [Locale!]! = [en]
+    locales: [Locale!]! = [en, pt_PT]
   ): [Person!]!
 
   """Person's name"""
@@ -5980,7 +5983,7 @@ type PrivacyPolicy implements Entity & Node {
     
     Consider using this in conjunction with forceParentLocale on the children relation fields.
     """
-    locales: [Locale!]! = [en]
+    locales: [Locale!]! = [en, pt_PT]
   ): [PrivacyPolicy!]!
   name: String
 
@@ -8716,7 +8719,7 @@ type Testimonial implements Entity {
     
     Consider using this in conjunction with forceParentLocale on the children relation fields.
     """
-    locales: [Locale!]! = [en]
+    locales: [Locale!]! = [en, pt_PT]
   ): [Testimonial!]!
 
   """Person's name"""

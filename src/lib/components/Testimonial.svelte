@@ -1,3 +1,7 @@
+<script lang="ts">
+	export let testimony;
+</script>
+
 <div class="bg-white pb-16 pt-24 sm:pb-24 sm:pt-32 xl:pb-32">
 	<div class="bg-gray-900 pb-20 sm:pb-24 xl:pb-0">
 		<div
@@ -28,13 +32,12 @@
 					</svg>
 					<blockquote class="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
 						<p>
-							Gravida quam mi erat tortor neque molestie. Auctor aliquet at porttitor a enim nunc suscipit tincidunt
-							nunc. Et non lorem tortor posuere. Nunc eu scelerisque interdum eget tellus non nibh scelerisque bibendum.
+							{testimony.testimony}
 						</p>
 					</blockquote>
 					<figcaption class="mt-8 text-base">
-						<div class="font-semibold text-white">Judith Black</div>
-						<div class="mt-1 text-gray-400">CEO of Workcation</div>
+						<div class="font-semibold text-white">{testimony.name}</div>
+						<div class="mt-1 text-gray-400">{testimony.position}</div>
 					</figcaption>
 				</figure>
 			</div>

@@ -2,6 +2,528 @@ type Aggregate {
   count: Int!
 }
 
+"""
+An independent section that can be used in isolation. It was a title and a description.
+"""
+type Article implements Entity {
+  """
+  The article description. A couple of paragraphs that describe a concept
+  """
+  description: String!
+
+  """The unique identifier"""
+  id: ID!
+
+  """System Locale field"""
+  locale: Locale!
+
+  """Get the other localizations for this document"""
+  localizations(
+    """Decides if the current locale should be included or not"""
+    includeCurrent: Boolean! = false
+
+    """
+    Potential locales that should be returned. 
+    
+    The order of locales will also override locale fall-backing behaviour in the query's subtree.
+    
+    Note any related model with localized fields in the query's subtree will be affected.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    
+    Consider using this in conjunction with forceParentLocale on the children relation fields.
+    """
+    locales: [Locale!]! = [en, pt_PT]
+  ): [Article!]!
+
+  """System stage field"""
+  stage: Stage!
+
+  """The Article title"""
+  title: String!
+}
+
+input ArticleConnectInput {
+  """
+  Allow to specify document position in list of connected documents, will default to appending at end of list
+  """
+  position: ConnectPositionInput
+
+  """Document to connect"""
+  where: ArticleWhereUniqueInput!
+}
+
+"""A connection to a list of items."""
+type ArticleConnection {
+  aggregate: Aggregate!
+
+  """A list of edges."""
+  edges: [ArticleEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+input ArticleCreateInput {
+  """description input for default locale (en)"""
+  description: String!
+
+  """
+  Inline mutations for managing document localizations excluding the default locale
+  """
+  localizations: ArticleCreateLocalizationsInput
+
+  """title input for default locale (en)"""
+  title: String!
+}
+
+input ArticleCreateLocalizationDataInput {
+  description: String!
+  title: String!
+}
+
+input ArticleCreateLocalizationInput {
+  """Localization input"""
+  data: ArticleCreateLocalizationDataInput!
+  locale: Locale!
+}
+
+input ArticleCreateLocalizationsInput {
+  """Create localizations for the newly-created document"""
+  create: [ArticleCreateLocalizationInput!]
+}
+
+input ArticleCreateManyInlineInput {
+  """Create and connect multiple existing Article documents"""
+  create: [ArticleCreateInput!]
+}
+
+input ArticleCreateOneInlineInput {
+  """Create and connect one Article document"""
+  create: ArticleCreateInput
+}
+
+input ArticleCreateWithPositionInput {
+  """Document to create"""
+  data: ArticleCreateInput!
+
+  """
+  Position in the list of existing component instances, will default to appending at the end of list
+  """
+  position: ConnectPositionInput
+}
+
+"""An edge in a connection."""
+type ArticleEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Article!
+}
+
+"""Identifies documents"""
+input ArticleManyWhereInput {
+  """Logical AND on all given filters."""
+  AND: [ArticleWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [ArticleWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [ArticleWhereInput!]
+
+  """Contains search across all appropriate fields."""
+  _search: String
+  id: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID]
+
+  """Any other value that exists and is not equal to the given value."""
+  id_not: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values not ending with the given string"""
+  id_not_ends_with: ID
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID]
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+}
+
+enum ArticleOrderByInput {
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+}
+
+union ArticleParent = HomePage
+
+input ArticleParentConnectInput {
+  HomePage: HomePageConnectInput
+}
+
+input ArticleParentCreateInput {
+  HomePage: HomePageCreateInput
+}
+
+input ArticleParentCreateManyInlineInput {
+  """Connect multiple existing ArticleParent documents"""
+  connect: [ArticleParentWhereUniqueInput!]
+
+  """Create and connect multiple existing ArticleParent documents"""
+  create: [ArticleParentCreateInput!]
+}
+
+input ArticleParentCreateOneInlineInput {
+  """Connect one existing ArticleParent document"""
+  connect: ArticleParentWhereUniqueInput
+
+  """Create and connect one ArticleParent document"""
+  create: ArticleParentCreateInput
+}
+
+input ArticleParentUpdateInput {
+  HomePage: HomePageUpdateInput
+}
+
+input ArticleParentUpdateManyInlineInput {
+  """Connect multiple existing ArticleParent documents"""
+  connect: [ArticleParentConnectInput!]
+
+  """Create and connect multiple ArticleParent documents"""
+  create: [ArticleParentCreateInput!]
+
+  """Delete multiple ArticleParent documents"""
+  delete: [ArticleParentWhereUniqueInput!]
+
+  """Disconnect multiple ArticleParent documents"""
+  disconnect: [ArticleParentWhereUniqueInput!]
+
+  """
+  Override currently-connected documents with multiple existing ArticleParent documents
+  """
+  set: [ArticleParentWhereUniqueInput!]
+
+  """Update multiple ArticleParent documents"""
+  update: [ArticleParentUpdateWithNestedWhereUniqueInput!]
+
+  """Upsert multiple ArticleParent documents"""
+  upsert: [ArticleParentUpsertWithNestedWhereUniqueInput!]
+}
+
+input ArticleParentUpdateManyWithNestedWhereInput {
+  HomePage: HomePageUpdateManyWithNestedWhereInput
+}
+
+input ArticleParentUpdateOneInlineInput {
+  """Connect existing ArticleParent document"""
+  connect: ArticleParentWhereUniqueInput
+
+  """Create and connect one ArticleParent document"""
+  create: ArticleParentCreateInput
+
+  """Delete currently connected ArticleParent document"""
+  delete: Boolean
+
+  """Disconnect currently connected ArticleParent document"""
+  disconnect: Boolean
+
+  """Update single ArticleParent document"""
+  update: ArticleParentUpdateWithNestedWhereUniqueInput
+
+  """Upsert single ArticleParent document"""
+  upsert: ArticleParentUpsertWithNestedWhereUniqueInput
+}
+
+input ArticleParentUpdateWithNestedWhereUniqueInput {
+  HomePage: HomePageUpdateWithNestedWhereUniqueInput
+}
+
+input ArticleParentUpsertWithNestedWhereUniqueInput {
+  HomePage: HomePageUpsertWithNestedWhereUniqueInput
+}
+
+input ArticleParentWhereInput {
+  HomePage: HomePageWhereInput
+}
+
+input ArticleParentWhereUniqueInput {
+  HomePage: HomePageWhereUniqueInput
+}
+
+input ArticleUpdateInput {
+  """description input for default locale (en)"""
+  description: String
+
+  """Manage document localizations"""
+  localizations: ArticleUpdateLocalizationsInput
+
+  """title input for default locale (en)"""
+  title: String
+}
+
+input ArticleUpdateLocalizationDataInput {
+  description: String
+  title: String
+}
+
+input ArticleUpdateLocalizationInput {
+  data: ArticleUpdateLocalizationDataInput!
+  locale: Locale!
+}
+
+input ArticleUpdateLocalizationsInput {
+  """Localizations to create"""
+  create: [ArticleCreateLocalizationInput!]
+
+  """Localizations to delete"""
+  delete: [Locale!]
+
+  """Localizations to update"""
+  update: [ArticleUpdateLocalizationInput!]
+  upsert: [ArticleUpsertLocalizationInput!]
+}
+
+input ArticleUpdateManyInlineInput {
+  """Create and connect multiple Article component instances"""
+  create: [ArticleCreateWithPositionInput!]
+
+  """Delete multiple Article documents"""
+  delete: [ArticleWhereUniqueInput!]
+
+  """Update multiple Article component instances"""
+  update: [ArticleUpdateWithNestedWhereUniqueAndPositionInput!]
+
+  """Upsert multiple Article component instances"""
+  upsert: [ArticleUpsertWithNestedWhereUniqueAndPositionInput!]
+}
+
+input ArticleUpdateManyInput {
+  """description input for default locale (en)"""
+  description: String
+
+  """Optional updates to localizations"""
+  localizations: ArticleUpdateManyLocalizationsInput
+
+  """title input for default locale (en)"""
+  title: String
+}
+
+input ArticleUpdateManyLocalizationDataInput {
+  description: String
+  title: String
+}
+
+input ArticleUpdateManyLocalizationInput {
+  data: ArticleUpdateManyLocalizationDataInput!
+  locale: Locale!
+}
+
+input ArticleUpdateManyLocalizationsInput {
+  """Localizations to update"""
+  update: [ArticleUpdateManyLocalizationInput!]
+}
+
+input ArticleUpdateManyWithNestedWhereInput {
+  """Update many input"""
+  data: ArticleUpdateManyInput!
+
+  """Document search"""
+  where: ArticleWhereInput!
+}
+
+input ArticleUpdateOneInlineInput {
+  """Create and connect one Article document"""
+  create: ArticleCreateInput
+
+  """Delete currently connected Article document"""
+  delete: Boolean
+
+  """Update single Article document"""
+  update: ArticleUpdateWithNestedWhereUniqueInput
+
+  """Upsert single Article document"""
+  upsert: ArticleUpsertWithNestedWhereUniqueInput
+}
+
+input ArticleUpdateWithNestedWhereUniqueAndPositionInput {
+  """Document to update"""
+  data: ArticleUpdateInput
+
+  """
+  Position in the list of existing component instances, will default to appending at the end of list
+  """
+  position: ConnectPositionInput
+
+  """Unique component instance search"""
+  where: ArticleWhereUniqueInput!
+}
+
+input ArticleUpdateWithNestedWhereUniqueInput {
+  """Document to update"""
+  data: ArticleUpdateInput!
+
+  """Unique document search"""
+  where: ArticleWhereUniqueInput!
+}
+
+input ArticleUpsertInput {
+  """Create document if it didn't exist"""
+  create: ArticleCreateInput!
+
+  """Update document if it exists"""
+  update: ArticleUpdateInput!
+}
+
+input ArticleUpsertLocalizationInput {
+  create: ArticleCreateLocalizationDataInput!
+  locale: Locale!
+  update: ArticleUpdateLocalizationDataInput!
+}
+
+input ArticleUpsertWithNestedWhereUniqueAndPositionInput {
+  """Document to upsert"""
+  data: ArticleUpsertInput
+
+  """
+  Position in the list of existing component instances, will default to appending at the end of list
+  """
+  position: ConnectPositionInput
+
+  """Unique component instance search"""
+  where: ArticleWhereUniqueInput!
+}
+
+input ArticleUpsertWithNestedWhereUniqueInput {
+  """Upsert data"""
+  data: ArticleUpsertInput!
+
+  """Unique document search"""
+  where: ArticleWhereUniqueInput!
+}
+
+"""Identifies documents"""
+input ArticleWhereInput {
+  """Logical AND on all given filters."""
+  AND: [ArticleWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [ArticleWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [ArticleWhereInput!]
+
+  """Contains search across all appropriate fields."""
+  _search: String
+  description: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values that are contained in given list."""
+  description_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  description_not: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values not ending with the given string"""
+  description_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  description_not_in: [String]
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+  id: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID]
+
+  """Any other value that exists and is not equal to the given value."""
+  id_not: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values not ending with the given string"""
+  id_not_ends_with: ID
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID]
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+  title: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values that are contained in given list."""
+  title_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  title_not: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values not ending with the given string"""
+  title_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  title_not_in: [String]
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+}
+
+"""References Article record uniquely"""
+input ArticleWhereUniqueInput {
+  id: ID
+}
+
 """Asset system model"""
 type Asset implements Entity & Node {
   """Alternative name"""
@@ -1093,6 +1615,7 @@ type BlogPost implements Entity & Node {
     """
     locales: [Locale!]
   ): User
+  cta: String
 
   """A brief description of the blog post"""
   description: String!
@@ -1301,6 +1824,9 @@ input BlogPostCreateInput {
   content: RichTextAST!
   createdAt: DateTime
 
+  """cta input for default locale (en)"""
+  cta: String
+
   """description input for default locale (en)"""
   description: String!
   heroImage: AssetCreateOneInlineInput
@@ -1328,6 +1854,7 @@ input BlogPostCreateInput {
 input BlogPostCreateLocalizationDataInput {
   content: RichTextAST!
   createdAt: DateTime
+  cta: String
   description: String!
   intro: String
   mainHeading: String
@@ -1518,6 +2045,8 @@ input BlogPostManyWhereInput {
 enum BlogPostOrderByInput {
   createdAt_ASC
   createdAt_DESC
+  cta_ASC
+  cta_DESC
   description_ASC
   description_DESC
   id_ASC
@@ -1544,6 +2073,9 @@ input BlogPostUpdateInput {
   """content input for default locale (en)"""
   content: RichTextAST
 
+  """cta input for default locale (en)"""
+  cta: String
+
   """description input for default locale (en)"""
   description: String
   heroImage: AssetUpdateOneInlineInput
@@ -1567,6 +2099,7 @@ input BlogPostUpdateInput {
 
 input BlogPostUpdateLocalizationDataInput {
   content: RichTextAST
+  cta: String
   description: String
   intro: String
   mainHeading: String
@@ -1620,6 +2153,9 @@ input BlogPostUpdateManyInput {
   """content input for default locale (en)"""
   content: RichTextAST
 
+  """cta input for default locale (en)"""
+  cta: String
+
   """description input for default locale (en)"""
   description: String
 
@@ -1636,6 +2172,7 @@ input BlogPostUpdateManyInput {
 
 input BlogPostUpdateManyLocalizationDataInput {
   content: RichTextAST
+  cta: String
   description: String
   intro: String
   mainHeading: String
@@ -1756,6 +2293,34 @@ input BlogPostWhereInput {
   """All values that are not contained in given list."""
   createdAt_not_in: [DateTime]
   createdBy: UserWhereInput
+  cta: String
+
+  """All values containing the given string."""
+  cta_contains: String
+
+  """All values ending with the given string."""
+  cta_ends_with: String
+
+  """All values that are contained in given list."""
+  cta_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  cta_not: String
+
+  """All values not containing the given string."""
+  cta_not_contains: String
+
+  """All values not ending with the given string"""
+  cta_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  cta_not_in: [String]
+
+  """All values not starting with the given string."""
+  cta_not_starts_with: String
+
+  """All values starting with the given string."""
+  cta_starts_with: String
   description: String
 
   """All values containing the given string."""
@@ -2705,6 +3270,11 @@ interface Entity {
 This enumeration holds all typenames that implement the Entity interface. Components and models implement the Entity interface.
 """
 enum EntityTypeName {
+  """
+  An independent section that can be used in isolation. It was a title and a description.
+  """
+  Article
+
   """Asset system model"""
   Asset
   BlogPost
@@ -2746,6 +3316,8 @@ scalar Hex
 
 """The website landing page"""
 type HomePage implements Entity & Node {
+  blogPostsDescription: String
+  blogPostsTitle: String
   callOut(
     """
     Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
@@ -2911,6 +3483,40 @@ type HomePage implements Entity & Node {
     where: ScheduledOperationWhereInput
   ): [ScheduledOperation!]!
 
+  """The list of services the company provides"""
+  services(
+    after: String
+    before: String
+    first: Int
+
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `services` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+    last: Int
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `services` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+    orderBy: ArticleOrderByInput
+    skip: Int
+    where: ArticleWhereInput
+  ): [Article!]!
+  servicesDescription: String
+  servicesTag: String
+  servicesTitle: String
+
   """System stage field"""
   stage: Stage!
 
@@ -2939,6 +3545,12 @@ type HomePage implements Entity & Node {
     """
     locales: [Locale!]
   ): Testimonial
+
+  """A description of the tools we work with"""
+  toolsDescription: String
+
+  """Tools we like to work with"""
+  toolsTitle: String
 
   """The time the document was updated"""
   updatedAt(
@@ -2994,6 +3606,11 @@ type HomePageConnection {
 }
 
 input HomePageCreateInput {
+  """blogPostsDescription input for default locale (en)"""
+  blogPostsDescription: String
+
+  """blogPostsTitle input for default locale (en)"""
+  blogPostsTitle: String
   callOut: CallOutCreateOneInlineInput
   createdAt: DateTime
 
@@ -3004,17 +3621,40 @@ input HomePageCreateInput {
   Inline mutations for managing document localizations excluding the default locale
   """
   localizations: HomePageCreateLocalizationsInput
+  services: ArticleCreateManyInlineInput
+
+  """servicesDescription input for default locale (en)"""
+  servicesDescription: String
+
+  """servicesTag input for default locale (en)"""
+  servicesTag: String
+
+  """servicesTitle input for default locale (en)"""
+  servicesTitle: String
 
   """subHeading input for default locale (en)"""
   subHeading: String!
   testimony: TestimonialCreateOneInlineInput
+
+  """toolsDescription input for default locale (en)"""
+  toolsDescription: String
+
+  """toolsTitle input for default locale (en)"""
+  toolsTitle: String
   updatedAt: DateTime
 }
 
 input HomePageCreateLocalizationDataInput {
+  blogPostsDescription: String
+  blogPostsTitle: String
   createdAt: DateTime
   heading: String!
+  servicesDescription: String
+  servicesTag: String
+  servicesTitle: String
   subHeading: String!
+  toolsDescription: String
+  toolsTitle: String
   updatedAt: DateTime
 }
 
@@ -3148,6 +3788,9 @@ input HomePageManyWhereInput {
   scheduledIn_every: ScheduledOperationWhereInput
   scheduledIn_none: ScheduledOperationWhereInput
   scheduledIn_some: ScheduledOperationWhereInput
+  services_every: ArticleWhereInput
+  services_none: ArticleWhereInput
+  services_some: ArticleWhereInput
   testimony: TestimonialWhereInput
   updatedAt: DateTime
 
@@ -3175,6 +3818,10 @@ input HomePageManyWhereInput {
 }
 
 enum HomePageOrderByInput {
+  blogPostsDescription_ASC
+  blogPostsDescription_DESC
+  blogPostsTitle_ASC
+  blogPostsTitle_DESC
   createdAt_ASC
   createdAt_DESC
   heading_ASC
@@ -3183,13 +3830,28 @@ enum HomePageOrderByInput {
   id_DESC
   publishedAt_ASC
   publishedAt_DESC
+  servicesDescription_ASC
+  servicesDescription_DESC
+  servicesTag_ASC
+  servicesTag_DESC
+  servicesTitle_ASC
+  servicesTitle_DESC
   subHeading_ASC
   subHeading_DESC
+  toolsDescription_ASC
+  toolsDescription_DESC
+  toolsTitle_ASC
+  toolsTitle_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 input HomePageUpdateInput {
+  """blogPostsDescription input for default locale (en)"""
+  blogPostsDescription: String
+
+  """blogPostsTitle input for default locale (en)"""
+  blogPostsTitle: String
   callOut: CallOutUpdateOneInlineInput
 
   """heading input for default locale (en)"""
@@ -3197,15 +3859,38 @@ input HomePageUpdateInput {
 
   """Manage document localizations"""
   localizations: HomePageUpdateLocalizationsInput
+  services: ArticleUpdateManyInlineInput
+
+  """servicesDescription input for default locale (en)"""
+  servicesDescription: String
+
+  """servicesTag input for default locale (en)"""
+  servicesTag: String
+
+  """servicesTitle input for default locale (en)"""
+  servicesTitle: String
 
   """subHeading input for default locale (en)"""
   subHeading: String
   testimony: TestimonialUpdateOneInlineInput
+
+  """toolsDescription input for default locale (en)"""
+  toolsDescription: String
+
+  """toolsTitle input for default locale (en)"""
+  toolsTitle: String
 }
 
 input HomePageUpdateLocalizationDataInput {
+  blogPostsDescription: String
+  blogPostsTitle: String
   heading: String
+  servicesDescription: String
+  servicesTag: String
+  servicesTitle: String
   subHeading: String
+  toolsDescription: String
+  toolsTitle: String
 }
 
 input HomePageUpdateLocalizationInput {
@@ -3251,19 +3936,47 @@ input HomePageUpdateManyInlineInput {
 }
 
 input HomePageUpdateManyInput {
+  """blogPostsDescription input for default locale (en)"""
+  blogPostsDescription: String
+
+  """blogPostsTitle input for default locale (en)"""
+  blogPostsTitle: String
+
   """heading input for default locale (en)"""
   heading: String
 
   """Optional updates to localizations"""
   localizations: HomePageUpdateManyLocalizationsInput
 
+  """servicesDescription input for default locale (en)"""
+  servicesDescription: String
+
+  """servicesTag input for default locale (en)"""
+  servicesTag: String
+
+  """servicesTitle input for default locale (en)"""
+  servicesTitle: String
+
   """subHeading input for default locale (en)"""
   subHeading: String
+
+  """toolsDescription input for default locale (en)"""
+  toolsDescription: String
+
+  """toolsTitle input for default locale (en)"""
+  toolsTitle: String
 }
 
 input HomePageUpdateManyLocalizationDataInput {
+  blogPostsDescription: String
+  blogPostsTitle: String
   heading: String
+  servicesDescription: String
+  servicesTag: String
+  servicesTitle: String
   subHeading: String
+  toolsDescription: String
+  toolsTitle: String
 }
 
 input HomePageUpdateManyLocalizationInput {
@@ -3357,6 +4070,62 @@ input HomePageWhereInput {
 
   """Contains search across all appropriate fields."""
   _search: String
+  blogPostsDescription: String
+
+  """All values containing the given string."""
+  blogPostsDescription_contains: String
+
+  """All values ending with the given string."""
+  blogPostsDescription_ends_with: String
+
+  """All values that are contained in given list."""
+  blogPostsDescription_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  blogPostsDescription_not: String
+
+  """All values not containing the given string."""
+  blogPostsDescription_not_contains: String
+
+  """All values not ending with the given string"""
+  blogPostsDescription_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  blogPostsDescription_not_in: [String]
+
+  """All values not starting with the given string."""
+  blogPostsDescription_not_starts_with: String
+
+  """All values starting with the given string."""
+  blogPostsDescription_starts_with: String
+  blogPostsTitle: String
+
+  """All values containing the given string."""
+  blogPostsTitle_contains: String
+
+  """All values ending with the given string."""
+  blogPostsTitle_ends_with: String
+
+  """All values that are contained in given list."""
+  blogPostsTitle_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  blogPostsTitle_not: String
+
+  """All values not containing the given string."""
+  blogPostsTitle_not_contains: String
+
+  """All values not ending with the given string"""
+  blogPostsTitle_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  blogPostsTitle_not_in: [String]
+
+  """All values not starting with the given string."""
+  blogPostsTitle_not_starts_with: String
+
+  """All values starting with the given string."""
+  blogPostsTitle_starts_with: String
   callOut: CallOutWhereInput
   createdAt: DateTime
 
@@ -3466,6 +4235,93 @@ input HomePageWhereInput {
   scheduledIn_every: ScheduledOperationWhereInput
   scheduledIn_none: ScheduledOperationWhereInput
   scheduledIn_some: ScheduledOperationWhereInput
+  servicesDescription: String
+
+  """All values containing the given string."""
+  servicesDescription_contains: String
+
+  """All values ending with the given string."""
+  servicesDescription_ends_with: String
+
+  """All values that are contained in given list."""
+  servicesDescription_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  servicesDescription_not: String
+
+  """All values not containing the given string."""
+  servicesDescription_not_contains: String
+
+  """All values not ending with the given string"""
+  servicesDescription_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  servicesDescription_not_in: [String]
+
+  """All values not starting with the given string."""
+  servicesDescription_not_starts_with: String
+
+  """All values starting with the given string."""
+  servicesDescription_starts_with: String
+  servicesTag: String
+
+  """All values containing the given string."""
+  servicesTag_contains: String
+
+  """All values ending with the given string."""
+  servicesTag_ends_with: String
+
+  """All values that are contained in given list."""
+  servicesTag_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  servicesTag_not: String
+
+  """All values not containing the given string."""
+  servicesTag_not_contains: String
+
+  """All values not ending with the given string"""
+  servicesTag_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  servicesTag_not_in: [String]
+
+  """All values not starting with the given string."""
+  servicesTag_not_starts_with: String
+
+  """All values starting with the given string."""
+  servicesTag_starts_with: String
+  servicesTitle: String
+
+  """All values containing the given string."""
+  servicesTitle_contains: String
+
+  """All values ending with the given string."""
+  servicesTitle_ends_with: String
+
+  """All values that are contained in given list."""
+  servicesTitle_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  servicesTitle_not: String
+
+  """All values not containing the given string."""
+  servicesTitle_not_contains: String
+
+  """All values not ending with the given string"""
+  servicesTitle_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  servicesTitle_not_in: [String]
+
+  """All values not starting with the given string."""
+  servicesTitle_not_starts_with: String
+
+  """All values starting with the given string."""
+  servicesTitle_starts_with: String
+  services_every: ArticleWhereInput
+  services_none: ArticleWhereInput
+  services_some: ArticleWhereInput
   subHeading: String
 
   """All values containing the given string."""
@@ -3495,6 +4351,62 @@ input HomePageWhereInput {
   """All values starting with the given string."""
   subHeading_starts_with: String
   testimony: TestimonialWhereInput
+  toolsDescription: String
+
+  """All values containing the given string."""
+  toolsDescription_contains: String
+
+  """All values ending with the given string."""
+  toolsDescription_ends_with: String
+
+  """All values that are contained in given list."""
+  toolsDescription_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  toolsDescription_not: String
+
+  """All values not containing the given string."""
+  toolsDescription_not_contains: String
+
+  """All values not ending with the given string"""
+  toolsDescription_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  toolsDescription_not_in: [String]
+
+  """All values not starting with the given string."""
+  toolsDescription_not_starts_with: String
+
+  """All values starting with the given string."""
+  toolsDescription_starts_with: String
+  toolsTitle: String
+
+  """All values containing the given string."""
+  toolsTitle_contains: String
+
+  """All values ending with the given string."""
+  toolsTitle_ends_with: String
+
+  """All values that are contained in given list."""
+  toolsTitle_in: [String]
+
+  """Any other value that exists and is not equal to the given value."""
+  toolsTitle_not: String
+
+  """All values not containing the given string."""
+  toolsTitle_not_contains: String
+
+  """All values not ending with the given string"""
+  toolsTitle_not_ends_with: String
+
+  """All values that are not contained in given list."""
+  toolsTitle_not_in: [String]
+
+  """All values not starting with the given string."""
+  toolsTitle_not_starts_with: String
+
+  """All values starting with the given string."""
+  toolsTitle_starts_with: String
   updatedAt: DateTime
 
   """All values greater than the given value."""

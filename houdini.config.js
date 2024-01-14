@@ -16,6 +16,23 @@ const config = {
 			}
 		}
 	},
+	types: {
+		HomePage: {
+			keys: ['locale']
+		},
+		BlogPost: {
+			keys: ['locale', 'id']
+		},
+		Article: {
+			keys: ['locale', 'id']
+		},
+		CallOut: {
+			keys: ['locale', 'id']
+		},
+		Testimonial: {
+			keys: ['locale', 'id']
+		}
+	},
 	plugins: {
 		'houdini-svelte': {}
 	}

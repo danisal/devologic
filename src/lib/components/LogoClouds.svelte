@@ -1,9 +1,14 @@
+<script lang="ts">
+	export let title;
+	export let description;
+</script>
+
 <div class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
 			<div class="mx-auto w-full max-w-xl lg:mx-0">
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900">Work with the best toolkit</h2>
-				<p class="mt-6 text-lg leading-8 text-gray-600">These are a few of our favourite things</p>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900">{title}</h2>
+				<p class="mt-6 text-lg leading-8 text-gray-600">{description}</p>
 				<!-- <div class="mt-8 flex items-center gap-x-6">
 					<a
 						href="#"

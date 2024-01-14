@@ -18,10 +18,23 @@
 	<meta name="language" content="English" />
 </svelte:head>
 
-<Hero heading={$Home.data?.homePage?.heading ?? ''} subHeading={$Home.data?.homePage?.subHeading ?? ''} />
-<Feature />
-<Testimonial />
-<LogoClouds />
-<LearnMoreSection />
+<Hero heading={$Home?.data?.homePage?.heading ?? ''} subHeading={$Home?.data?.homePage?.subHeading ?? ''} />
+<Feature
+	tag={$Home?.data?.homePage?.servicesTag}
+	title={$Home?.data?.homePage?.servicesTitle}
+	description={$Home?.data?.homePage?.servicesDescription}
+	services={$Home?.data?.homePage?.services}
+/>
+<Testimonial testimony={$Home?.data?.homePage?.testimony} />
+<LogoClouds title={$Home?.data?.homePage?.toolsTitle} description={$Home?.data?.homePage?.toolsDescription} />
+<LearnMoreSection
+	title={$Home?.data?.homePage?.blogPostsTitle}
+	description={$Home?.data?.homePage?.blogPostsDescription}
+	posts={$Home?.data?.blogPosts}
+/>
 
-<CtaSection />
+<CtaSection
+	heading={$Home?.data?.homePage?.callOut?.heading}
+	subHeading={$Home?.data?.homePage?.callOut?.subHeading}
+	cta={$Home?.data?.homePage?.callOut?.cta}
+/>

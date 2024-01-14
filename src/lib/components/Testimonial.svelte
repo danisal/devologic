@@ -32,12 +32,12 @@
 					</svg>
 					<blockquote class="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
 						<p>
-							{testimony.testimony}
+							{testimony?.testimony ?? ''}
 						</p>
 					</blockquote>
 					<figcaption class="mt-8 text-base">
-						<div class="font-semibold text-white">{testimony.name}</div>
-						<div class="mt-1 text-gray-400">{testimony.position}</div>
+						<div class="font-semibold text-white">{testimony?.name ?? ''}</div>
+						<div class="mt-1 text-gray-400">{testimony?.position ?? ''}</div>
 					</figcaption>
 				</figure>
 			</div>

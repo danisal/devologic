@@ -8,13 +8,13 @@ export const load: LayoutServerLoad = async (event) => {
 		event.cookies.set('locale', DEFAULT_LANGUAGE, {
 			maxAge: 60 * 60 * 24 * 30,
 			path: '/',
-			sameSite: 'strict'
+			sameSite: 'strict',
 		});
 
 		locale = DEFAULT_LANGUAGE;
 	}
 
 	return {
-		locale
+		locale,
 	};
 };

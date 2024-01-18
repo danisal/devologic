@@ -3,7 +3,7 @@
 /** @type {import('houdini').ConfigFile} */
 const config = {
 	watchSchema: {
-		url: 'env:VITE_HYGRAPH_URL'
+		url: 'env:VITE_HYGRAPH_URL',
 	},
 	scalars: {
 		DateTime: {
@@ -13,29 +13,38 @@ const config = {
 			},
 			unmarshal(val) {
 				return new Date(val);
-			}
-		}
+			},
+		},
 	},
 	types: {
 		HomePage: {
-			keys: ['locale']
+			keys: ['locale'],
 		},
 		BlogPost: {
-			keys: ['locale', 'id']
+			keys: ['locale', 'id'],
 		},
 		Article: {
-			keys: ['locale', 'id']
+			keys: ['locale', 'id'],
 		},
 		CallOut: {
-			keys: ['locale', 'id']
+			keys: ['locale', 'id'],
 		},
 		Testimonial: {
-			keys: ['locale', 'id']
-		}
+			keys: ['locale', 'id'],
+		},
+		Layout: {
+			keys: ['locale', 'id'],
+		},
+		FooterLink: {
+			keys: ['locale', 'id'],
+		},
+		KeyValue: {
+			keys: ['locale', 'id'],
+		},
 	},
 	plugins: {
-		'houdini-svelte': {}
-	}
+		'houdini-svelte': {},
+	},
 };
 
 export default config;

@@ -9,6 +9,6 @@ export const load: PageLoad = async (event) => {
 	const locales = localesMap[locale as Locale];
 
 	return {
-		...(await load_Home({ event, variables: { locales: locales } }))
+		...(await load_Home({ event, variables: { locales: locales } })),
 	};
 };

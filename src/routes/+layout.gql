@@ -1,0 +1,22 @@
+query MainLayout($locales: [Locale!]!) {
+  layout(where: {name: "Main Layout"}, locales: $locales) {
+    id
+    name
+    locale
+    navBar
+    navBarCta
+    footerSentence
+    footerLinks {
+      id
+      locale
+      title
+      link {
+        id
+        locale
+        key
+        value
+      }
+    }
+    rights
+  }
+}

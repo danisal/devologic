@@ -22,6 +22,7 @@
 				class="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8"
 			>
 				<img
+					loading="lazy"
 					class="max-h-12 w-full object-contain object-left"
 					src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg"
 					alt="Tuple"
@@ -29,6 +30,7 @@
 					height="48"
 				/>
 				<img
+					loading="lazy"
 					class="max-h-12 w-full object-contain object-left"
 					src="https://tailwindui.com/img/logos/reform-logo-gray-900.svg"
 					alt="Reform"
@@ -36,6 +38,7 @@
 					height="48"
 				/>
 				<img
+					loading="lazy"
 					class="max-h-12 w-full object-contain object-left"
 					src="https://tailwindui.com/img/logos/savvycal-logo-gray-900.svg"
 					alt="SavvyCal"
@@ -43,6 +46,7 @@
 					height="48"
 				/>
 				<img
+					loading="lazy"
 					class="max-h-12 w-full object-contain object-left"
 					src="https://tailwindui.com/img/logos/laravel-logo-gray-900.svg"
 					alt="Laravel"
@@ -50,6 +54,7 @@
 					height="48"
 				/>
 				<img
+					loading="lazy"
 					class="max-h-12 w-full object-contain object-left"
 					src="https://tailwindui.com/img/logos/transistor-logo-gray-900.svg"
 					alt="Transistor"
@@ -57,6 +62,7 @@
 					height="48"
 				/>
 				<img
+					loading="lazy"
 					class="max-h-12 w-full object-contain object-left"
 					src="https://tailwindui.com/img/logos/statamic-logo-gray-900.svg"
 					alt="Statamic"

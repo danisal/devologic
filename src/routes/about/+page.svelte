@@ -1,5 +1,24 @@
-<script>
+<script lang="ts">
 	import CtaSection from '$lib/components/CTASection.svelte';
+	import type { PageData } from './$houdini';
+
+	export let data: PageData;
+
+	$: ({ About } = data);
+
+	function groupArrayIntoPairs(arr) {
+		const pairs = [];
+		for (let i = 0; i < arr.length; i += 2) {
+			if (arr[i + 1] !== undefined) {
+				pairs.push([arr[i], arr[i + 1]]);
+			} else {
+				pairs.push([arr[i]]);
+			}
+		}
+		return pairs;
+	}
+
+	$: valuesParagraphs = groupArrayIntoPairs($About.data.page.values.paragraphs);
 </script>
 
 <!-- Hero section -->
@@ -42,24 +61,27 @@
 			<div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
 				<div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
 					<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-						Crafting Digital Excellence at Devologic
+						{$About.data.page.heading}
 					</h1>
-					<p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-						At Devologic, we believe in the transformative power of digital innovation. Nestled at the intersection of
-						creativity and technology, we are more than a digital agency; we are architects of online experiences,
-						champions of brand elevation, and partners in your digital success story.
-					</p>
-					<p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-						Founded on the principles of excellence, integrity, and a client-centric approach, [Your Company Name] is a
-						team of passionate professionals dedicated to reshaping the way businesses thrive in the digital era. Our
-						journey is defined by a commitment to pushing boundaries, fostering innovation, and crafting solutions that
-						not only meet but exceed the evolving expectations of a dynamic online landscape.
-					</p>
-					<p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-						In every line of code we write, every pixel we perfect, and every strategy we deploy, there's a shared
-						commitment to making your digital aspirations a reality. Join us on this journey as we navigate the digital
-						realm together, turning possibilities into achievements, and aspirations into tangible results.
-					</p>
+					<div class="prose relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
+						{@html $About.data.page.mainParagraph.html}
+					</div>
+					<!--					<p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">-->
+					<!--						At Devologic, we believe in the transformative power of digital innovation. Nestled at the intersection of-->
+					<!--						creativity and technology, we are more than a digital agency; we are architects of online experiences,-->
+					<!--						champions of brand elevation, and partners in your digital success story.-->
+					<!--					</p>-->
+					<!--					<p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">-->
+					<!--						Founded on the principles of excellence, integrity, and a client-centric approach, [Your Company Name] is a-->
+					<!--						team of passionate professionals dedicated to reshaping the way businesses thrive in the digital era. Our-->
+					<!--						journey is defined by a commitment to pushing boundaries, fostering innovation, and crafting solutions that-->
+					<!--						not only meet but exceed the evolving expectations of a dynamic online landscape.-->
+					<!--					</p>-->
+					<!--					<p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">-->
+					<!--						In every line of code we write, every pixel we perfect, and every strategy we deploy, there's a shared-->
+					<!--						commitment to making your digital aspirations a reality. Join us on this journey as we navigate the digital-->
+					<!--						realm together, turning possibilities into achievements, and aspirations into tangible results.-->
+					<!--					</p>-->
 				</div>
 				<div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
 					<div
@@ -116,32 +138,21 @@
 	</div>
 </div>
 
-<!-- Content section -->
+<!-- Mission section -->
 <div class="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
 	<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our mission</h2>
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{$About.data.page.mission.title}</h2>
 		<div class="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
 			<div class="lg:w-full lg:max-w-2xl lg:flex-auto">
 				<p class="text-xl leading-8 text-gray-600">
-					At Devologic, we are driven by a profound commitment to redefine the digital landscape. Our mission is to
-					empower businesses, large and small, with innovative and tailored solutions that propel them towards sustained
-					success in the ever-evolving digital world. We believe in the transformative power of technology to not only
-					enhance brand presence but also to create meaningful connections and drive measurable impact.
+					{$About.data.page.mission.paragraphs[0]}
 				</p>
 				<div class="mt-10 max-w-xl text-base leading-7 text-gray-700">
 					<p>
-						Guided by the principles of excellence, integrity, and client-centricity, we strive to be more than a
-						service provider – we aim to be a strategic partner on your digital journey. Our relentless pursuit of
-						quality and creativity fuels our endeavors to craft digital experiences that resonate with audiences,
-						inspire engagement, and yield tangible results. We understand that behind every digital venture is a unique
-						story, and our mission is to bring that narrative to life with precision and passion.
+						{$About.data.page.mission.paragraphs[1]}
 					</p>
 					<p class="mt-10">
-						As stewards of innovation, we embrace the responsibility to contribute positively to the broader community
-						and environment. Our mission extends beyond business success; we are committed to leveraging our expertise
-						for the betterment of society. At Devologic, our mission is not just a statement; it's a guiding force that
-						propels us forward, shaping a future where businesses thrive, connections flourish, and digital
-						possibilities are limitless.
+						{$About.data.page.mission.paragraphs[2]}
 					</p>
 				</div>
 			</div>
@@ -168,6 +179,7 @@
 <!-- Image section -->
 <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
 	<img
+		loading="lazy"
 		src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
 		alt=""
 		class="aspect-[5/2] w-full object-cover xl:rounded-3xl"
@@ -177,68 +189,20 @@
 <!-- Values section -->
 <div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
 	<div class="mx-auto max-w-2xl lg:mx-0">
-		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our values</h2>
-		<p class="mt-6 text-lg leading-8 text-gray-600">These are the principles that your digital agency stands for:</p>
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{$About.data.page.values.title}</h2>
+		<p class="mt-6 text-lg leading-8 text-gray-600">{$About.data.page.values.subTitle}</p>
 	</div>
 	<dl
 		class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 	>
-		<div>
-			<dt class="font-semibold text-gray-900">Commitment to Excellence</dt>
-			<dd class="mt-1 text-gray-600">
-				At Devologic, we believe in the relentless pursuit of excellence. We set the bar high for our team, our
-				services, and our impact. From crafting visually stunning websites to implementing cutting-edge digital
-				strategies, we are committed to delivering nothing but the best.
-			</dd>
-		</div>
-		<div>
-			<dt class="font-semibold text-gray-900">Innovation and Creativity</dt>
-			<dd class="mt-1 text-gray-600">
-				Innovation is at the heart of our DNA. In a fast-evolving digital landscape, we thrive on pushing boundaries and
-				exploring new creative horizons. Our team is a powerhouse of ideas, always striving to bring fresh perspectives
-				to every project.
-			</dd>
-		</div>
-		<div>
-			<dt class="font-semibold text-gray-900">Client-Centric Approach</dt>
-			<dd class="mt-1 text-gray-600">
-				At Devologic, we consider ourselves partners in our clients' success stories. Our client-centric approach means
-				that we actively listen, understand unique requirements, and go above and beyond to exceed expectations. Your
-				goals are our goals.
-			</dd>
-		</div>
-		<div>
-			<dt class="font-semibold text-gray-900">Integrity and Transparency</dt>
-			<dd class="mt-1 text-gray-600">
-				Integrity is the foundation of our business. We operate with transparency, honesty, and ethical conduct in all
-				our interactions. Trust is earned, and we are committed to earning it every day through our actions and the
-				quality of our work.
-			</dd>
-		</div>
-		<div>
-			<dt class="font-semibold text-gray-900">Collaborative Teamwork</dt>
-			<dd class="mt-1 text-gray-600">
-				Teamwork is the driving force behind our success. We celebrate diversity and believe in the power of
-				collaboration. Every team member brings unique talents and insights, and by working together, we create a
-				synergy that propels us toward excellence.
-			</dd>
-		</div>
-		<div>
-			<dt class="font-semibold text-gray-900">Continuous Learning</dt>
-			<dd class="mt-1 text-gray-600">
-				In the ever-evolving digital realm, learning is a lifelong journey. We foster a culture of continuous learning,
-				where every team member is encouraged to explore new technologies, stay informed about industry trends, and
-				invest in personal and professional growth.
-			</dd>
-		</div>
-		<div>
-			<dt class="font-semibold text-gray-900">Social Responsibility</dt>
-			<dd class="mt-1 text-gray-600">
-				Beyond business success, we recognize our responsibility to make a positive impact on the world. From
-				environmentally conscious practices to community engagement, we are committed to contributing to a better and
-				more sustainable future.
-			</dd>
-		</div>
+		{#each valuesParagraphs as [title, paragraph]}
+			<div>
+				<dt class="font-semibold text-gray-900">{title}</dt>
+				<dd class="mt-1 text-gray-600">
+					{paragraph}
+				</dd>
+			</div>
+		{/each}
 	</dl>
 </div>
 
@@ -275,6 +239,7 @@
 			class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5"
 		>
 			<img
+				loading="lazy"
 				class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
 				src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
 				alt="Transistor"
@@ -282,6 +247,7 @@
 				height="48"
 			/>
 			<img
+				loading="lazy"
 				class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
 				src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
 				alt="Reform"
@@ -289,6 +255,7 @@
 				height="48"
 			/>
 			<img
+				loading="lazy"
 				class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
 				src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
 				alt="Tuple"
@@ -296,6 +263,7 @@
 				height="48"
 			/>
 			<img
+				loading="lazy"
 				class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
 				src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
 				alt="SavvyCal"
@@ -303,6 +271,7 @@
 				height="48"
 			/>
 			<img
+				loading="lazy"
 				class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
 				src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
 				alt="Statamic"
@@ -316,10 +285,9 @@
 <!-- Team section -->
 <div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-48 lg:px-8">
 	<div class="mx-auto max-w-2xl lg:mx-0">
-		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our team</h2>
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{$About.data.page.team.title}</h2>
 		<p class="mt-6 text-lg leading-8 text-gray-600">
-			Sit facilis neque ab nulla vel. Cum eos in laudantium. Temporibus eos totam in dolorum. Nemo vel facere
-			repellendus ut eos dolores similique.
+			{$About.data.page.team.subTitle}
 		</p>
 	</div>
 	<ul
@@ -328,6 +296,7 @@
 	>
 		<li>
 			<img
+				loading="lazy"
 				class="mx-auto h-24 w-24 rounded-full"
 				src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
 				alt=""
@@ -341,51 +310,57 @@
 </div>
 
 <!-- Blog section -->
-<div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
-	<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
-		<p class="mt-2 text-lg leading-8 text-gray-600">Vel dolorem qui facilis soluta sint aspernatur totam cumque.</p>
-	</div>
-	<div
-		class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-	>
-		<article
-			class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
-		>
-			<img
-				src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
-				alt=""
-				class="absolute inset-0 -z-10 h-full w-full object-cover"
-			/>
-			<div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-			<div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+<!--<div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">-->
+<!--	<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">-->
+<!--		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>-->
+<!--		<p class="mt-2 text-lg leading-8 text-gray-600">Vel dolorem qui facilis soluta sint aspernatur totam cumque.</p>-->
+<!--	</div>-->
+<!--	<div-->
+<!--		class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"-->
+<!--	>-->
+<!--		<article-->
+<!--			class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"-->
+<!--		>-->
+<!--			<img-->
+<!--				loading="lazy"-->
+<!--				src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"-->
+<!--				alt=""-->
+<!--				class="absolute inset-0 -z-10 h-full w-full object-cover"-->
+<!--			/>-->
+<!--			<div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>-->
+<!--			<div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>-->
 
-			<div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-				<time datetime="2020-03-16" class="mr-8">Mar 16, 2020</time>
-				<div class="-ml-4 flex items-center gap-x-4">
-					<svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
-						<circle cx="1" cy="1" r="1" />
-					</svg>
-					<div class="flex gap-x-2.5">
-						<img
-							src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-							alt=""
-							class="h-6 w-6 flex-none rounded-full bg-white/10"
-						/>
-						Michael Foster
-					</div>
-				</div>
-			</div>
-			<h3 class="mt-3 text-lg font-semibold leading-6 text-white">
-				<a href="#">
-					<span class="absolute inset-0"></span>
-					Vel expedita assumenda placeat aut nisi optio voluptates quas
-				</a>
-			</h3>
-		</article>
+<!--			<div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">-->
+<!--				<time datetime="2020-03-16" class="mr-8">Mar 16, 2020</time>-->
+<!--				<div class="-ml-4 flex items-center gap-x-4">-->
+<!--					<svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">-->
+<!--						<circle cx="1" cy="1" r="1" />-->
+<!--					</svg>-->
+<!--					<div class="flex gap-x-2.5">-->
+<!--						<img-->
+<!--							loading="lazy"-->
+<!--							src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"-->
+<!--							alt=""-->
+<!--							class="h-6 w-6 flex-none rounded-full bg-white/10"-->
+<!--						/>-->
+<!--						Michael Foster-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<h3 class="mt-3 text-lg font-semibold leading-6 text-white">-->
+<!--				<a href="#">-->
+<!--					<span class="absolute inset-0"></span>-->
+<!--					Vel expedita assumenda placeat aut nisi optio voluptates quas-->
+<!--				</a>-->
+<!--			</h3>-->
+<!--		</article>-->
 
-		<!-- More posts... -->
-	</div>
-</div>
+<!--		&lt;!&ndash; More posts... &ndash;&gt;-->
+<!--	</div>-->
+<!--</div>-->
 
-<CtaSection />
+<CtaSection
+	cta={$About.data.page.cta.cta}
+	heading={$About.data.page.cta.heading}
+	subHeading={$About.data.page.cta.subHeading}
+/>

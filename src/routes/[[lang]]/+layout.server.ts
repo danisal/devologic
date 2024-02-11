@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from './$types';
-import { DEFAULT_LANGUAGE } from '../utils/locale';
+import { DEFAULT_LANGUAGE } from '../../utils/locale';
 
 export const load: LayoutServerLoad = async (event) => {
 	let locale = event.cookies.get('locale');

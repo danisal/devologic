@@ -1,4 +1,4 @@
-query Services {
+query ServicesData {
 	marketing: blogPosts(where: { tag: "Marketing" }) {
 		id
 		name

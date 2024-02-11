@@ -1,7 +1,7 @@
-import type { PageLoad } from './$houdini';
+import type { PageLoad } from '../../../../$houdini/types/src/routes';
 import { load_About } from '$houdini';
 
-import { type Locale, localesMap } from '../../utils/locale';
+import { type Locale, localesMap } from '../../../utils/locale';
 
 export const load: PageLoad = async (event) => {
 	const parent = await event.parent();

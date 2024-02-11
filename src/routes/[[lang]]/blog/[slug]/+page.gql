@@ -1,5 +1,5 @@
-query BlogPost($slug: String, $language:Locale!) {
-  blogPosts(where: {url_contains: $slug}, locales: [$language, en]) {
+query BlogPost($slug: String, $locales: [Locale!]!) {
+  blogPosts(where: {url_contains: $slug}, locales: $locales) {
     id
     name
     tag

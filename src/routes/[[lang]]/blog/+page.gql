@@ -1,5 +1,5 @@
-query BlogPosts($language: Locale!) {
-  blogPostsConnection(first: 10, locales: [$language, en]) {
+query BlogPosts($locales: [Locale!]!) {
+  blogPostsConnection(first: 10, locales: $locales) {
     pageInfo {
       pageSize
       hasNextPage

@@ -5,6 +5,8 @@ export const actions = {
 		const data = await request.formData();
 		const locale = data.get('locale');
 
+		console.log('set locale', data, locale);
+
 		if (!locale) {
 			return;
 		}
@@ -12,7 +14,7 @@ export const actions = {
 		cookies.set('locale', locale.toString(), {
 			maxAge: 60 * 60 * 24 * 30,
 			path: '/',
-			sameSite: 'strict'
+			sameSite: 'strict',
 		});
-	}
+	},
 } satisfies Actions;

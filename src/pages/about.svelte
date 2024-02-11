@@ -1,24 +1,8 @@
-<script lang="ts">
+<script>
 	import CtaSection from '$lib/components/CTASection.svelte';
-	import type { PageData } from './$houdini';
 
-	export let data: PageData;
-
-	$: ({ About } = data);
-
-	function groupArrayIntoPairs(arr) {
-		const pairs = [];
-		for (let i = 0; i < arr.length; i += 2) {
-			if (arr[i + 1] !== undefined) {
-				pairs.push([arr[i], arr[i + 1]]);
-			} else {
-				pairs.push([arr[i]]);
-			}
-		}
-		return pairs;
-	}
-
-	$: valuesParagraphs = groupArrayIntoPairs($About.data.page.values.paragraphs);
+	export let valuesParagraphs;
+	export let page;
 </script>
 
 <!-- Hero section -->
@@ -61,10 +45,10 @@
 			<div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
 				<div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
 					<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-						{$About.data.page.heading}
+						{page.heading}
 					</h1>
 					<div class="prose relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-						{@html $About.data.page.mainParagraph.html}
+						{@html page.mainParagraph.html}
 					</div>
 					<!--					<p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">-->
 					<!--						At Devologic, we believe in the transformative power of digital innovation. Nestled at the intersection of-->
@@ -141,18 +125,18 @@
 <!-- Mission section -->
 <div class="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
 	<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{$About.data.page.mission.title}</h2>
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{page.mission.title}</h2>
 		<div class="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
 			<div class="lg:w-full lg:max-w-2xl lg:flex-auto">
 				<p class="text-xl leading-8 text-gray-600">
-					{$About.data.page.mission.paragraphs[0]}
+					{page.mission.paragraphs[0]}
 				</p>
 				<div class="mt-10 max-w-xl text-base leading-7 text-gray-700">
 					<p>
-						{$About.data.page.mission.paragraphs[1]}
+						{page.mission.paragraphs[1]}
 					</p>
 					<p class="mt-10">
-						{$About.data.page.mission.paragraphs[2]}
+						{page.mission.paragraphs[2]}
 					</p>
 				</div>
 			</div>
@@ -189,8 +173,8 @@
 <!-- Values section -->
 <div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
 	<div class="mx-auto max-w-2xl lg:mx-0">
-		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{$About.data.page.values.title}</h2>
-		<p class="mt-6 text-lg leading-8 text-gray-600">{$About.data.page.values.subTitle}</p>
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{page.values.title}</h2>
+		<p class="mt-6 text-lg leading-8 text-gray-600">{page.values.subTitle}</p>
 	</div>
 	<dl
 		class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
@@ -285,9 +269,9 @@
 <!-- Team section -->
 <div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-48 lg:px-8">
 	<div class="mx-auto max-w-2xl lg:mx-0">
-		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{$About.data.page.team.title}</h2>
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{page.team.title}</h2>
 		<p class="mt-6 text-lg leading-8 text-gray-600">
-			{$About.data.page.team.subTitle}
+			{page.team.subTitle}
 		</p>
 	</div>
 	<ul
@@ -359,8 +343,4 @@
 <!--	</div>-->
 <!--</div>-->
 
-<CtaSection
-	cta={$About.data.page.cta.cta}
-	heading={$About.data.page.cta.heading}
-	subHeading={$About.data.page.cta.subHeading}
-/>
+<CtaSection cta={page.cta.cta} heading={page.cta.heading} subHeading={page.cta.subHeading} />

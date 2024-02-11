@@ -1,10 +1,7 @@
-<script lang="ts">
-	import type { PageServerData } from './$houdini';
+<script>
 	import { format } from 'date-fns';
 
-	export let data: PageServerData;
-
-	$: ({ edges } = data?.blogPostsConnection ?? { edges: [] });
+	export let edges;
 </script>
 
 <div class="bg-white py-24 sm:py-32">

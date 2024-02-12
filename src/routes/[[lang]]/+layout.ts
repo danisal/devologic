@@ -1,14 +1,16 @@
 import type { LayoutLoad } from './$houdini';
 import { load_MainLayout } from '$houdini';
-import { type Locale, localesMap } from '../../utils/locale';
+import { type Language, localesMap } from '../../utils/locale';
 
 export const load: LayoutLoad = async (event) => {
-	const { locale } = event.data;
+	const lang = (event.params.lang ?? 'en') as Language;
+	const locales = localesMap[lang];
 
-	const locales = localesMap[locale as Locale];
+	console.log({ lang, locales });
 
 	return {
-		locale,
-		...(await load_MainLayout({ event, variables: { locales: locales } })),
+		locales,
+		lang,
+		...(await load_MainLayout({ event, variables: { locales } })),
 	};
 };

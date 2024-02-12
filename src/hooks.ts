@@ -1,12 +1,12 @@
 import type { Reroute } from '@sveltejs/kit';
 
 const translated: Record<string, string> = {
-	'/about': '/about',
-	'/sobre': '/about',
+	'/pt/sobre': '/about',
+	'/pt/servicos': '/services',
+	'/pt/politica-privacidade': '/privacy-policy',
+	'/pt/contacto': '/contact',
 };
-export const reroute: Reroute = ({ url, ...rest }) => {
-	console.log('reroute', rest);
-
+export const reroute: Reroute = ({ url }) => {
 	if (url.pathname in translated) {
 		return translated[url.pathname];
 	}

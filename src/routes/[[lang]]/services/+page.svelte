@@ -6,9 +6,11 @@
 	$: ({ ServicesData } = data);
 </script>
 
-<Services
-	eCommerce={$ServicesData.data.eCommerce}
-	marketing={$ServicesData.data.marketing}
-	seo={$ServicesData.data.seo}
-	socialMedia={$ServicesData.data.socialMedia}
-/>
+{#if $ServicesData.data}
+	<Services
+		eCommerce={$ServicesData.data.eCommerce}
+		marketing={$ServicesData.data.marketing}
+		seo={$ServicesData.data.seo}
+		socialMedia={$ServicesData.data.socialMedia}
+	/>
+{/if}

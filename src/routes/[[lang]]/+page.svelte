@@ -12,4 +12,6 @@
 	<meta name="language" content="English" />
 </svelte:head>
 
-<HomePage blogPosts={$Home.data.blogPosts} homePage={$Home.data.homePage} />
+{#if $Home.data}
+	<HomePage blogPosts={$Home.data.blogPosts} homePage={$Home.data.homePage} />
+{/if}

@@ -1,30 +1,30 @@
-query ServicesData {
-	marketing: blogPosts(where: { tag: "Marketing" }) {
-		id
-		name
-		tag
-		url
-		description
-	}
-	eCommerce: blogPosts(where: { tag: "E-Commerce" }) {
-		id
-		name
-		tag
-		url
-		description
-	}
-	seo: blogPosts(where: { tag: "Search Engine Optimization" }) {
-		id
-		name
-		tag
-		url
-		description
-	}
-	socialMedia: blogPosts(where: { tag: "Social Media Management" }) {
-		id
-		name
-		tag
-		url
-		description
-	}
+query ServicesData($locales: [Locale!]!) {
+  marketing: blogPosts(where: { tag: "Marketing" }, locales:$locales) {
+    id
+    name
+    tag
+    url
+    description
+  }
+  eCommerce: blogPosts(where: { tag: "E-Commerce" }, locales:$locales) {
+    id
+    name
+    tag
+    url
+    description
+  }
+  seo: blogPosts(where: { tag: "Search Engine Optimization" }, locales:$locales) {
+    id
+    name
+    tag
+    url
+    description
+  }
+  socialMedia: blogPosts(where: { tag: "Social Media Management" }, locales:$locales) {
+    id
+    name
+    tag
+    url
+    description
+  }
 }

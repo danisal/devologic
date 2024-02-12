@@ -1,21 +1,18 @@
-export const AVAILABLE_LOCALES = ['en', 'pt_PT'] as const;
-
 export const languages = [
 	{
 		value: 'en',
-		label: 'English'
+		label: 'English',
 	},
 	{
-		value: 'pt_PT',
-		label: 'Português'
-	}
-] satisfies { value: Locale; label: string }[];
+		value: 'pt',
+		label: 'Português',
+	},
+] satisfies { value: Language; label: string }[];
 
-export const DEFAULT_LANGUAGE = AVAILABLE_LOCALES[0];
-
-export type Locale = (typeof AVAILABLE_LOCALES)[number];
+export type Language = keyof typeof localesMap;
+export type Locale = (typeof localesMap)[Language];
 
 export const localesMap = {
 	en: ['en'],
-	pt_PT: ['pt_PT', 'en']
-} satisfies Record<Locale, Locale[]>;
+	pt: ['pt_PT', 'en'],
+} as const;

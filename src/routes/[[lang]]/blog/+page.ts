@@ -1,11 +1,11 @@
 import { load_BlogPosts } from '$houdini';
-import type { LoadEvent } from '@sveltejs/kit';
+import type { PageLoad } from './$houdini';
 
-export async function load(event: LoadEvent) {
+export const load: PageLoad = async (event) => {
 	const parent = await event.parent();
 	const { locales } = parent;
 
 	return {
 		...(await load_BlogPosts({ event, variables: { locales } })),
 	};
-}
+};

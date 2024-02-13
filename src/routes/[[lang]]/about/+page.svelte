@@ -21,4 +21,6 @@
 	$: valuesParagraphs = groupArrayIntoPairs($About.data.page.values.paragraphs);
 </script>
 
-<AboutPage {valuesParagraphs} page={$About.data.page} />
+{#if $About.data}
+	<AboutPage {valuesParagraphs} page={$About.data.page} />
+{/if}

@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { Building2, Mail, Phone } from 'lucide-svelte';
 
-	console.log($$props);
-
 	export let heading: string;
 	export let paragraph: string;
 	export let firstName: string;

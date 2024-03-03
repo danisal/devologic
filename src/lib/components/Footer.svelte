@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Linkedin, Facebook, Instagram, Twitter } from 'lucide-svelte';
-	import { type Language, languages } from '../../utils/locale.js';
+	import { type Language, languages } from '@/utils/locale';
 	import { goto } from '$app/navigation';
 
 	export let lang: Language;

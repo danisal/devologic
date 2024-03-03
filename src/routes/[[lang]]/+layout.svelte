@@ -9,12 +9,11 @@
 	$: ({ MainLayout } = data);
 </script>
 
-<Header />
-<main>
-	<slot />
-</main>
-
 {#if $MainLayout.data}
+	<Header headerLinks={$MainLayout.data.layout.headerLinks} headerCta={$MainLayout.data.layout.headerCta} />
+	<main>
+		<slot />
+	</main>
 	<Footer
 		lang={data.lang}
 		sentence={$MainLayout.data.layout.footerSentence}

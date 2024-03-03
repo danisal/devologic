@@ -3,8 +3,18 @@ query MainLayout($locales: [Locale!]!) {
     id
     name
     locale
-    navBar
-    navBarCta
+    headerLinks{
+      id
+      locale
+      name: key
+      link: value
+    }
+    headerCta {
+      id
+      locale
+      name: key
+      link: value
+    }
     footerSentence
     footerLinks {
       id

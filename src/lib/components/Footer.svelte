@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { Linkedin, Facebook, Instagram, Twitter } from 'lucide-svelte';
-	import { enhance } from '$app/forms';
-	import { type Language, languages, type Locale } from '../../utils/locale.js';
+	import { type Language, languages } from '../../utils/locale.js';
 	import { goto } from '$app/navigation';
 
-	let form;
 	export let lang: Language;
 	export let rights: string;
 	export let sentence: string;
@@ -13,7 +11,6 @@
 	const year = new Date().getFullYear();
 	let selectedLanguage;
 	function handleLanguageSelect() {
-		console.log(selectedLanguage);
 		return selectedLanguage === 'pt' ? goto('/pt') : goto('/');
 	}
 </script>

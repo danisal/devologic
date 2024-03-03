@@ -5248,58 +5248,81 @@ enum KeyValueOrderByInput {
   value_DESC
 }
 
-union KeyValueParent = FooterLink
+union KeyValueParent = FooterLink | Layout
 
 input KeyValueParentConnectInput {
   FooterLink: FooterLinkConnectInput
+  Layout: LayoutConnectInput
 }
 
 input KeyValueParentCreateInput {
   FooterLink: FooterLinkCreateInput
+  Layout: LayoutCreateInput
 }
 
 input KeyValueParentCreateManyInlineInput {
+  """Connect multiple existing KeyValueParent documents"""
+  connect: [KeyValueParentWhereUniqueInput!]
+
   """Create and connect multiple existing KeyValueParent documents"""
   create: [KeyValueParentCreateInput!]
 }
 
 input KeyValueParentCreateOneInlineInput {
+  """Connect one existing KeyValueParent document"""
+  connect: KeyValueParentWhereUniqueInput
+
   """Create and connect one KeyValueParent document"""
   create: KeyValueParentCreateInput
 }
 
-input KeyValueParentCreateWithPositionInput {
-  FooterLink: FooterLinkCreateWithPositionInput
-}
-
 input KeyValueParentUpdateInput {
   FooterLink: FooterLinkUpdateInput
+  Layout: LayoutUpdateInput
 }
 
 input KeyValueParentUpdateManyInlineInput {
-  """Create and connect multiple KeyValueParent component instances"""
-  create: [KeyValueParentCreateWithPositionInput!]
+  """Connect multiple existing KeyValueParent documents"""
+  connect: [KeyValueParentConnectInput!]
+
+  """Create and connect multiple KeyValueParent documents"""
+  create: [KeyValueParentCreateInput!]
 
   """Delete multiple KeyValueParent documents"""
   delete: [KeyValueParentWhereUniqueInput!]
 
-  """Update multiple KeyValueParent component instances"""
-  update: [KeyValueParentUpdateWithNestedWhereUniqueAndPositionInput!]
+  """Disconnect multiple KeyValueParent documents"""
+  disconnect: [KeyValueParentWhereUniqueInput!]
 
-  """Upsert multiple KeyValueParent component instances"""
-  upsert: [KeyValueParentUpsertWithNestedWhereUniqueAndPositionInput!]
+  """
+  Override currently-connected documents with multiple existing KeyValueParent documents
+  """
+  set: [KeyValueParentWhereUniqueInput!]
+
+  """Update multiple KeyValueParent documents"""
+  update: [KeyValueParentUpdateWithNestedWhereUniqueInput!]
+
+  """Upsert multiple KeyValueParent documents"""
+  upsert: [KeyValueParentUpsertWithNestedWhereUniqueInput!]
 }
 
 input KeyValueParentUpdateManyWithNestedWhereInput {
   FooterLink: FooterLinkUpdateManyWithNestedWhereInput
+  Layout: LayoutUpdateManyWithNestedWhereInput
 }
 
 input KeyValueParentUpdateOneInlineInput {
+  """Connect existing KeyValueParent document"""
+  connect: KeyValueParentWhereUniqueInput
+
   """Create and connect one KeyValueParent document"""
   create: KeyValueParentCreateInput
 
   """Delete currently connected KeyValueParent document"""
   delete: Boolean
+
+  """Disconnect currently connected KeyValueParent document"""
+  disconnect: Boolean
 
   """Update single KeyValueParent document"""
   update: KeyValueParentUpdateWithNestedWhereUniqueInput
@@ -5308,28 +5331,24 @@ input KeyValueParentUpdateOneInlineInput {
   upsert: KeyValueParentUpsertWithNestedWhereUniqueInput
 }
 
-input KeyValueParentUpdateWithNestedWhereUniqueAndPositionInput {
-  FooterLink: FooterLinkUpdateWithNestedWhereUniqueAndPositionInput
-}
-
 input KeyValueParentUpdateWithNestedWhereUniqueInput {
   FooterLink: FooterLinkUpdateWithNestedWhereUniqueInput
-}
-
-input KeyValueParentUpsertWithNestedWhereUniqueAndPositionInput {
-  FooterLink: FooterLinkUpsertWithNestedWhereUniqueAndPositionInput
+  Layout: LayoutUpdateWithNestedWhereUniqueInput
 }
 
 input KeyValueParentUpsertWithNestedWhereUniqueInput {
   FooterLink: FooterLinkUpsertWithNestedWhereUniqueInput
+  Layout: LayoutUpsertWithNestedWhereUniqueInput
 }
 
 input KeyValueParentWhereInput {
   FooterLink: FooterLinkWhereInput
+  Layout: LayoutWhereInput
 }
 
 input KeyValueParentWhereUniqueInput {
   FooterLink: FooterLinkWhereUniqueInput
+  Layout: LayoutWhereUniqueInput
 }
 
 input KeyValueUpdateInput {
@@ -5665,6 +5684,60 @@ type Layout implements Entity & Node {
   ): [FooterLink!]!
   footerSentence: String
 
+  """The navigation bar call to action"""
+  headerCta(
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `headerCta` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `headerCta` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+  ): KeyValue
+
+  """Navigation Links"""
+  headerLinks(
+    after: String
+    before: String
+    first: Int
+
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `headerLinks` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+    last: Int
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `headerLinks` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+    orderBy: KeyValueOrderByInput
+    skip: Int
+    where: KeyValueWhereInput
+  ): [KeyValue!]!
+
   """List of Layout versions"""
   history(
     limit: Int! = 10
@@ -5703,12 +5776,6 @@ type Layout implements Entity & Node {
 
   """Layout name"""
   name: String!
-
-  """Entries on the navigation bar"""
-  navBar: [String!]!
-
-  """Navigation bar call to action button label"""
-  navBarCta: String
 
   """The time the document was published. Null on documents in draft stage."""
   publishedAt(
@@ -5832,18 +5899,14 @@ input LayoutCreateInput {
 
   """footerSentence input for default locale (en)"""
   footerSentence: String
+  headerCta: KeyValueCreateOneInlineInput
+  headerLinks: KeyValueCreateManyInlineInput
 
   """
   Inline mutations for managing document localizations excluding the default locale
   """
   localizations: LayoutCreateLocalizationsInput
   name: String!
-
-  """navBar input for default locale (en)"""
-  navBar: [String!]
-
-  """navBarCta input for default locale (en)"""
-  navBarCta: String
 
   """rights input for default locale (en)"""
   rights: String
@@ -5853,8 +5916,6 @@ input LayoutCreateInput {
 input LayoutCreateLocalizationDataInput {
   createdAt: DateTime
   footerSentence: String
-  navBar: [String!]
-  navBarCta: String
   rights: String
   updatedAt: DateTime
 }
@@ -5937,6 +5998,10 @@ input LayoutManyWhereInput {
   footerLinks_every: FooterLinkWhereInput
   footerLinks_none: FooterLinkWhereInput
   footerLinks_some: FooterLinkWhereInput
+  headerCta: KeyValueWhereInput
+  headerLinks_every: KeyValueWhereInput
+  headerLinks_none: KeyValueWhereInput
+  headerLinks_some: KeyValueWhereInput
   id: ID
 
   """All values containing the given string."""
@@ -6053,10 +6118,6 @@ enum LayoutOrderByInput {
   id_DESC
   name_ASC
   name_DESC
-  navBarCta_ASC
-  navBarCta_DESC
-  navBar_ASC
-  navBar_DESC
   publishedAt_ASC
   publishedAt_DESC
   rights_ASC
@@ -6070,16 +6131,12 @@ input LayoutUpdateInput {
 
   """footerSentence input for default locale (en)"""
   footerSentence: String
+  headerCta: KeyValueUpdateOneInlineInput
+  headerLinks: KeyValueUpdateManyInlineInput
 
   """Manage document localizations"""
   localizations: LayoutUpdateLocalizationsInput
   name: String
-
-  """navBar input for default locale (en)"""
-  navBar: [String!]
-
-  """navBarCta input for default locale (en)"""
-  navBarCta: String
 
   """rights input for default locale (en)"""
   rights: String
@@ -6087,8 +6144,6 @@ input LayoutUpdateInput {
 
 input LayoutUpdateLocalizationDataInput {
   footerSentence: String
-  navBar: [String!]
-  navBarCta: String
   rights: String
 }
 
@@ -6141,20 +6196,12 @@ input LayoutUpdateManyInput {
   """Optional updates to localizations"""
   localizations: LayoutUpdateManyLocalizationsInput
 
-  """navBar input for default locale (en)"""
-  navBar: [String!]
-
-  """navBarCta input for default locale (en)"""
-  navBarCta: String
-
   """rights input for default locale (en)"""
   rights: String
 }
 
 input LayoutUpdateManyLocalizationDataInput {
   footerSentence: String
-  navBar: [String!]
-  navBarCta: String
   rights: String
 }
 
@@ -6306,6 +6353,10 @@ input LayoutWhereInput {
 
   """All values starting with the given string."""
   footerSentence_starts_with: String
+  headerCta: KeyValueWhereInput
+  headerLinks_every: KeyValueWhereInput
+  headerLinks_none: KeyValueWhereInput
+  headerLinks_some: KeyValueWhereInput
   id: ID
 
   """All values containing the given string."""
@@ -6362,57 +6413,6 @@ input LayoutWhereInput {
 
   """All values starting with the given string."""
   name_starts_with: String
-
-  """
-  Matches if the field array contains *all* items provided to the filter and order does match
-  """
-  navBar: [String!]
-  navBarCta: String
-
-  """All values containing the given string."""
-  navBarCta_contains: String
-
-  """All values ending with the given string."""
-  navBarCta_ends_with: String
-
-  """All values that are contained in given list."""
-  navBarCta_in: [String]
-
-  """Any other value that exists and is not equal to the given value."""
-  navBarCta_not: String
-
-  """All values not containing the given string."""
-  navBarCta_not_contains: String
-
-  """All values not ending with the given string"""
-  navBarCta_not_ends_with: String
-
-  """All values that are not contained in given list."""
-  navBarCta_not_in: [String]
-
-  """All values not starting with the given string."""
-  navBarCta_not_starts_with: String
-
-  """All values starting with the given string."""
-  navBarCta_starts_with: String
-
-  """Matches if the field array contains *all* items provided to the filter"""
-  navBar_contains_all: [String!]
-
-  """
-  Matches if the field array does not contain any of the items provided to the filter
-  """
-  navBar_contains_none: [String!]
-
-  """
-  Matches if the field array contains at least one item provided to the filter
-  """
-  navBar_contains_some: [String!]
-
-  """
-  Matches if the field array does not contains *all* items provided to the filter or order does not match
-  """
-  navBar_not: [String!]
   publishedAt: DateTime
 
   """All values greater than the given value."""

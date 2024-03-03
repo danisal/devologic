@@ -64,7 +64,7 @@
 					{#each socialItems as socialItem}
 						<a href={socialItem.href} class="text-gray-500 hover:text-gray-400">
 							<span class="sr-only">{socialItem.name}</span>
-							<svelte:component this={socialItem.icon} />
+							<svelte:component this={socialItem.icon} strokeWidth="1.5" />
 						</a>
 					{/each}
 				</div>

@@ -5,8 +5,6 @@ export const actions = {
 		const data = await request.formData();
 		const locale = data.get('locale');
 
-		console.log('set locale', data, locale);
-
 		if (!locale) {
 			return;
 		}

@@ -18,7 +18,6 @@
 		lang={data.lang}
 		sentence={$MainLayout.data.layout.footerSentence}
 		links={$MainLayout.data.layout.footerLinks ?? []}
-		pages={$MainLayout.data.layout.pages}
 		rights={$MainLayout.data.layout.rights}
 	/>
 {/if}

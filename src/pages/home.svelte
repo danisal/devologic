@@ -10,23 +10,15 @@
 	export let blogPosts;
 </script>
 
-<Hero heading={homePage?.heading ?? ''} subHeading={homePage?.subHeading ?? ''} />
+<Hero heading={homePage.heading} cta={homePage.cta} subHeading={homePage.subHeading} />
 <Feature
-	tag={homePage?.servicesTag ?? ''}
-	title={homePage?.servicesTitle ?? ''}
-	description={homePage?.servicesDescription ?? ''}
-	services={homePage?.services ?? []}
+	tag={homePage.servicesTag}
+	title={homePage.servicesTitle}
+	description={homePage.servicesDescription}
+	services={homePage.services ?? []}
 />
-<Testimonial testimony={homePage?.testimony} />
-<LogoClouds title={homePage?.toolsTitle ?? ''} description={homePage?.toolsDescription ?? ''} />
-<LearnMoreSection
-	title={homePage?.blogPostsTitle ?? ''}
-	description={homePage?.blogPostsDescription ?? ''}
-	posts={blogPosts ?? []}
-/>
+<Testimonial testimony={homePage.testimony} />
+<LogoClouds title={homePage.toolsTitle} description={homePage.toolsDescription} />
+<LearnMoreSection title={homePage.blogPostsTitle} description={homePage.blogPostsDescription} posts={blogPosts ?? []} />
 
-<CtaSection
-	heading={homePage?.callOut?.heading ?? ''}
-	subHeading={homePage?.callOut?.subHeading ?? ''}
-	cta={homePage?.callOut?.cta ?? ''}
-/>
+<CtaSection heading={homePage.callOut.heading} subHeading={homePage.callOut.subHeading} cta={homePage.callOut.cta} />

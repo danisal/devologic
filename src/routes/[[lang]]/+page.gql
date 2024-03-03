@@ -3,6 +3,12 @@ query Home($locales: [Locale!]!) {
     locale
     heading
     subHeading
+    cta {
+      id
+      locale
+      label: key
+      link: value
+    }
     servicesTag
     servicesTitle
     servicesDescription

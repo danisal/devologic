@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Linkedin, Facebook, Instagram, Twitter } from 'lucide-svelte';
+	import { type Icon, Facebook, Twitter, Linkedin, Instagram } from 'lucide-svelte';
 	import { type Language, languages } from '@/utils/locale';
 	import { goto } from '$app/navigation';
+	import type { ComponentType } from 'svelte';
 
 	export let lang: Language;
 	export let rights: string;
@@ -10,9 +11,39 @@
 
 	const year = new Date().getFullYear();
 	let selectedLanguage;
+
 	function handleLanguageSelect() {
 		return selectedLanguage === 'pt' ? goto('/pt') : goto('/');
 	}
+
+	type SocialItem = {
+		href: string;
+		icon: ComponentType<Icon>;
+		name: string;
+	};
+
+	const socialItems: SocialItem[] = [
+		{
+			href: 'https://facebook.com',
+			icon: Facebook,
+			name: 'Facebook',
+		},
+		{
+			href: 'https://instagram.com',
+			icon: Instagram,
+			name: 'Instagram',
+		},
+		{
+			href: 'https://twitter.com',
+			icon: Twitter,
+			name: 'Twitter',
+		},
+		{
+			href: 'https://linkedin.com',
+			icon: Linkedin,
+			name: 'LinkedIn',
+		},
+	];
 </script>
 
 <footer class="bg-gray-900" aria-labelledby="footer-heading">
@@ -30,22 +61,12 @@
 					{sentence}
 				</p>
 				<div class="flex space-x-6">
-					<a href="#" class="text-gray-500 hover:text-gray-400">
-						<span class="sr-only">Facebook</span>
-						<Facebook />
-					</a>
-					<a href="#" class="text-gray-500 hover:text-gray-400">
-						<span class="sr-only">Instagram</span>
-						<Instagram />
-					</a>
-					<a href="#" class="text-gray-500 hover:text-gray-400">
-						<span class="sr-only">Twitter</span>
-						<Twitter />
-					</a>
-					<a href="#" class="text-gray-500 hover:text-gray-400">
-						<span class="sr-only">LinkedIn</span>
-						<Linkedin />
-					</a>
+					{#each socialItems as socialItem}
+						<a href={socialItem.href} class="text-gray-500 hover:text-gray-400">
+							<span class="sr-only">{socialItem.name}</span>
+							<svelte:component this={socialItem.icon} />
+						</a>
+					{/each}
 				</div>
 			</div>
 			<div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">

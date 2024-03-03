@@ -3950,6 +3950,29 @@ type HomePage implements Entity & Node {
     locales: [Locale!]
   ): User
 
+  """The fold CTA"""
+  cta(
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `cta` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `cta` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+  ): KeyValue
+
   """Get the document in other stages"""
   documentInStages(
     """Decides if the current stage should be included or not"""
@@ -4192,6 +4215,7 @@ input HomePageCreateInput {
   blogPostsTitle: String
   callOut: CallOutCreateOneInlineInput
   createdAt: DateTime
+  cta: KeyValueCreateOneInlineInput
 
   """heading input for default locale (en)"""
   heading: String!
@@ -4310,6 +4334,7 @@ input HomePageManyWhereInput {
   """All values that are not contained in given list."""
   createdAt_not_in: [DateTime]
   createdBy: UserWhereInput
+  cta: KeyValueWhereInput
   documentInStages_every: HomePageWhereStageInput
   documentInStages_none: HomePageWhereStageInput
   documentInStages_some: HomePageWhereStageInput
@@ -4432,6 +4457,7 @@ input HomePageUpdateInput {
   """blogPostsTitle input for default locale (en)"""
   blogPostsTitle: String
   callOut: CallOutUpdateOneInlineInput
+  cta: KeyValueUpdateOneInlineInput
 
   """heading input for default locale (en)"""
   heading: String
@@ -4729,6 +4755,7 @@ input HomePageWhereInput {
   """All values that are not contained in given list."""
   createdAt_not_in: [DateTime]
   createdBy: UserWhereInput
+  cta: KeyValueWhereInput
   documentInStages_every: HomePageWhereStageInput
   documentInStages_none: HomePageWhereStageInput
   documentInStages_some: HomePageWhereStageInput
@@ -5248,15 +5275,17 @@ enum KeyValueOrderByInput {
   value_DESC
 }
 
-union KeyValueParent = FooterLink | Layout
+union KeyValueParent = FooterLink | HomePage | Layout
 
 input KeyValueParentConnectInput {
   FooterLink: FooterLinkConnectInput
+  HomePage: HomePageConnectInput
   Layout: LayoutConnectInput
 }
 
 input KeyValueParentCreateInput {
   FooterLink: FooterLinkCreateInput
+  HomePage: HomePageCreateInput
   Layout: LayoutCreateInput
 }
 
@@ -5278,6 +5307,7 @@ input KeyValueParentCreateOneInlineInput {
 
 input KeyValueParentUpdateInput {
   FooterLink: FooterLinkUpdateInput
+  HomePage: HomePageUpdateInput
   Layout: LayoutUpdateInput
 }
 
@@ -5308,6 +5338,7 @@ input KeyValueParentUpdateManyInlineInput {
 
 input KeyValueParentUpdateManyWithNestedWhereInput {
   FooterLink: FooterLinkUpdateManyWithNestedWhereInput
+  HomePage: HomePageUpdateManyWithNestedWhereInput
   Layout: LayoutUpdateManyWithNestedWhereInput
 }
 
@@ -5333,21 +5364,25 @@ input KeyValueParentUpdateOneInlineInput {
 
 input KeyValueParentUpdateWithNestedWhereUniqueInput {
   FooterLink: FooterLinkUpdateWithNestedWhereUniqueInput
+  HomePage: HomePageUpdateWithNestedWhereUniqueInput
   Layout: LayoutUpdateWithNestedWhereUniqueInput
 }
 
 input KeyValueParentUpsertWithNestedWhereUniqueInput {
   FooterLink: FooterLinkUpsertWithNestedWhereUniqueInput
+  HomePage: HomePageUpsertWithNestedWhereUniqueInput
   Layout: LayoutUpsertWithNestedWhereUniqueInput
 }
 
 input KeyValueParentWhereInput {
   FooterLink: FooterLinkWhereInput
+  HomePage: HomePageWhereInput
   Layout: LayoutWhereInput
 }
 
 input KeyValueParentWhereUniqueInput {
   FooterLink: FooterLinkWhereUniqueInput
+  HomePage: HomePageWhereUniqueInput
   Layout: LayoutWhereUniqueInput
 }
 

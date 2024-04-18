@@ -12,5 +12,6 @@
 		marketing={$ServicesData.data.marketing}
 		seo={$ServicesData.data.seo}
 		socialMedia={$ServicesData.data.socialMedia}
+		homePage={$ServicesData.data.homePage}
 	/>
 {/if}

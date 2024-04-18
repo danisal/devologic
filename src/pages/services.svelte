@@ -5,6 +5,7 @@
 	export let marketing;
 	export let seo;
 	export let socialMedia;
+	export let homePage;
 </script>
 
 <div class="bg-gray-900">
@@ -210,4 +211,4 @@
 	</div>
 </div>
 
-<CtaSection />
+<CtaSection heading={homePage.callOut.heading} subHeading={homePage.callOut.subHeading} cta={homePage.callOut.cta} />

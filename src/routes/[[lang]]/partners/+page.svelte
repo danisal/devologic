@@ -21,7 +21,7 @@
 				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">FRHM Publicidade</h3>
 				<p class="text-base leading-7 text-gray-500 hover:text-gray-700">
 					<a class="flex items-center gap-2" href="https://frhmpublicidade.pt" target="_blank" rel="noopener noreferrer"
-						>Open website <ExternalLink size="16" /></a
+						>Visit Website <ExternalLink size="16" /></a
 					>
 				</p>
 				<ul role="list" class="mt-6 flex gap-x-6">

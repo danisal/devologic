@@ -17,7 +17,7 @@
 				{#each posts as post}
 					<div class="flex flex-col">
 						<dt class="text-base font-semibold leading-7 text-white">
-							<div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500">
+							<div class="bg-east-bay-500 mb-6 flex h-10 w-10 items-center justify-center rounded-lg">
 								<svg
 									class="h-6 w-6 text-white"
 									fill="none"
@@ -40,7 +40,7 @@
 								{post.description}
 							</p>
 							<p class="mt-6">
-								<a href={post.url} class="text-sm font-semibold leading-6 text-indigo-400"
+								<a href={post.url} class="text-east-bay-400 text-sm font-semibold leading-6"
 									>{post.cta} <span aria-hidden="true">→</span></a
 								>
 							</p>

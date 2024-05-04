@@ -13,7 +13,12 @@
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5">
 				<span class="sr-only">Devologic</span>
-				<img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+				<img
+					class="hidden h-7 w-auto lg:block"
+					src="/logos/devologic-icon-horizontal-light.svg"
+					alt="Devologic Icon Logo"
+				/>
+				<img class="h-10 w-auto lg:hidden" src="/logos/devologic-icon-vertical-light.svg" alt="Devologic Icon Logo" />
 			</a>
 		</div>
 		<div class="hidden lg:flex lg:gap-x-12">
@@ -24,7 +29,7 @@
 		<div class="flex flex-1 items-center justify-end gap-x-6">
 			<a
 				href={headerCta.link}
-				class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+				class="bg-east-bay-600 hover:bg-east-bay-500 focus-visible:outline-east-bay-600 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
 				>{headerCta.name}</a
 			>
 		</div>
@@ -58,11 +63,11 @@
 			<div class="flex items-center gap-x-6">
 				<a href="/" class="-m-1.5 p-1.5">
 					<span class="sr-only">Devologic</span>
-					<img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+					<img class="h-7 w-auto" src="/logos/devologic-icon-vertical-light.svg" alt="Devologic Icon Logo" />
 				</a>
 				<a
 					href={headerCta.link}
-					class="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+					class="bg-east-bay-600 hover:bg-east-bay-500 focus-visible:outline-east-bay-600 ml-auto rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
 					>{headerCta.name}</a
 				>
 				<button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" on:click={toggleMobile}>

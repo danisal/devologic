@@ -8,7 +8,7 @@
 <div class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<h2 class="text-base font-semibold leading-7 text-indigo-600">{tag}</h2>
+			<h2 class="text-east-bay-600 text-base font-semibold leading-7">{tag}</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{title}</p>
 			<p class="mt-6 text-lg leading-8 text-gray-600">
 				{description}
@@ -19,7 +19,7 @@
 				{#each services as service, index}
 					<div class="relative pl-16">
 						<dt class="text-base font-semibold leading-7 text-gray-900">
-							<div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+							<div class="bg-east-bay-600 absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg">
 								{#if index === 0}
 									<svg
 										xmlns="http://www.w3.org/2000/svg"

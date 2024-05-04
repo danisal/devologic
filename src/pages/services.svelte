@@ -43,7 +43,7 @@
 				<div class="mt-10 flex items-center justify-center gap-x-6">
 					<a
 						href="#"
-						class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+						class="bg-east-bay-500 hover:bg-east-bay-400 focus-visible:outline-east-bay-400 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
 						>Get started</a
 					>
 					<a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a
@@ -67,7 +67,7 @@
 <div id="marketing" class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<h2 class="text-base font-semibold leading-7 text-indigo-600">Marketing</h2>
+			<h2 class="text-east-bay-600 text-base font-semibold leading-7">Marketing</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
 				A website is more than just an online presence
 			</p>
@@ -89,7 +89,7 @@
 								{item.description}
 							</p>
 							<p class="mt-6">
-								<a href={item.url} class="text-sm font-semibold leading-6 text-indigo-600"
+								<a href={item.url} class="text-east-bay-600 text-sm font-semibold leading-6"
 									>Learn more <span aria-hidden="true">→</span></a
 								>
 							</p>
@@ -105,7 +105,7 @@
 <div id="e-commerce" class="bg-gray-900 py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<h2 class="text-base font-semibold leading-7 text-indigo-400">E-Commerce</h2>
+			<h2 class="text-east-bay-400 text-base font-semibold leading-7">E-Commerce</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
 				Seamless and secure shopping experience
 			</p>
@@ -127,7 +127,7 @@
 								{item.description}
 							</p>
 							<p class="mt-6">
-								<a href={item.url} class="text-sm font-semibold leading-6 text-indigo-400"
+								<a href={item.url} class="text-east-bay-400 text-sm font-semibold leading-6"
 									>Learn more <span aria-hidden="true">→</span></a
 								>
 							</p>
@@ -143,7 +143,7 @@
 <div id="seo" class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<h2 class="text-base font-semibold leading-7 text-indigo-600">Search Engine Optimization</h2>
+			<h2 class="text-east-bay-600 text-base font-semibold leading-7">Search Engine Optimization</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Website's performance</p>
 			<p class="mt-6 text-lg leading-8 text-gray-600">
 				Maximize your online visibility and climb the search engine rankings with our comprehensive SEO content
@@ -163,7 +163,7 @@
 								{item.description}
 							</p>
 							<p class="mt-6">
-								<a href={item.url} class="text-sm font-semibold leading-6 text-indigo-600"
+								<a href={item.url} class="text-east-bay-600 text-sm font-semibold leading-6"
 									>Learn more <span aria-hidden="true">→</span></a
 								>
 							</p>
@@ -179,7 +179,7 @@
 <div id="social-media-management" class="bg-gray-900 py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<h2 class="text-base font-semibold leading-7 text-indigo-400">Social Media Management</h2>
+			<h2 class="text-east-bay-400 text-base font-semibold leading-7">Social Media Management</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Meaningful engagements</p>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
 				Elevate your brand's online presence and connect with your audience on a deeper level through our strategic
@@ -199,7 +199,7 @@
 								{item.description}
 							</p>
 							<p class="mt-6">
-								<a href={item.url} class="text-sm font-semibold leading-6 text-indigo-400"
+								<a href={item.url} class="text-east-bay-400 text-sm font-semibold leading-6"
 									>Learn more <span aria-hidden="true">→</span></a
 								>
 							</p>

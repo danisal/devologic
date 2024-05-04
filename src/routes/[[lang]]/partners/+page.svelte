@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ExternalLink, Facebook, Linkedin } from 'lucide-svelte';
+	import { ExternalLink, Facebook, Instagram } from 'lucide-svelte';
 </script>
 
 <div class="bg-white py-24 sm:py-32">
@@ -38,11 +38,11 @@
 					<li>
 						<a
 							class="text-gray-400 hover:text-gray-500"
-							href="https://www.facebook.com/frhmpublicidade"
+							href="https://www.instagram.com/frhmpublicidade/"
 							rel="noopener noreferrer"
 						>
-							<span class="sr-only">LinkedIn</span>
-							<Linkedin size="20" aria-hidden="true" />
+							<span class="sr-only">Instagram</span>
+							<Instagram size="20" aria-hidden="true" />
 						</a>
 					</li>
 				</ul>

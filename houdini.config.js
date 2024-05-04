@@ -15,7 +15,6 @@ const config = {
 				return new Date(val);
 			},
 		},
-		Json: JSON,
 	},
 	types: {
 		HomePage: {

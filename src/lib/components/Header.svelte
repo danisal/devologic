@@ -1,4 +1,7 @@
 <script lang="ts">
+	import DevologicIconHorizontalLight from '$lib/logos/DevologicIconHorizontalLight.svelte';
+	import DevologicIconVerticalLight from '$lib/logos/DevologicIconVerticalLight.svelte';
+
 	let mobileMode = false;
 	export let headerLinks: string[];
 	export let headerCta: string;
@@ -13,12 +16,8 @@
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5">
 				<span class="sr-only">Devologic</span>
-				<img
-					class="hidden h-7 w-auto lg:block"
-					src="/logos/devologic-icon-horizontal-light.svg"
-					alt="Devologic Icon Logo"
-				/>
-				<img class="h-10 w-auto lg:hidden" src="/logos/devologic-icon-vertical-light.svg" alt="Devologic Icon Logo" />
+				<DevologicIconHorizontalLight class="hidden h-7 w-auto lg:block" />
+				<DevologicIconVerticalLight class="h-11 w-auto lg:hidden" />
 			</a>
 		</div>
 		<div class="hidden lg:flex lg:gap-x-12">
@@ -29,7 +28,7 @@
 		<div class="flex flex-1 items-center justify-end gap-x-6">
 			<a
 				href={headerCta.link}
-				class="bg-east-bay-600 hover:bg-east-bay-500 focus-visible:outline-east-bay-600 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+				class="rounded-md bg-east-bay-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-east-bay-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-east-bay-600"
 				>{headerCta.name}</a
 			>
 		</div>
@@ -63,11 +62,11 @@
 			<div class="flex items-center gap-x-6">
 				<a href="/" class="-m-1.5 p-1.5">
 					<span class="sr-only">Devologic</span>
-					<img class="h-7 w-auto" src="/logos/devologic-icon-vertical-light.svg" alt="Devologic Icon Logo" />
+					<DevologicIconVerticalLight class="h-11 w-auto" />
 				</a>
 				<a
 					href={headerCta.link}
-					class="bg-east-bay-600 hover:bg-east-bay-500 focus-visible:outline-east-bay-600 ml-auto rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+					class="ml-auto rounded-md bg-east-bay-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-east-bay-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-east-bay-600"
 					>{headerCta.name}</a
 				>
 				<button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" on:click={toggleMobile}>

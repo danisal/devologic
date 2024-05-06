@@ -3,6 +3,7 @@
 	import { type Language, languages } from '@/utils/locale';
 	import { goto } from '$app/navigation';
 	import type { ComponentType } from 'svelte';
+	import DevologicIconHorizontalDark from '$lib/logos/DevologicIconHorizontalDark.svelte';
 
 	export let lang: Language;
 	export let rights: string;
@@ -51,7 +52,7 @@
 	<div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
 		<div class="xl:grid xl:grid-cols-3 xl:gap-8">
 			<div class="space-y-8">
-				<img loading="lazy" class="h-7" src="/logos/devologic-icon-horizontal-dark.svg" alt="Devologic Icon Logo" />
+				<DevologicIconHorizontalDark class="h-7" />
 				<p class="text-sm leading-6 text-gray-300">
 					{sentence}
 				</p>
@@ -111,7 +112,7 @@
 						<select
 							id="locale"
 							name="locale"
-							class="focus:ring-east-bay-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 sm:text-sm sm:leading-6"
+							class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-east-bay-600 sm:text-sm sm:leading-6"
 							bind:value={selectedLanguage}
 							on:change={handleLanguageSelect}
 						>

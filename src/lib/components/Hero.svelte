@@ -4,7 +4,7 @@
 	export let cta: { link: string; label: string };
 </script>
 
-<div class="relative isolate -z-10">
+<div class="relative isolate">
 	<svg
 		class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
 		aria-hidden="true"
@@ -51,7 +51,7 @@
 					<div class="mt-10 flex items-center gap-x-6">
 						<a
 							href={cta.link}
-							class="bg-east-bay-600 hover:bg-east-bay-500 focus-visible:outline-east-bay-600 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+							class="rounded-md bg-east-bay-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-east-bay-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-east-bay-600"
 							>{cta.label}</a
 						>
 					</div>

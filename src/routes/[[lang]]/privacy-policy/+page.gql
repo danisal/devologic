@@ -1,0 +1,10 @@
+query PrivacyPolicy($locales: [Locale!]!) {
+  privacyPolicy(where: {id: "clvzp738g33vf08kzij2k25jl"}, locales: $locales) {
+    id
+    content {
+      html
+      text
+    }
+    slug
+  }
+}

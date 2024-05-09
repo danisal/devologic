@@ -41,6 +41,9 @@ const config = {
 		KeyValue: {
 			keys: ['locale', 'id'],
 		},
+		PrivacyPolicy: {
+			keys: ['locale', 'id'],
+		},
 	},
 	plugins: {
 		'houdini-svelte': {},

@@ -1,5 +1,11 @@
 <script lang="ts">
-	import PrivacyPolicy from '@/pages/privacy-policy.svelte';
+	import PrivacyPolicyPage from '@/pages/privacy-policy.svelte';
+	import type { PageData } from './$houdini';
+
+	export let data: PageData;
+	$: ({ PrivacyPolicy } = data);
 </script>
 
-<PrivacyPolicy />
+{#if $PrivacyPolicy.data}
+	<PrivacyPolicyPage content={$PrivacyPolicy.data.privacyPolicy.content.text} />
+{/if}

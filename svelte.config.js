@@ -11,9 +11,12 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$houdini: path.resolve('.', '$houdini')
-		}
-	}
+			$houdini: path.resolve('.', '$houdini'),
+		},
+		prerender: {
+			entries: ['*'],
+		},
+	},
 };
 
 export default config;

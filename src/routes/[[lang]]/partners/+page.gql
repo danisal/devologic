@@ -1,0 +1,10 @@
+query PartnersPage($locales: [Locale!]!) {
+  page(where: {id: "clvzqsnvr38yn07mr9re5ny29"}, locales: $locales) {
+    heading
+    locale
+    id
+    mainParagraph {
+      text
+    }
+  }
+}

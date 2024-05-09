@@ -5,6 +5,7 @@ const translated: Record<string, string> = {
 	'/pt/servicos': '/pt/services',
 	'/pt/politica-privacidade': '/pt/privacy-policy',
 	'/pt/contacto': '/pt/contact',
+	'/pt/parceiros': '/pt/partners',
 };
 export const reroute: Reroute = ({ url }) => {
 	if (url.pathname in translated) {

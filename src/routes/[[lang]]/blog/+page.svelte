@@ -6,4 +6,6 @@
 	$: ({ BlogPosts } = data);
 </script>
 
-<Blog edges={$BlogPosts.data.blogPostsConnection.edges} />
+{#if $BlogPosts.data}
+	<Blog edges={$BlogPosts.data.blogPostsConnection.edges} />
+{/if}

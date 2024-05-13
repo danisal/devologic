@@ -9928,6 +9928,35 @@ type Page implements Entity & Node {
     skip: Int
     where: ScheduledOperationWhereInput
   ): [ScheduledOperation!]!
+  section(
+    after: String
+    before: String
+    first: Int
+
+    """
+    Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.
+    
+    Note that `section` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will affect any existing locale filtering defined in the query's tree for the subtree.
+    """
+    forceParentLocale: Boolean
+    last: Int
+
+    """
+    Allows to optionally override locale filtering behaviour in the query's subtree.
+    
+    Note that `section` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.
+    The first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.
+    
+    This argument will overwrite any existing locale filtering defined in the query's tree for the subtree.
+    """
+    locales: [Locale!]
+    orderBy: SectionOrderByInput
+    skip: Int
+    where: SectionWhereInput
+  ): [Section!]!
 
   """The page URL"""
   slug: String
@@ -10056,6 +10085,7 @@ input PageCreateInput {
   """mainParagraph input for default locale (en)"""
   mainParagraph: RichTextAST
   mission: SectionCreateOneInlineInput
+  section: SectionCreateManyInlineInput
 
   """slug input for default locale (en)"""
   slug: String
@@ -10229,6 +10259,9 @@ input PageManyWhereInput {
   scheduledIn_every: ScheduledOperationWhereInput
   scheduledIn_none: ScheduledOperationWhereInput
   scheduledIn_some: ScheduledOperationWhereInput
+  section_every: SectionWhereInput
+  section_none: SectionWhereInput
+  section_some: SectionWhereInput
   team: SectionWhereInput
   updatedAt: DateTime
 
@@ -10291,6 +10324,7 @@ input PageUpdateInput {
   """mainParagraph input for default locale (en)"""
   mainParagraph: RichTextAST
   mission: SectionUpdateOneInlineInput
+  section: SectionUpdateManyInlineInput
 
   """slug input for default locale (en)"""
   slug: String
@@ -10607,6 +10641,9 @@ input PageWhereInput {
   scheduledIn_every: ScheduledOperationWhereInput
   scheduledIn_none: ScheduledOperationWhereInput
   scheduledIn_some: ScheduledOperationWhereInput
+  section_every: SectionWhereInput
+  section_none: SectionWhereInput
+  section_some: SectionWhereInput
   slug: String
 
   """All values containing the given string."""

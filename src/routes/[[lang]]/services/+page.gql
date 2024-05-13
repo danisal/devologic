@@ -36,4 +36,23 @@ query ServicesData($locales: [Locale!]!) {
       cta
     }
   }
+  content: page(where: {id: "clw5eg15i1nky07lbhhf0j2cs"}, locales: $locales) {
+    heading
+    locale
+    id
+    mainParagraph {
+      text
+    }
+    section(locales: $locales) {
+      locale
+      title
+      subTitle
+      paragraphs
+    }
+    cta {
+      id
+      locale
+      cta
+    }
+  }
 }

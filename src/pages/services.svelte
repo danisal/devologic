@@ -6,6 +6,12 @@
 	export let seo;
 	export let socialMedia;
 	export let homePage;
+	export let content;
+	const marketingSection = content.section.find((s) => s.title === 'Marketing');
+	const eCommerceSection = content.section.find((s) => s.title === 'E-Commerce');
+	const seoSection = content.section.find((s) => s.title === 'Search Engine Optimization');
+	const socialMediaMarketing = content.section.find((s) => s.title === 'Social Media Management');
+	const cta = content.cta.cta;
 </script>
 
 <div class="bg-gray-900">
@@ -34,11 +40,10 @@
       </div> -->
 			<div class="text-center">
 				<h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-					Unleashing the Power of Our Expert Services
+					{content.heading}
 				</h1>
 				<p class="mt-6 text-lg leading-8 text-gray-300">
-					Elevate Your Online Presence with Our Tailored Solutions in Web Design, E-commerce, SEO, and Social Media
-					Management
+					{content.mainParagraph.text}
 				</p>
 				<!--				<div class="mt-10 flex items-center justify-center gap-x-6">-->
 				<!--					<a-->
@@ -69,12 +74,10 @@
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-east-bay-600">Marketing</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-				A website is more than just an online presence
+				{marketingSection.subTitle}
 			</p>
 			<p class="mt-6 text-lg leading-8 text-gray-600">
-				Transforming visions into compelling digital experiences, our digital agency specializes in crafting dynamic
-				marketing websites that captivate your audience and drive results. We understand that a website is more than
-				just an online presence; it's a powerful tool for brand storytelling, lead generation, and customer engagement.
+				{marketingSection.paragraphs[0]}
 			</p>
 		</div>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -90,7 +93,7 @@
 							</p>
 							<p class="mt-6">
 								<a href={item.url} class="text-sm font-semibold leading-6 text-east-bay-600"
-									>Learn more <span aria-hidden="true">→</span></a
+									>{cta} <span aria-hidden="true">→</span></a
 								>
 							</p>
 						</dd>
@@ -107,12 +110,10 @@
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-east-bay-400">E-Commerce</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-				Seamless and secure shopping experience
+				{eCommerceSection.subTitle}
 			</p>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				Empower your business to thrive in the digital marketplace with our expertly crafted e-commerce solutions. We
-				specialize in building online stores that not only showcase your products but also deliver a seamless and secure
-				shopping experience.
+				{eCommerceSection.paragraphs[0]}
 			</p>
 		</div>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -128,7 +129,7 @@
 							</p>
 							<p class="mt-6">
 								<a href={item.url} class="text-sm font-semibold leading-6 text-east-bay-400"
-									>Learn more <span aria-hidden="true">→</span></a
+									>{cta} <span aria-hidden="true">→</span></a
 								>
 							</p>
 						</dd>
@@ -144,11 +145,11 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-east-bay-600">Search Engine Optimization</h2>
-			<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Website's performance</p>
+			<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+				{seoSection.subTitle}
+			</p>
 			<p class="mt-6 text-lg leading-8 text-gray-600">
-				Maximize your online visibility and climb the search engine rankings with our comprehensive SEO content
-				services. We employ a strategic and data-driven approach to enhance your website's performance and increase
-				organic traffic.
+				{seoSection.paragraphs[0]}
 			</p>
 		</div>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -164,7 +165,7 @@
 							</p>
 							<p class="mt-6">
 								<a href={item.url} class="text-sm font-semibold leading-6 text-east-bay-600"
-									>Learn more <span aria-hidden="true">→</span></a
+									>{cta} <span aria-hidden="true">→</span></a
 								>
 							</p>
 						</dd>
@@ -180,11 +181,11 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-east-bay-400">Social Media Management</h2>
-			<p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Meaningful engagements</p>
+			<p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+				{socialMediaMarketing.subTitle}
+			</p>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				Elevate your brand's online presence and connect with your audience on a deeper level through our strategic
-				social media management services. We understand that effective social media presence goes beyond posting
-				content; it involves creating meaningful engagements, fostering community, and driving measurable results.
+				{socialMediaMarketing.paragraphs[0]}
 			</p>
 		</div>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -200,7 +201,7 @@
 							</p>
 							<p class="mt-6">
 								<a href={item.url} class="text-sm font-semibold leading-6 text-east-bay-400"
-									>Learn more <span aria-hidden="true">→</span></a
+									>{cta} <span aria-hidden="true">→</span></a
 								>
 							</p>
 						</dd>

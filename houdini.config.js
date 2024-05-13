@@ -15,6 +15,15 @@ const config = {
 				return new Date(val);
 			},
 		},
+		Json: {
+			type: 'JSON',
+			marshal(val) {
+				return val;
+			},
+			unmarshal(val) {
+				return val;
+			},
+		},
 	},
 	types: {
 		HomePage: {

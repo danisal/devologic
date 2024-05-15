@@ -6,7 +6,7 @@
 
 	$: ({ About } = data);
 
-	function groupArrayIntoPairs(arr) {
+	function groupArrayIntoPairs(arr: unknown[]) {
 		const pairs = [];
 		for (let i = 0; i < arr.length; i += 2) {
 			if (arr[i + 1] !== undefined) {
@@ -18,9 +18,11 @@
 		return pairs;
 	}
 
-	$: valuesParagraphs = groupArrayIntoPairs($About.data.page.values.paragraphs);
+	$: valuesParagraphs = $About.data?.page.values.paragraphs
+		? groupArrayIntoPairs($About.data?.page.values.paragraphs)
+		: [];
 </script>
 
-{#if $About.data.page}
+{#if $About.data?.page}
 	<AboutPage {valuesParagraphs} page={$About.data.page} />
 {/if}

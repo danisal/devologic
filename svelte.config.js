@@ -13,6 +13,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$houdini: path.resolve('.', '$houdini'),
+			'@/*': path.resolve('.', 'src/*'),
 		},
 		prerender: {
 			entries: ['*'],

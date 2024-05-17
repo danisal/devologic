@@ -1,17 +1,18 @@
 <script lang="ts">
-	import { type Icon, Facebook, Twitter, Linkedin, Instagram } from 'lucide-svelte';
+	import { Facebook, type Icon, Instagram, Linkedin, Twitter } from 'lucide-svelte';
 	import { type Language, languages } from '@/utils/locale';
 	import { goto } from '$app/navigation';
 	import type { ComponentType } from 'svelte';
 	import DevologicIconHorizontalDark from '$lib/logos/DevologicIconHorizontalDark.svelte';
+	import type { MainLayout$result } from '$houdini';
 
 	export let lang: Language;
-	export let rights: string;
-	export let sentence: string;
-	export let links;
+	export let rights: NonNullable<MainLayout$result['layout']>['rights'];
+	export let sentence: NonNullable<MainLayout$result['layout']>['footerSentence'];
+	export let links: NonNullable<MainLayout$result['layout']>['footerLinks'];
 
 	const year = new Date().getFullYear();
-	let selectedLanguage;
+	let selectedLanguage: Language;
 
 	function handleLanguageSelect() {
 		return selectedLanguage === 'pt' ? goto('/pt') : goto('/');

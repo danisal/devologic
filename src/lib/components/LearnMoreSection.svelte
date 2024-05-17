@@ -1,7 +1,9 @@
 <script lang="ts">
-	export let title;
-	export let description;
-	export let posts;
+	import type { Home$result } from '$houdini';
+
+	export let title: string;
+	export let description: string;
+	export let posts: Home$result['blogPosts'];
 </script>
 
 <div class="bg-gray-900 py-24 sm:py-32">
@@ -17,7 +19,7 @@
 				{#each posts as post}
 					<div class="flex flex-col">
 						<dt class="text-base font-semibold leading-7 text-white">
-							<div class="bg-east-bay-500 mb-6 flex h-10 w-10 items-center justify-center rounded-lg">
+							<div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-east-bay-500">
 								<svg
 									class="h-6 w-6 text-white"
 									fill="none"
@@ -40,7 +42,7 @@
 								{post.description}
 							</p>
 							<p class="mt-6">
-								<a href={post.url} class="text-east-bay-400 text-sm font-semibold leading-6"
+								<a href={post.url} class="text-sm font-semibold leading-6 text-east-bay-400"
 									>{post.cta} <span aria-hidden="true">→</span></a
 								>
 							</p>

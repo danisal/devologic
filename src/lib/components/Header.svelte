@@ -1,10 +1,11 @@
 <script lang="ts">
 	import DevologicIconHorizontalLight from '$lib/logos/DevologicIconHorizontalLight.svelte';
 	import DevologicIconVerticalLight from '$lib/logos/DevologicIconVerticalLight.svelte';
+	import type { MainLayout$result } from '$houdini';
 
 	let mobileMode = false;
-	export let headerLinks: string[];
-	export let headerCta: string;
+	export let headerLinks: NonNullable<MainLayout$result['layout']>['headerLinks'];
+	export let headerCta: NonNullable<MainLayout$result['layout']>['headerCta'];
 
 	function toggleMobile() {
 		mobileMode = !mobileMode;
@@ -27,9 +28,9 @@
 		</div>
 		<div class="flex flex-1 items-center justify-end gap-x-6">
 			<a
-				href={headerCta.link}
+				href={headerCta?.link}
 				class="rounded-md bg-east-bay-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-east-bay-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-east-bay-600"
-				>{headerCta.name}</a
+				>{headerCta?.name}</a
 			>
 		</div>
 		<div class="flex lg:hidden">
@@ -65,9 +66,9 @@
 					<DevologicIconVerticalLight class="h-11 w-auto" />
 				</a>
 				<a
-					href={headerCta.link}
+					href={headerCta?.link}
 					class="ml-auto rounded-md bg-east-bay-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-east-bay-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-east-bay-600"
-					>{headerCta.name}</a
+					>{headerCta?.name}</a
 				>
 				<button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" on:click={toggleMobile}>
 					<span class="sr-only">Close menu</span>

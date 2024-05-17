@@ -1,7 +1,7 @@
 <script lang="ts">
-	export let heading;
-	export let subHeading;
-	export let cta;
+	export let heading: string;
+	export let subHeading: string;
+	export let cta: string;
 </script>
 
 <div class="bg-white">

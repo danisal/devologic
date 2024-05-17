@@ -1,11 +1,13 @@
 <script lang="ts">
-	import PrivacyPolicyPage from '@/pages/privacy-policy.svelte';
 	import type { PageData } from './$houdini';
 
 	export let data: PageData;
 	$: ({ PrivacyPolicy } = data);
+	$: content = $PrivacyPolicy.data?.privacyPolicy?.content?.text;
 </script>
 
-{#if $PrivacyPolicy.data}
-	<PrivacyPolicyPage content={$PrivacyPolicy.data.privacyPolicy.content.text} />
+{#if content}
+	<div class="container prose mx-auto px-7 py-16">
+		{@html content}
+	</div>
 {/if}

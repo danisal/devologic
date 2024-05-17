@@ -1,11 +1,6 @@
-import { load_BlogPosts } from '$houdini';
-import type { PageLoad } from './$houdini';
+import type { BlogPostsVariables } from './$houdini';
 
-export const load: PageLoad = async (event) => {
-	const parent = await event.parent();
-	const { locales } = parent;
-
-	return {
-		...(await load_BlogPosts({ event, variables: { locales } })),
-	};
+export const _BlogPostsVariables: BlogPostsVariables = async ({ parent }) => {
+	const { locales } = await parent();
+	return { locales };
 };

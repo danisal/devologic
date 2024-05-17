@@ -1,4 +1,8 @@
-export const languages = [
+export type Language = 'en' | 'pt';
+
+type LanguageOption = { value: Language; label: string };
+
+export const languages: LanguageOption[] = [
 	{
 		value: 'en',
 		label: 'English',
@@ -7,12 +11,16 @@ export const languages = [
 		value: 'pt',
 		label: 'Português',
 	},
-] satisfies { value: Language; label: string }[];
+];
 
-export type Language = keyof typeof localesMap;
-export type Locale = (typeof localesMap)[Language];
+export type Locale = 'en' | 'pt_PT';
 
-export const localesMap = {
+type LanguageOptions = {
+	en: Locale[];
+	pt: Locale[];
+};
+
+export const languageMap: LanguageOptions = {
 	en: ['en'],
 	pt: ['pt_PT', 'en'],
-} as const;
+};

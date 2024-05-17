@@ -1,12 +1,11 @@
-import { load_BlogPost } from '$houdini';
-import type { PageLoad } from './$houdini';
+import type { BlogPostVariables } from './$houdini';
 
-export const load: PageLoad = async (event) => {
-	const slug = event.params.slug;
-	const parent = await event.parent();
-	const { locales } = parent;
+export const _BlogPostVariables: BlogPostVariables = async ({ params, parent }) => {
+	const { slug } = params;
+	const { locales } = await parent();
 
 	return {
-		...(await load_BlogPost({ event, variables: { slug, locales } })),
+		slug,
+		locales,
 	};
 };

@@ -1,11 +1,6 @@
-import type { PageLoad } from './$houdini';
-import { load_PrivacyPolicy } from '$houdini';
+import type { PrivacyPolicyVariables } from './$houdini';
 
-export const load: PageLoad = async (event) => {
-	const parent = await event.parent();
-	const { locales } = parent;
-
-	return {
-		...(await load_PrivacyPolicy({ event, variables: { locales } })),
-	};
+export const _PrivacyPolicyVariables: PrivacyPolicyVariables = async ({ parent }) => {
+	const { locales } = await parent();
+	return { locales };
 };

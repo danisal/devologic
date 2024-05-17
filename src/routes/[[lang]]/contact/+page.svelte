@@ -6,7 +6,7 @@
 
 	$: ({ ContactPage } = data);
 	$: ({ heading, paragraph, firstName, lastName, email, message, phoneNumber, submitButton } =
-		$ContactPage.data.contact);
+		$ContactPage.data?.contact ?? {});
 </script>
 
 {#if heading}

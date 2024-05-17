@@ -1,38 +1,38 @@
-query About($id: ID!, $locales: [Locale!]!) {
-	page(where: { id: $id }, locales: $locales) {
-		id
-		locale
-		title
-		slug
-		heading
-		mainParagraph {
-			html
-		}
-		mission {
-			id
-			locale
-			title
-			paragraphs
-		}
-		values {
-			id
-			locale
-			title
-			subTitle
-			paragraphs
-		}
-		team {
-			id
-			locale
-			title
-			subTitle
-		}
-		cta {
-			id
-			locale
-			heading
-			subHeading
-			cta
-		}
-	}
+query About($locales: [Locale!]!) {
+  page(where: { id: "clrmfe9aqbzmu0bl9et3e9ugh" }, locales: $locales) {
+    id
+    locale
+    title
+    slug
+    heading
+    mainParagraph {
+      html
+    }
+    mission {
+      id
+      locale
+      title
+      paragraphs
+    }
+    values {
+      id
+      locale
+      title
+      subTitle
+      paragraphs
+    }
+    team {
+      id
+      locale
+      title
+      subTitle
+    }
+    cta {
+      id
+      locale
+      heading
+      subHeading
+      cta
+    }
+  }
 }

@@ -1,14 +1,14 @@
 query ContactPage($locales: [Locale!]!) {
-  contact(where: {id: "cltc1965uizkh07mk82d13r30"}, locales:$locales) {
-    id
-    locale
-    heading
-    paragraph
-    firstName
-    lastName
-    email
-    phoneNumber
-    message
-    submitButton
-  }
+	contact(where: { id: "cltc1965uizkh07mk82d13r30" }, locales: $locales) {
+		id
+		locale
+		heading
+		paragraph
+		firstName
+		lastName
+		email
+		phoneNumber
+		message
+		submitButton
+	}
 }

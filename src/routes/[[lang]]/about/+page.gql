@@ -26,6 +26,13 @@ query About($locales: [Locale!]!) {
       locale
       title
       subTitle
+      images {
+        id
+        mimeType
+        locale
+        alt
+        url
+      }
     }
     cta {
       id

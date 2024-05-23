@@ -4,7 +4,7 @@
 
 	export let data: PageData;
 
-	$: ({ About } = data);
+	$: ({ About, lang } = data);
 
 	function groupArrayIntoPairs(arr: string[]) {
 		const pairs = [];
@@ -158,22 +158,22 @@
 						</p>
 					</div>
 				</div>
-				<div class="lg:flex lg:flex-auto lg:justify-center">
-					<dl class="w-64 space-y-8 xl:w-80">
-						<div class="flex flex-col-reverse gap-y-4">
-							<dt class="text-base leading-7 text-gray-600">Transactions every 24 hours</dt>
-							<dd class="text-5xl font-semibold tracking-tight text-gray-900">44 million</dd>
-						</div>
-						<div class="flex flex-col-reverse gap-y-4">
-							<dt class="text-base leading-7 text-gray-600">Assets under holding</dt>
-							<dd class="text-5xl font-semibold tracking-tight text-gray-900">$119 trillion</dd>
-						</div>
-						<div class="flex flex-col-reverse gap-y-4">
-							<dt class="text-base leading-7 text-gray-600">New users annually</dt>
-							<dd class="text-5xl font-semibold tracking-tight text-gray-900">46,000</dd>
-						</div>
-					</dl>
-				</div>
+				<!--				<div class="lg:flex lg:flex-auto lg:justify-center">-->
+				<!--					<dl class="w-64 space-y-8 xl:w-80">-->
+				<!--						<div class="flex flex-col-reverse gap-y-4">-->
+				<!--							<dt class="text-base leading-7 text-gray-600">Transactions every 24 hours</dt>-->
+				<!--							<dd class="text-5xl font-semibold tracking-tight text-gray-900">44 million</dd>-->
+				<!--						</div>-->
+				<!--						<div class="flex flex-col-reverse gap-y-4">-->
+				<!--							<dt class="text-base leading-7 text-gray-600">Assets under holding</dt>-->
+				<!--							<dd class="text-5xl font-semibold tracking-tight text-gray-900">$119 trillion</dd>-->
+				<!--						</div>-->
+				<!--						<div class="flex flex-col-reverse gap-y-4">-->
+				<!--							<dt class="text-base leading-7 text-gray-600">New users annually</dt>-->
+				<!--							<dd class="text-5xl font-semibold tracking-tight text-gray-900">46,000</dd>-->
+				<!--						</div>-->
+				<!--					</dl>-->
+				<!--				</div>-->
 			</div>
 		</div>
 	</div>
@@ -233,55 +233,55 @@
 				<rect width="100%" height="100%" stroke-width="0" fill="url(#e9033f3e-f665-41a6-84ef-756f6778e6fe)" />
 			</svg>
 		</div>
-		<div class="mx-auto max-w-7xl px-6 lg:px-8">
-			<h2 class="text-center text-lg font-semibold leading-8 text-gray-900">
-				Trusted by the world’s most innovative teams
-			</h2>
-			<div
-				class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5"
-			>
-				<img
-					loading="lazy"
-					class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-					src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
-					alt="Transistor"
-					width="158"
-					height="48"
-				/>
-				<img
-					loading="lazy"
-					class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-					src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
-					alt="Reform"
-					width="158"
-					height="48"
-				/>
-				<img
-					loading="lazy"
-					class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-					src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
-					alt="Tuple"
-					width="158"
-					height="48"
-				/>
-				<img
-					loading="lazy"
-					class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-					src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
-					alt="SavvyCal"
-					width="158"
-					height="48"
-				/>
-				<img
-					loading="lazy"
-					class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-					src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
-					alt="Statamic"
-					width="158"
-					height="48"
-				/>
-			</div>
-		</div>
+		<!--		<div class="mx-auto max-w-7xl px-6 lg:px-8">-->
+		<!--			<h2 class="text-center text-lg font-semibold leading-8 text-gray-900">-->
+		<!--				Trusted by the world’s most innovative teams-->
+		<!--			</h2>-->
+		<!--			<div-->
+		<!--				class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5"-->
+		<!--			>-->
+		<!--				<img-->
+		<!--					loading="lazy"-->
+		<!--					class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"-->
+		<!--					src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"-->
+		<!--					alt="Transistor"-->
+		<!--					width="158"-->
+		<!--					height="48"-->
+		<!--				/>-->
+		<!--				<img-->
+		<!--					loading="lazy"-->
+		<!--					class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"-->
+		<!--					src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"-->
+		<!--					alt="Reform"-->
+		<!--					width="158"-->
+		<!--					height="48"-->
+		<!--				/>-->
+		<!--				<img-->
+		<!--					loading="lazy"-->
+		<!--					class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"-->
+		<!--					src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"-->
+		<!--					alt="Tuple"-->
+		<!--					width="158"-->
+		<!--					height="48"-->
+		<!--				/>-->
+		<!--				<img-->
+		<!--					loading="lazy"-->
+		<!--					class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"-->
+		<!--					src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"-->
+		<!--					alt="SavvyCal"-->
+		<!--					width="158"-->
+		<!--					height="48"-->
+		<!--				/>-->
+		<!--				<img-->
+		<!--					loading="lazy"-->
+		<!--					class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"-->
+		<!--					src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"-->
+		<!--					alt="Statamic"-->
+		<!--					width="158"-->
+		<!--					height="48"-->
+		<!--				/>-->
+		<!--			</div>-->
+		<!--		</div>-->
 	</div>
 
 	<!-- Team section -->
@@ -296,17 +296,13 @@
 			role="list"
 			class="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
 		>
-			<li>
-				<img
-					loading="lazy"
-					class="mx-auto h-24 w-24 rounded-full"
-					src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-					alt=""
-				/>
-				<h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">Michael Foster</h3>
-				<p class="text-sm leading-6 text-gray-600">Co-Founder / CTO</p>
-			</li>
-
+			{#each page?.team?.images as { url, alt }}
+				<li>
+					<img loading="lazy" class="mx-auto h-24 w-24 rounded-full object-cover" src={url} {alt} />
+					<h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">Daniel</h3>
+					<p class="text-sm leading-6 text-gray-600">{lang === 'en' ? 'Founder' : 'Fundador'}</p>
+				</li>
+			{/each}
 			<!-- More people... -->
 		</ul>
 	</div>

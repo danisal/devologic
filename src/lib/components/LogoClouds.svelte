@@ -23,53 +23,41 @@
 			<div
 				class="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8"
 			>
-				<img
+				<enhanced:img
 					loading="lazy"
-					class="max-h-12 w-full object-contain object-left"
-					src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg"
-					alt="Tuple"
-					width="105"
-					height="48"
+					class="max-h-12 w-40 object-contain object-left"
+					src="../../../static/logos/tailwind-css.png"
+					alt="TailwindCSS"
 				/>
-				<img
+				<enhanced:img
 					loading="lazy"
-					class="max-h-12 w-full object-contain object-left"
-					src="https://tailwindui.com/img/logos/reform-logo-gray-900.svg"
-					alt="Reform"
-					width="104"
-					height="48"
+					class="max-h-12 w-40 object-contain object-left"
+					src="../../../static/logos/netlify.png"
+					alt="Netlify"
 				/>
-				<img
+				<enhanced:img
 					loading="lazy"
-					class="max-h-12 w-full object-contain object-left"
-					src="https://tailwindui.com/img/logos/savvycal-logo-gray-900.svg"
-					alt="SavvyCal"
-					width="140"
-					height="48"
+					class="max-h-12 w-40 object-contain object-left"
+					src="../../../static/logos/nextjs.png"
+					alt="NextJS"
 				/>
-				<img
+				<enhanced:img
 					loading="lazy"
-					class="max-h-12 w-full object-contain object-left"
-					src="https://tailwindui.com/img/logos/laravel-logo-gray-900.svg"
-					alt="Laravel"
-					width="136"
-					height="48"
+					class="max-h-12 w-40 object-contain object-left"
+					src="../../../static/logos/cloudflare.png"
+					alt="Cloudflare"
 				/>
-				<img
+				<enhanced:img
 					loading="lazy"
-					class="max-h-12 w-full object-contain object-left"
-					src="https://tailwindui.com/img/logos/transistor-logo-gray-900.svg"
-					alt="Transistor"
-					width="158"
-					height="48"
+					class="max-h-12 w-40 object-contain object-left"
+					src="../../../static/logos/remix.png"
+					alt="Remix"
 				/>
-				<img
+				<enhanced:img
 					loading="lazy"
-					class="max-h-12 w-full object-contain object-left"
-					src="https://tailwindui.com/img/logos/statamic-logo-gray-900.svg"
-					alt="Statamic"
-					width="147"
-					height="48"
+					class="max-h-12 w-40 object-contain object-left"
+					src="../../../static/logos/sveltekit.png"
+					alt="SvelteKit"
 				/>
 			</div>
 		</div>

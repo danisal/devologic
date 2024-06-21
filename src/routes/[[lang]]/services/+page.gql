@@ -1,0 +1,58 @@
+query ServicesData($locales: [Locale!]!) {
+	marketing: blogPosts(where: { tag: "Marketing" }, locales: $locales) {
+		id
+		name
+		tag
+		url
+		description
+	}
+	eCommerce: blogPosts(where: { tag: "E-Commerce" }, locales: $locales) {
+		id
+		name
+		tag
+		url
+		description
+	}
+	seo: blogPosts(where: { tag: "Search Engine Optimization" }, locales: $locales) {
+		id
+		name
+		tag
+		url
+		description
+	}
+	socialMedia: blogPosts(where: { tag: "Social Media Management" }, locales: $locales) {
+		id
+		name
+		tag
+		url
+		description
+	}
+	homePage(where: { id: "clq6sh5rsbbyb0bl521rzk9f7" }, locales: $locales) {
+		callOut {
+			locale
+			id
+			heading
+			subHeading
+			cta
+		}
+	}
+	content: page(where: { id: "clw5eg15i1nky07lbhhf0j2cs" }, locales: $locales) {
+		heading
+		locale
+		id
+		mainParagraph {
+			text
+		}
+		section(locales: $locales) {
+			locale
+			title
+			subTitle
+			paragraphs
+		}
+		cta {
+			id
+			locale
+			cta
+		}
+	}
+}

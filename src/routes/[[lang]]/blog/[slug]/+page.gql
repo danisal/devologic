@@ -1,0 +1,17 @@
+query BlogPost($slug: String, $locales: [Locale!]!) {
+	blogPosts(where: { url_contains: $slug }, locales: $locales) {
+		id
+		name
+		tag
+		heroImage {
+			alt
+			url
+			metadata
+		}
+		intro
+		mainHeading
+		content {
+			html
+		}
+	}
+}

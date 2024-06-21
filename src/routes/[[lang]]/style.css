@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Nunito';
+		font-weight: 300;
+		font-style: light;
+		font-display: swap;
+		src: url('/fonts/NunitoSans-Light.ttf');
+	}
+
+	@font-face {
+		font-family: 'Nunito';
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+		src: url('/fonts/NunitoSans-Regular.ttf');
+	}
+
+	@font-face {
+		font-family: 'Nunito';
+		font-weight: 600;
+		font-style: bolder;
+		font-display: swap;
+		src: url('/fonts/NunitoSans-SemiBold.ttf');
+	}
+
+	@font-face {
+		font-family: 'Nunito';
+		font-weight: 700;
+		font-style: boldest;
+		font-display: swap;
+		src: url('/fonts/NunitoSans-SemiBold.ttf');
+	}
+
+	@font-face {
+		font-family: 'Nunito';
+		font-weight: 900;
+		font-style: boldest;
+		font-display: swap;
+		src: url('/fonts/NunitoSans-ExtraBold.ttf');
+	}
+
+	@font-face {
+		font-family: 'Roboto';
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+		src: url('/fonts/Roboto-Bold.ttf');
+	}
+
+	@font-face {
+		font-family: 'Roboto';
+		font-weight: 500;
+		font-style: normal;
+		font-display: swap;
+		src: url('/fonts/Roboto-Medium.ttf');
+	}
+
+	@font-face {
+		font-family: 'Roboto';
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+		src: url('/fonts/Roboto-Regular.ttf');
+	}
+
+	html {
+		@apply min-h-full overscroll-none scroll-smooth font-sans;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-serif font-bold;
+	}
+}

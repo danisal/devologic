@@ -1,4 +1,5 @@
 import { HoudiniClient } from '$houdini';
+
 const HYGRAPH_URL = import.meta.env.VITE_HYGRAPH_URL;
 
 export default new HoudiniClient({

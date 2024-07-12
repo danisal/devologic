@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e8ba344d-ee0c-4b52-978c-c7579920267f" name="Changes" comment="chore: eslint 9" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="+layout.gql" />
+        <option value="TypeScript File" />
+        <option value="GraphQL File" />
+        <option value="privacy-policy" />
+        <option value="contact" />
+        <option value="blog" />
+        <option value="BlogPost" />
+        <option value="about" />
+        <option value="home" />
+        <option value="+page" />
+        <option value="devologic" />
+        <option value="DevologicIconHorizontalLight" />
+        <option value="DevologicIconVerticalLight" />
+        <option value="DevologicIconHorizontalDark" />
+        <option value="DevologicIconVerticalDark" />
+        <option value="Error" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="danisal &lt;daniel.salvado@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;danisal&quot;
+  }
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:danisal/devologic.git&quot;,
+    &quot;accountId&quot;: &quot;724b38df-2fc5-4158-bbad-9dcd3e0aaab3&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;danisal&quot;,
+    &quot;repository&quot;: &quot;devologic&quot;
+  }
+}</component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;configuredContexts&quot;: [
+    {
+      &quot;name&quot;: &quot;k8s-ivg-uat&quot;,
+      &quot;kubeConfigUrl&quot;: &quot;file:///Users/danisal/.kube/config&quot;
+    }
+  ],
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2HNCkdLzYBtPneFazkjVhLpIfWB" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "chore/eslint-9",
+    "javascript.nodejs.core.library.configured.version": "20.14.0",
+    "javascript.nodejs.core.library.typings.version": "20.14.5",
+    "last_opened_file_path": "/Users/danisal/Documents/git/devologic",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.build.executor": "Run",
+    "npm.check.executor": "Run",
+    "npm.codegen.executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.format.executor": "Run",
+    "npm.lint.executor": "Run",
+    "npm.preview.executor": "Run",
+    "prettier.import.notification.dismissed": "true",
+    "prettierjs.PrettierConfiguration.Package": "/Users/danisal/Documents/git/devologic/node_modules/prettier",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/danisal/Documents/git/devologic/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT",
+      "SVG",
+      "JSON",
+      "SvelteHTML"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/static/logos" />
+      <recent name="$PROJECT_DIR$/static/favicon" />
+      <recent name="$PROJECT_DIR$/src/routes/[[lang]]/partners/images" />
+      <recent name="$PROJECT_DIR$/src/pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/static/favicon" />
+      <recent name="$PROJECT_DIR$/src/routes/[[lang]]" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/routes" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.lint">
+    <configuration name="check" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="check" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="format" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="format" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="preview" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="preview" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.format" />
+        <item itemvalue="npm.check" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.preview" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8ba344d-ee0c-4b52-978c-c7579920267f" name="Changes" comment="" />
+      <created>1668116299350</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668116299350</updated>
+      <workItem from="1668116302511" duration="3103000" />
+      <workItem from="1668119776374" duration="649000" />
+      <workItem from="1704835307532" duration="5473000" />
+      <workItem from="1704883852751" duration="600000" />
+      <workItem from="1704966982646" duration="6000" />
+      <workItem from="1705004144390" duration="12252000" />
+      <workItem from="1705143282236" duration="20073000" />
+      <workItem from="1705260701833" duration="2544000" />
+      <workItem from="1705440437340" duration="832000" />
+      <workItem from="1705527620359" duration="4594000" />
+      <workItem from="1705616597823" duration="3068000" />
+      <workItem from="1705772576198" duration="7392000" />
+      <workItem from="1705908530153" duration="12000" />
+      <workItem from="1706188536493" duration="118000" />
+      <workItem from="1706221749150" duration="115000" />
+      <workItem from="1706974780393" duration="4517000" />
+      <workItem from="1707061310183" duration="9000" />
+      <workItem from="1707682157600" duration="10315000" />
+      <workItem from="1707730055205" duration="89000" />
+      <workItem from="1707771250045" duration="6269000" />
+      <workItem from="1707814074434" duration="17000" />
+      <workItem from="1707857817097" duration="2141000" />
+      <workItem from="1708966707641" duration="127000" />
+      <workItem from="1709482620014" duration="12017000" />
+      <workItem from="1709542314046" duration="16000" />
+      <workItem from="1710955417560" duration="18000" />
+      <workItem from="1713466787886" duration="968000" />
+      <workItem from="1713467764497" duration="1282000" />
+      <workItem from="1714412903077" duration="5752000" />
+      <workItem from="1714424094914" duration="78000" />
+      <workItem from="1714834903072" duration="5947000" />
+      <workItem from="1714982732569" duration="6000" />
+      <workItem from="1715021289604" duration="619000" />
+      <workItem from="1715023443018" duration="2819000" />
+      <workItem from="1715058630989" duration="1346000" />
+      <workItem from="1715060351200" duration="715000" />
+      <workItem from="1715273167405" duration="8223000" />
+      <workItem from="1715629587827" duration="4977000" />
+      <workItem from="1715674163033" duration="401000" />
+      <workItem from="1715792655210" duration="2619000" />
+      <workItem from="1715879685777" duration="11280000" />
+      <workItem from="1715933551966" duration="46000" />
+      <workItem from="1715936380262" duration="12464000" />
+      <workItem from="1716294737111" duration="1128000" />
+      <workItem from="1716320764041" duration="3230000" />
+      <workItem from="1716408143060" duration="3424000" />
+      <workItem from="1716496275086" duration="2796000" />
+      <workItem from="1716569876673" duration="3902000" />
+      <workItem from="1718813962746" duration="5617000" />
+      <workItem from="1718891894941" duration="18000" />
+      <workItem from="1718891935838" duration="599000" />
+      <workItem from="1718989039844" duration="2029000" />
+      <workItem from="1718991262341" duration="1800000" />
+      <workItem from="1719346875330" duration="2748000" />
+      <workItem from="1720624462764" duration="9000" />
+      <workItem from="1720729120903" duration="2195000" />
+      <workItem from="1720796220194" duration="4257000" />
+      <workItem from="1720812325820" duration="1693000" />
+      <workItem from="1720814031766" duration="945000" />
+      <workItem from="1720814989609" duration="2623000" />
+      <workItem from="1720817622011" duration="299000" />
+    </task>
+    <task id="LOCAL-00062" summary="chore: Update svelte and zod versions in package.json and pnpm-lock.yaml&#10;&#10;- The versions of Svelte and Zod in package.json and pnpm-lock.yaml have been upgraded. Svelte version was increased from 4.2.15 to 4.2.16, and Zod version was upgraded from 3.23.6 to 3.23.8. &#10;- All downstream package dependencies that depend on these packages have been impacted and reflected in the changes in pnpm-lock.yaml.">
+      <option name="closed" value="true" />
+      <created>1715288246419</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1715288246419</updated>
+    </task>
+    <task id="LOCAL-00063" summary="refactor: privacy policy page for localization support&#10;&#10;- The privacy policy page has been refactored to enable localization support. &#10;- A new query has been added to fetch locale-specific content. &#10;- The static content in privacy-policy.svelte has been replaced with a dynamic rendering setup, using the fetched content.">
+      <option name="closed" value="true" />
+      <created>1715288287189</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1715288287189</updated>
+    </task>
+    <task id="LOCAL-00064" summary="feat: add Partners Page feature&#10;&#10;- This commit involves adding a Partners Page feature to the app. &#10;- It involves modifications in various files including creating new files for the Partners Page and updating the hooks and schema files. &#10;- This also involves updating the querying and rendering partners data on the Partners Page.">
+      <option name="closed" value="true" />
+      <created>1715294209132</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1715294209132</updated>
+    </task>
+    <task id="LOCAL-00065" summary="chore: Add exclusion for houdini and svelte-kit folders&#10;&#10;- Exclusion for two new directories, '$houdini' and '.svelte-kit', has been included in the development module. &#10;- This prevents these directories from being indexed by the integrated development environment, thus optimizing its performance.">
+      <option name="closed" value="true" />
+      <created>1715630335673</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1715630335673</updated>
+    </task>
+    <task id="LOCAL-00066" summary="chore: Update dependencies versions&#10;&#10;- Updated the versions of &quot;@sveltejs/kit&quot; from 2.5.7 to 2.5.8 and &quot;@typescript-eslint/eslint-plugin&quot;, &quot;@typescript-eslint/parser&quot; from 7.8.0 to 7.9.0. &#10;- This will ensure compatibility with the most recent versions and fix potential issues in the previous versions.">
+      <option name="closed" value="true" />
+      <created>1715630352039</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1715630352039</updated>
+    </task>
+    <task id="LOCAL-00067" summary="fix: Update conditional rendering in Svelte components&#10;&#10;- This commit properly handles the conditional rendering in both about and blog page Svelte components. &#10;- The change ensures the AboutPage and Blog components are only rendered if the corresponding data is available, preventing potential rendering errors.">
+      <option name="closed" value="true" />
+      <created>1715630376513</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1715630376513</updated>
+    </task>
+    <task id="LOCAL-00068" summary="refactor: comment out unnecessary elements&#10;&#10;- In this commit, certain unnecessary elements were commented out to clean up the layout. &#10;- The order of CSS classes was also rearranged to ensure consistent styling across different sections of the website. &#10;- The stylistic changes improve readability of the code and overall user interface.">
+      <option name="closed" value="true" />
+      <created>1715630415285</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1715630415286</updated>
+    </task>
+    <task id="LOCAL-00069" summary="feat: Add link to Devologic icon in Footer component&#10;&#10;- The Devologic icon in the footer component is now linked to the home page. &#10;- It ensures that users can navigate back to the main page easily by clicking the icon from anywhere on the site.">
+      <option name="closed" value="true" />
+      <created>1715630433405</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1715630433405</updated>
+    </task>
+    <task id="LOCAL-00070" summary="feat: Add link to Devologic icon in Footer component&#10;&#10;- The Devologic icon in the footer component is now linked to the home page. &#10;- It ensures that users can navigate back to the main page easily by clicking the icon from anywhere on the site.">
+      <option name="closed" value="true" />
+      <created>1715632942464</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1715632942464</updated>
+    </task>
+    <task id="LOCAL-00071" summary="refactor: services page to dynamically load content&#10;&#10;- The services page has been refactored to load dynamic content instead of static text. Section data including 'Marketing', 'E-Commerce', 'Search Engine Optimization' and 'Social Media Management' are now fetched from the back end. &#10;- This allows for more flexible content changes from the backend without requiring code updates.">
+      <option name="closed" value="true" />
+      <created>1715632977410</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1715632977410</updated>
+    </task>
+    <task id="LOCAL-00072" summary="chore: Add JSON support to houdini config&#10;&#10;- The commit introduces a new JSON type handler to the houdini configuration file. &#10;- This now allows for marshalling and unmarshalling of JSON data, providing more flexibility when working with such data structures.">
+      <option name="closed" value="true" />
+      <created>1715634384105</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1715634384105</updated>
+    </task>
+    <task id="LOCAL-00073" summary="style: move language selection to bottom of footer&#10;&#10;- The language selection dropdown has been moved to the bottom of the footer for improved UI design. &#10;- This change enhances visual hierarchy and ease of access for users.">
+      <option name="closed" value="true" />
+      <created>1715793222757</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1715793222757</updated>
+    </task>
+    <task id="LOCAL-00074" summary="fix: update function to handle empty or undefined input&#10;&#10;- This commit modifies both the 'groupArrayIntoPairs' function and 'valuesParagraphs' assignment to handle cases when '$About.data.page.values.paragraphs' is empty or undefined. &#10;- Now, if the input is missing, it will default to an empty array, thereby preventing potential runtime errors.">
+      <option name="closed" value="true" />
+      <created>1715793479796</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1715793479796</updated>
+    </task>
+    <task id="LOCAL-00075" summary="style: move language selection to bottom of footer&#10;&#10;- The language selection dropdown has been moved to the bottom of the footer for improved UI design.&#10;- This change enhances visual hierarchy and ease of access for users.">
+      <option name="closed" value="true" />
+      <created>1715793683583</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1715793683583</updated>
+    </task>
+    <task id="LOCAL-00076" summary="fix: update function to handle empty or undefined input&#10;&#10;- This commit modifies both the 'groupArrayIntoPairs' function and 'valuesParagraphs' assignment to handle cases when '$About.data.page.values.paragraphs' is empty or undefined.&#10;- Now, if the input is missing, it will default to an empty array, thereby preventing potential runtime errors.">
+      <option name="closed" value="true" />
+      <created>1715793694693</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1715793694693</updated>
+    </task>
+    <task id="LOCAL-00077" summary="chore: remove locale-related actions in server routing&#10;&#10;- This commit eliminates the actions related to handling locale on the server-side routing. &#10;- This includes the deletion of asynchronous functionality that was previously being used to manage language preferences based on form data and cookie settings.">
+      <option name="closed" value="true" />
+      <created>1715881839764</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1715881839764</updated>
+    </task>
+    <task id="LOCAL-00078" summary="chore: Reconfigure path alias from tsconfig to svelte config&#10;&#10;- The path alias &quot;@/*&quot; referring to &quot;./src/*&quot; has been moved from the tsconfig.json file to the svelte.config.js file. &#10;- This change will streamline the path aliasing process across different environments and maintain consistent code structure.">
+      <option name="closed" value="true" />
+      <created>1715881869378</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1715881869378</updated>
+    </task>
+    <task id="LOCAL-00079" summary="chore: Add Node.js to jsLibraryMappings and exclude .vercel folder&#10;&#10;An update was made to include the &quot;Node.js Core&quot; predefined library in the JavaScriptLibraryMappings. In addition, the &quot;.vercel&quot; folder is now excluded in the devologic.iml. This prevents unnecessary loading of the .vercel folder contents and allows the use of Node.js core in the project.">
+      <option name="closed" value="true" />
+      <created>1715940658551</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1715940658551</updated>
+    </task>
+    <task id="LOCAL-00080" summary="refactor: formatting&#10;&#10;- Updated the project formatting for code consistency across multiple files including tsconfig.json, routes, favicon configurations, and client setup. &#10;- This involves adjustments for tabs, spacing, and line breaks. &#10;- This will enhance overall readability and maintainability of the codebase.">
+      <option name="closed" value="true" />
+      <created>1715940765074</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1715940765074</updated>
+    </task>
+    <task id="LOCAL-00081" summary="chore: remove commented-out CSS styling&#10;&#10;- The commented-out CSS styling related to the body's background gradient in the [[lang]] route's style.css file has been removed. &#10;- This is to maintain the cleanliness of the code and to avoid potential confusion in future development.">
+      <option name="closed" value="true" />
+      <created>1715940798703</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1715940798703</updated>
+    </task>
+    <task id="LOCAL-00082" summary="refactor: CSS class ordering and handle null reference cases&#10;&#10;- CSS classes in &quot;LearnMoreSection.svelte&quot; were reordered for consistency. &#10;- Additionally, type import in &quot;blog/+page.svelte&quot; was renamed from &quot;PageServerData&quot; to &quot;PageData&quot;. &#10;- To handle potential null reference cases, optional chaining was added to the handling of page data in &quot;partners/+page.svelte&quot;.">
+      <option name="closed" value="true" />
+      <created>1715940880683</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1715940880683</updated>
+    </task>
+    <task id="LOCAL-00083" summary="chore: Add Node.js to jsLibraryMappings and exclude .vercel folder">
+      <option name="closed" value="true" />
+      <created>1715952799364</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1715952799364</updated>
+    </task>
+    <task id="LOCAL-00084" summary="chore: Add Node.js to jsLibraryMappings and exclude .vercel folder&#10;&#10;An update was made to include the &quot;Node.js Core&quot; predefined library in the JavaScriptLibraryMappings. In addition, the &quot;.vercel&quot; folder is now excluded in the devologic.iml. This prevents unnecessary loading of the .vercel folder contents and allows the use of Node.js core in the project.">
+      <option name="closed" value="true" />
+      <created>1715952837142</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1715952837142</updated>
+    </task>
+    <task id="LOCAL-00085" summary="chore: remove commented-out CSS styling&#10;&#10;- The commented-out CSS styling related to the body's background gradient in the [[lang]] route's style.css file has been removed.&#10;- This is to maintain the cleanliness of the code and to avoid potential confusion in future development.">
+      <option name="closed" value="true" />
+      <created>1715952885595</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1715952885595</updated>
+    </task>
+    <task id="LOCAL-00086" summary="refactor: formatting&#10;&#10;- Updated the project formatting for code consistency across multiple files including tsconfig.json, routes, favicon configurations, and client setup.&#10;- This involves adjustments for tabs, spacing, and line breaks.&#10;- This will enhance overall readability and maintainability of the codebase.">
+      <option name="closed" value="true" />
+      <created>1715952968414</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1715952968414</updated>
+    </task>
+    <task id="LOCAL-00087" summary="chore: update dependencies and remove comments in error.svelte file&#10;&#10;- Updated the package.json and pnpm-lock.yaml files with new dependencies. &#10;- Also, unnecessary comments are removed from the error.svelte file. &#10;- The reordering of script commands in package.json for better readability. Introduced changes in the versions of dependencies will help to keep the project updated and efficient.">
+      <option name="closed" value="true" />
+      <created>1715955353416</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1715955353416</updated>
+    </task>
+    <task id="LOCAL-00088" summary="chore: Remove about, blog, blogpost and contact page">
+      <option name="closed" value="true" />
+      <created>1715955388905</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1715955388905</updated>
+    </task>
+    <task id="LOCAL-00089" summary="refactor: code for improved locale handling&#10;&#10;- This commit includes a major refactor in the way locales are handled across the application. &#10;- It introduces a new way of setting up locale variables with more flexibility and robustness. &#10;- The locale variables have been converted from a key-indexed object to a keyed object for improved readability and understanding, making it easier for future contributors to understand and modify the code.">
+      <option name="closed" value="true" />
+      <created>1715955561895</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1715955561895</updated>
+    </task>
+    <task id="LOCAL-00090" summary="chore: Update about page query to use static ID&#10;&#10;- The about page query has been updated to use a static ID instead of a dynamic one. &#10;- This change makes it easier to manage updates to the about page's content. &#10;- Moreover, it simplifies the way we identify and access the about page considering we use the same ID across different locales.">
+      <option name="closed" value="true" />
+      <created>1715955648287</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1715955648287</updated>
+    </task>
+    <task id="LOCAL-00091" summary="refactor: Update multiple routes and components for error handling&#10;&#10;- Updated the routing and handling across several features in the Svelte app. &#10;- Also addressed issues with conditional rendering to better error-proof these components. &#10;- Implemented conditional chaining in display elements within multiple Svelte pages for safe attribute access.">
+      <option name="closed" value="true" />
+      <created>1715955672091</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1715955672091</updated>
+    </task>
+    <task id="LOCAL-00092" summary="fix: Add null-check to contact data retrieval&#10;&#10;- Added a ternary operator to the contact data retrieval logic.&#10; - This change prevents potential errors that can arise when the ContactPage.data object is undefined, by falling back to an empty object instead.">
+      <option name="closed" value="true" />
+      <created>1715955841107</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1715955841107</updated>
+    </task>
+    <task id="LOCAL-00093" summary="feat: add Enhanced Images plugin to handle images more efficiently&#10;&#10;The Enhanced Images plugin has been added and integrated into the configuration in vite.config.ts. &#10;This plugin provides advanced image handling features. &#10;Additionally, it has been applied to the partners' page for improved image handling. &#10;The plugin dependency has also been added to the package.json file and lock file.">
+      <option name="closed" value="true" />
+      <created>1716295308491</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1716295308491</updated>
+    </task>
+    <task id="LOCAL-00094" summary="refactor: change favicon">
+      <option name="closed" value="true" />
+      <created>1716411043394</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1716411043394</updated>
+    </task>
+    <task id="LOCAL-00095" summary="refactor: about page and update GraphQL query.&#10;&#10;- Data destructuring has been improved in the about page by including 'lang' from data. &#10;- The display team information is updated to use data from the GraphQL query. &#10;- Sections of hardcoded text have been commented out in preparation for dynamic content. &#10;- The GraphQL query itself has been extended to include images within the team data.">
+      <option name="closed" value="true" />
+      <created>1716497292457</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1716497292457</updated>
+    </task>
+    <task id="LOCAL-00096" summary="feat: update logo images and switch to enhanced img tag in LogoClouds component&#10;&#10;- The implementation in the LogoClouds component has been modified to use the 'enhanced:img' tag, replacing the standard 'img' tag for better performance. &#10;- Also, the source and alt texts of the logo images have been updated to new ones and the image's width is standardized for consistency and better layout.">
+      <option name="closed" value="true" />
+      <created>1716498655867</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1716498655867</updated>
+    </task>
+    <task id="LOCAL-00097" summary="feat: update logo images and switch to enhanced img tag in LogoClouds component&#10;&#10;- The implementation in the LogoClouds component has been modified to use the 'enhanced:img' tag, replacing the standard 'img' tag for better performance. &#10;- Also, the source and alt texts of the logo images have been updated to new ones and the image's width is standardized for consistency and better layout.">
+      <option name="closed" value="true" />
+      <created>1716498943171</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1716498943171</updated>
+    </task>
+    <task id="LOCAL-00098" summary="refactor: about page and update GraphQL query.&#10;&#10;- Data destructuring has been improved in the about page by including 'lang' from data.&#10;- The display team information is updated to use data from the GraphQL query.&#10;- Sections of hardcoded text have been commented out in preparation for dynamic content.&#10;- The GraphQL query itself has been extended to include images within the team data.">
+      <option name="closed" value="true" />
+      <created>1716498955721</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1716498955721</updated>
+    </task>
+    <task id="LOCAL-00099" summary="chore: Update devDependencies in package.json&#10;&#10;- This commit upgrades the versions of the development dependencies in the package.json file. &#10;- It likewise updates corresponding versions in pnpm-lock.yaml. &#10;- These updates are crucial for optimal application performance and robustness, as they may carry important bug fixes and feature improvements.">
+      <option name="closed" value="true" />
+      <created>1718814433770</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1718814433771</updated>
+    </task>
+    <task id="LOCAL-00100" summary="fix: Update 404 error page text&#10;&#10;- The text in the 404 error page has been slightly revised for clarity. &#10;- The contraction &quot;couldn't&quot; has been replaced with &quot;could not&quot; to maintain formal language across the site.">
+      <option name="closed" value="true" />
+      <created>1718814476844</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1718814476844</updated>
+    </task>
+    <task id="LOCAL-00101" summary="feat: Add Error component and update contact form handling&#10;&#10;- The commit introduces an Error component in Svelte. This component will be used to display error messages related to form validation. &#10;- On the server side, a new page.server.ts file is created that includes form schema and server actions for form data handling. &#10;- Modifications are also made in the contact page file to integrate the server actions and error component for form validation. &#10;- Unnecessary script tag removed from app.html.">
+      <option name="closed" value="true" />
+      <created>1718817258414</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1718817258414</updated>
+    </task>
+    <task id="LOCAL-00102" summary="chore: Hide social media links in Footer&#10;&#10;- The social media links in the Footer component have been commented out. &#10;- This change hides these links from the website's footer, but the code is kept for potential future use.">
+      <option name="closed" value="true" />
+      <created>1718990025191</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1718990025191</updated>
+    </task>
+    <task id="LOCAL-00103" summary="chore: Hide social media links in Footer&#10;&#10;- The social media links in the Footer component have been commented out. &#10;- This change hides these links from the website's footer, but the code is kept for potential future use.">
+      <option name="closed" value="true" />
+      <created>1718990043588</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1718990043588</updated>
+    </task>
+    <task id="LOCAL-00104" summary="fix: Remove hardcoded values from contact form&#10;&#10;- The hardcoded values for the fields firstName, lastName, email, and phoneNumber in the contact form have been removed. &#10;- This is necessary to ensure the fields are empty by default and to prevent any potential privacy issues.">
+      <option name="closed" value="true" />
+      <created>1718990931502</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1718990931502</updated>
+    </task>
+    <task id="LOCAL-00105" summary="chore: Hide image from +page.svelte&#10;&#10;- The image loading from Unsplash has been commented out from the +page.svelte file.">
+      <option name="closed" value="true" />
+      <created>1718991354507</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1718991354507</updated>
+    </task>
+    <task id="LOCAL-00106" summary="feat: Add SEO metadata using svelte-meta-tags library&#10;&#10;- The svelte-meta-tags library was integrated into the application to handle the SEO metadata. &#10;- The metadata was defined within the layout component, which includes title, description, open graph, twitter card information, and more. &#10;- Also, the previously hardcoded metadata in the 'app.html' and 'page.svelte' files was removed to avoid redundancies.">
+      <option name="closed" value="true" />
+      <created>1720729308586</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1720729308587</updated>
+    </task>
+    <task id="LOCAL-00107" summary="fix: Update clip-path identifiers in DevologicIconHorizontalDark.svelte&#10;&#10;- The clip-path identifiers in src/lib/logos/DevologicIconHorizontalDark.svelte have been updated. &#10;- This change ensures proper referencing of these elements throughout the SVG code, promoting correct rendering and visual alignment.">
+      <option name="closed" value="true" />
+      <created>1720730711197</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1720730711198</updated>
+    </task>
+    <task id="LOCAL-00108" summary="chore: Update devDependencies version in package.json&#10;&#10;- This commit updates several development dependencies in package.json. &#10;- Various packages such as `@sveltejs/adapter-cloudflare`, `@sveltejs/kit`, and `typescript` among others have been upgraded to newer versions. &#10;- This ensures we're using the latest functionality and security patches from these packages.">
+      <option name="closed" value="true" />
+      <created>1720730731142</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1720730731142</updated>
+    </task>
+    <task id="LOCAL-00109" summary="chore: eslint 9">
+      <option name="closed" value="true" />
+      <created>1720817908673</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1720817908674</updated>
+    </task>
+    <task id="LOCAL-00110" summary="chore: eslint 9">
+      <option name="closed" value="true" />
+      <created>1720817914537</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1720817914537</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="additionalRoots">
+      <list>
+        <option value="$PROJECT_DIR$/$houdini/types" />
+        <option value="$PROJECT_DIR$/.svelte-kit/types" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: Add Node.js to jsLibraryMappings and exclude .vercel folder" />
+    <MESSAGE value="chore: Add Node.js to jsLibraryMappings and exclude .vercel folder&#10;&#10;An update was made to include the &quot;Node.js Core&quot; predefined library in the JavaScriptLibraryMappings. In addition, the &quot;.vercel&quot; folder is now excluded in the devologic.iml. This prevents unnecessary loading of the .vercel folder contents and allows the use of Node.js core in the project." />
+    <MESSAGE value="chore: remove commented-out CSS styling&#10;&#10;- The commented-out CSS styling related to the body's background gradient in the [[lang]] route's style.css file has been removed.&#10;- This is to maintain the cleanliness of the code and to avoid potential confusion in future development." />
+    <MESSAGE value="refactor: formatting&#10;&#10;- Updated the project formatting for code consistency across multiple files including tsconfig.json, routes, favicon configurations, and client setup.&#10;- This involves adjustments for tabs, spacing, and line breaks.&#10;- This will enhance overall readability and maintainability of the codebase." />
+    <MESSAGE value="chore: update dependencies and remove comments in error.svelte file&#10;&#10;- Updated the package.json and pnpm-lock.yaml files with new dependencies. &#10;- Also, unnecessary comments are removed from the error.svelte file. &#10;- The reordering of script commands in package.json for better readability. Introduced changes in the versions of dependencies will help to keep the project updated and efficient." />
+    <MESSAGE value="chore: Remove about, blog, blogpost and contact page" />
+    <MESSAGE value="refactor: code for improved locale handling&#10;&#10;- This commit includes a major refactor in the way locales are handled across the application. &#10;- It introduces a new way of setting up locale variables with more flexibility and robustness. &#10;- The locale variables have been converted from a key-indexed object to a keyed object for improved readability and understanding, making it easier for future contributors to understand and modify the code." />
+    <MESSAGE value="chore: Update about page query to use static ID&#10;&#10;- The about page query has been updated to use a static ID instead of a dynamic one. &#10;- This change makes it easier to manage updates to the about page's content. &#10;- Moreover, it simplifies the way we identify and access the about page considering we use the same ID across different locales." />
+    <MESSAGE value="refactor: Update multiple routes and components for error handling&#10;&#10;- Updated the routing and handling across several features in the Svelte app. &#10;- Also addressed issues with conditional rendering to better error-proof these components. &#10;- Implemented conditional chaining in display elements within multiple Svelte pages for safe attribute access." />
+    <MESSAGE value="fix: Add null-check to contact data retrieval&#10;&#10;- Added a ternary operator to the contact data retrieval logic.&#10; - This change prevents potential errors that can arise when the ContactPage.data object is undefined, by falling back to an empty object instead." />
+    <MESSAGE value="feat: add Enhanced Images plugin to handle images more efficiently&#10;&#10;The Enhanced Images plugin has been added and integrated into the configuration in vite.config.ts. &#10;This plugin provides advanced image handling features. &#10;Additionally, it has been applied to the partners' page for improved image handling. &#10;The plugin dependency has also been added to the package.json file and lock file." />
+    <MESSAGE value="refactor: change favicon" />
+    <MESSAGE value="refactor: about page and update GraphQL query.&#10;&#10;- Data destructuring has been improved in the about page by including 'lang' from data. &#10;- The display team information is updated to use data from the GraphQL query. &#10;- Sections of hardcoded text have been commented out in preparation for dynamic content. &#10;- The GraphQL query itself has been extended to include images within the team data." />
+    <MESSAGE value="feat: update logo images and switch to enhanced img tag in LogoClouds component&#10;&#10;- The implementation in the LogoClouds component has been modified to use the 'enhanced:img' tag, replacing the standard 'img' tag for better performance. &#10;- Also, the source and alt texts of the logo images have been updated to new ones and the image's width is standardized for consistency and better layout." />
+    <MESSAGE value="refactor: about page and update GraphQL query.&#10;&#10;- Data destructuring has been improved in the about page by including 'lang' from data.&#10;- The display team information is updated to use data from the GraphQL query.&#10;- Sections of hardcoded text have been commented out in preparation for dynamic content.&#10;- The GraphQL query itself has been extended to include images within the team data." />
+    <MESSAGE value="chore: Update devDependencies in package.json&#10;&#10;- This commit upgrades the versions of the development dependencies in the package.json file. &#10;- It likewise updates corresponding versions in pnpm-lock.yaml. &#10;- These updates are crucial for optimal application performance and robustness, as they may carry important bug fixes and feature improvements." />
+    <MESSAGE value="fix: Update 404 error page text&#10;&#10;- The text in the 404 error page has been slightly revised for clarity. &#10;- The contraction &quot;couldn't&quot; has been replaced with &quot;could not&quot; to maintain formal language across the site." />
+    <MESSAGE value="feat: Add Error component and update contact form handling&#10;&#10;- The commit introduces an Error component in Svelte. This component will be used to display error messages related to form validation. &#10;- On the server side, a new page.server.ts file is created that includes form schema and server actions for form data handling. &#10;- Modifications are also made in the contact page file to integrate the server actions and error component for form validation. &#10;- Unnecessary script tag removed from app.html." />
+    <MESSAGE value="chore: Hide social media links in Footer&#10;&#10;- The social media links in the Footer component have been commented out. &#10;- This change hides these links from the website's footer, but the code is kept for potential future use." />
+    <MESSAGE value="fix: Remove hardcoded values from contact form&#10;&#10;- The hardcoded values for the fields firstName, lastName, email, and phoneNumber in the contact form have been removed. &#10;- This is necessary to ensure the fields are empty by default and to prevent any potential privacy issues." />
+    <MESSAGE value="chore: Hide image from +page.svelte&#10;&#10;- The image loading from Unsplash has been commented out from the +page.svelte file." />
+    <MESSAGE value="feat: Add SEO metadata using svelte-meta-tags library&#10;&#10;- The svelte-meta-tags library was integrated into the application to handle the SEO metadata. &#10;- The metadata was defined within the layout component, which includes title, description, open graph, twitter card information, and more. &#10;- Also, the previously hardcoded metadata in the 'app.html' and 'page.svelte' files was removed to avoid redundancies." />
+    <MESSAGE value="fix: Update clip-path identifiers in DevologicIconHorizontalDark.svelte&#10;&#10;- The clip-path identifiers in src/lib/logos/DevologicIconHorizontalDark.svelte have been updated. &#10;- This change ensures proper referencing of these elements throughout the SVG code, promoting correct rendering and visual alignment." />
+    <MESSAGE value="chore: Update devDependencies version in package.json&#10;&#10;- This commit updates several development dependencies in package.json. &#10;- Various packages such as `@sveltejs/adapter-cloudflare`, `@sveltejs/kit`, and `typescript` among others have been upgraded to newer versions. &#10;- This ensures we're using the latest functionality and security patches from these packages." />
+    <MESSAGE value="chore: eslint 9" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: eslint 9" />
+  </component>
+</project>

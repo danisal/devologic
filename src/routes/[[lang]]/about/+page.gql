@@ -1,45 +1,45 @@
 query About($locales: [Locale!]!) {
-  page(where: { id: "clrmfe9aqbzmu0bl9et3e9ugh" }, locales: $locales) {
-    id
-    locale
-    title
-    slug
-    heading
-    mainParagraph {
-      html
-    }
-    mission {
-      id
-      locale
-      title
-      paragraphs
-    }
-    values {
-      id
-      locale
-      title
-      subTitle
-      paragraphs
-    }
-    team {
-      id
-      locale
-      title
-      subTitle
-      images {
-        id
-        mimeType
-        locale
-        alt
-        url
-      }
-    }
-    cta {
-      id
-      locale
-      heading
-      subHeading
-      cta
-    }
-  }
+	page(where: { id: "clrmfe9aqbzmu0bl9et3e9ugh" }, locales: $locales) {
+		id
+		locale
+		title
+		slug
+		heading
+		mainParagraph {
+			html
+		}
+		mission {
+			id
+			locale
+			title
+			paragraphs
+		}
+		values {
+			id
+			locale
+			title
+			subTitle
+			paragraphs
+		}
+		team {
+			id
+			locale
+			title
+			subTitle
+			images {
+				id
+				mimeType
+				locale
+				alt
+				url
+			}
+		}
+		cta {
+			id
+			locale
+			heading
+			subHeading
+			cta
+		}
+	}
 }

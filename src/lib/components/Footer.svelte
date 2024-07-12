@@ -48,8 +48,8 @@
 	];
 </script>
 
-<footer class="bg-gray-900" aria-labelledby="footer-heading">
-	<h2 id="footer-heading" class="sr-only">Footer</h2>
+<footer aria-labelledby="footer-heading" class="bg-gray-900">
+	<h2 class="sr-only" id="footer-heading">Footer</h2>
 	<div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
 		<div class="xl:grid xl:grid-cols-3 xl:gap-8">
 			<div class="space-y-8">
@@ -73,7 +73,7 @@
 				<div class="md:grid md:grid-cols-2 md:gap-8">
 					<div>
 						<h3 class="text-sm font-semibold leading-6 text-white">{links[0].title}</h3>
-						<ul role="list" class="mt-6 space-y-4">
+						<ul class="mt-6 space-y-4" role="list">
 							{#each links[0].link as link}
 								<li>
 									<a href={link.value} class="text-sm leading-6 text-gray-300 hover:text-white">{link.key}</a>
@@ -83,7 +83,7 @@
 					</div>
 					<div class="mt-10 md:mt-0">
 						<h3 class="text-sm font-semibold leading-6 text-white">{links[1].title}</h3>
-						<ul role="list" class="mt-6 space-y-4">
+						<ul class="mt-6 space-y-4" role="list">
 							{#each links[1].link as link}
 								<li>
 									<a href={link.value} class="text-sm leading-6 text-gray-300 hover:text-white">{link.key}</a>
@@ -95,7 +95,7 @@
 				<div class="md:grid md:grid-cols-2 md:gap-8">
 					<div>
 						<h3 class="text-sm font-semibold leading-6 text-white">{links[2].title}</h3>
-						<ul role="list" class="mt-6 space-y-4">
+						<ul class="mt-6 space-y-4" role="list">
 							{#each links[2].link as link}
 								<li>
 									<a href={link.value} class="text-sm leading-6 text-gray-300 hover:text-white">{link.key}</a>
@@ -105,7 +105,7 @@
 					</div>
 					<div class="mt-10 flex flex-col md:mt-0">
 						<h3 class="text-sm font-semibold leading-6 text-white">{links[3].title}</h3>
-						<ul role="list" class="mt-6 space-y-4">
+						<ul class="mt-6 space-y-4" role="list">
 							{#each links[3].link as link}
 								<li>
 									<a href={link.value} class="text-sm leading-6 text-gray-300 hover:text-white">{link.key}</a>
@@ -113,12 +113,12 @@
 							{/each}
 						</ul>
 						<div class="mt-auto">
-							<label for="locale" class="block text-sm font-medium leading-6 text-white">Language</label>
+							<label class="block text-sm font-medium leading-6 text-white" for="locale">Language</label>
 							<select
+								bind:value={selectedLanguage}
+								class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-east-bay-600 sm:text-sm sm:leading-6"
 								id="locale"
 								name="locale"
-								class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-east-bay-600 sm:text-sm sm:leading-6"
-								bind:value={selectedLanguage}
 								on:change={handleLanguageSelect}
 							>
 								{#each languages as language}

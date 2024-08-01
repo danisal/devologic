@@ -36,12 +36,8 @@ export const actions = {
 		const data = await request.formData();
 		const contactFormData = Object.fromEntries(data);
 
-		console.log(contactFormData);
-
 		try {
 			const result = FormSchema.parse(contactFormData);
-
-			console.log(result);
 
 			const body = new FormData();
 			body.append('from', MAIL_GUN_EMAIL_FROM);

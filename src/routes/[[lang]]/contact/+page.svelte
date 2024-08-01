@@ -14,7 +14,6 @@
 		'Obrigado por enviar o seu formulário de contacto. Recebemos o seu pedido e responder-lhe-emos o mais rapidamente possível';
 
 	$: if (form?.success) {
-		console.log('submitted');
 		toast.success(lang === 'en' ? enSuccessMessage : ptSuccessMessage, {
 			position: 'top-center',
 			duration: 15_000,

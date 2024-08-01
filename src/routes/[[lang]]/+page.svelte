@@ -11,12 +11,6 @@
 	$: ({ testimony, heading, subHeading, cta } = homePage ?? {});
 </script>
 
-<svelte:head>
-	<title>Devologic</title>
-	<meta name="title" content="Devologic" />
-	<meta name="language" content="English" />
-</svelte:head>
-
 {#if homePage}
 	<div class="relative isolate">
 		<svg

@@ -10,7 +10,7 @@
 	$: ({ MainLayout } = data);
 	const meta = {
 		title: 'Devologic',
-		description: 'We provide innovative solutions for your online presence',
+		description: 'We provide innovative solutions for your online presence.',
 		url: 'https://devologic.digital',
 	};
 
@@ -32,7 +32,7 @@
 			description: meta.description,
 			images: [
 				{
-					url: 'https://devologic.digital/logos/devologic-icon-vertical-light.svg',
+					url: 'https://devologic.digital/logos/devologic-icon-horizontal-light.svg',
 					alt: 'Devologic logo',
 					width: 1388,
 					height: 414,
@@ -43,8 +43,8 @@
 			cardType: 'summary_large_image',
 			title: meta.title,
 			description: meta.description,
-			image: 'https://engewatt.pt/assets/engewatt-logo-w-1388.png',
-			imageAlt: 'Engewatt logo',
+			image: 'https://devologic.digital/logos/devologic-icon-horizontal-light.svg',
+			imageAlt: 'Devologic logo',
 			site: meta.url,
 		},
 		keywords: ['web design', ' web development', ' marketing', ' marketing strategy', ' seo'],

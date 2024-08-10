@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8ba344d-ee0c-4b52-978c-c7579920267f" name="Changes" comment="chore: eslint 9" />
+    <list default="true" id="e8ba344d-ee0c-4b52-978c-c7579920267f" name="Changes" comment="chore: Remove console.log statements from contact form&#10;&#10;- This commit removes several console.log statements scattered throughout the contact form's client and server scripts. &#10;- The removal is aimed at cleaning up the code and improving performance by eliminating unnecessary logging.">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/[[lang]]/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/[[lang]]/+layout.svelte" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,47 +108,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "chore/eslint-9",
-    "javascript.nodejs.core.library.configured.version": "20.14.0",
-    "javascript.nodejs.core.library.typings.version": "20.14.5",
-    "last_opened_file_path": "/Users/danisal/Documents/git/devologic",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "npm.build.executor": "Run",
-    "npm.check.executor": "Run",
-    "npm.codegen.executor": "Run",
-    "npm.dev.executor": "Run",
-    "npm.format.executor": "Run",
-    "npm.lint.executor": "Run",
-    "npm.preview.executor": "Run",
-    "prettier.import.notification.dismissed": "true",
-    "prettierjs.PrettierConfiguration.Package": "/Users/danisal/Documents/git/devologic/node_modules/prettier",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/danisal/Documents/git/devologic/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.14.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.14.5&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/danisal/Documents/git/devologic&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.check.executor&quot;: &quot;Run&quot;,
+    &quot;npm.codegen.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.format.executor&quot;: &quot;Run&quot;,
+    &quot;npm.lint.executor&quot;: &quot;Run&quot;,
+    &quot;npm.preview.executor&quot;: &quot;Run&quot;,
+    &quot;prettier.import.notification.dismissed&quot;: &quot;true&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/danisal/Documents/git/devologic/node_modules/prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/danisal/Documents/git/devologic/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT",
-      "SVG",
-      "JSON",
-      "SvelteHTML"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;,
+      &quot;SVG&quot;,
+      &quot;JSON&quot;,
+      &quot;SvelteHTML&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -161,7 +165,7 @@
       <recent name="$PROJECT_DIR$/src/routes" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.lint">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="check" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -214,11 +218,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.preview" />
         <item itemvalue="npm.lint" />
         <item itemvalue="npm.format" />
-        <item itemvalue="npm.check" />
         <item itemvalue="npm.dev" />
-        <item itemvalue="npm.preview" />
+        <item itemvalue="npm.check" />
       </list>
     </recent_temporary>
   </component>
@@ -298,30 +302,7 @@
       <workItem from="1720814031766" duration="945000" />
       <workItem from="1720814989609" duration="2623000" />
       <workItem from="1720817622011" duration="299000" />
-    </task>
-    <task id="LOCAL-00062" summary="chore: Update svelte and zod versions in package.json and pnpm-lock.yaml&#10;&#10;- The versions of Svelte and Zod in package.json and pnpm-lock.yaml have been upgraded. Svelte version was increased from 4.2.15 to 4.2.16, and Zod version was upgraded from 3.23.6 to 3.23.8. &#10;- All downstream package dependencies that depend on these packages have been impacted and reflected in the changes in pnpm-lock.yaml.">
-      <option name="closed" value="true" />
-      <created>1715288246419</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1715288246419</updated>
-    </task>
-    <task id="LOCAL-00063" summary="refactor: privacy policy page for localization support&#10;&#10;- The privacy policy page has been refactored to enable localization support. &#10;- A new query has been added to fetch locale-specific content. &#10;- The static content in privacy-policy.svelte has been replaced with a dynamic rendering setup, using the fetched content.">
-      <option name="closed" value="true" />
-      <created>1715288287189</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1715288287189</updated>
-    </task>
-    <task id="LOCAL-00064" summary="feat: add Partners Page feature&#10;&#10;- This commit involves adding a Partners Page feature to the app. &#10;- It involves modifications in various files including creating new files for the Partners Page and updating the hooks and schema files. &#10;- This also involves updating the querying and rendering partners data on the Partners Page.">
-      <option name="closed" value="true" />
-      <created>1715294209132</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1715294209132</updated>
+      <workItem from="1723313816825" duration="790000" />
     </task>
     <task id="LOCAL-00065" summary="chore: Add exclusion for houdini and svelte-kit folders&#10;&#10;- Exclusion for two new directories, '$houdini' and '.svelte-kit', has been included in the development module. &#10;- This prevents these directories from being indexed by the integrated development environment, thus optimizing its performance.">
       <option name="closed" value="true" />
@@ -691,7 +672,31 @@
       <option name="project" value="LOCAL" />
       <updated>1720817914537</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="fix: Refactor GraphQL schema, reformatting comments &#10;&#10;- Consolidate comment formatting to enhance schema readability and maintainability. &#10;- Adjusted comment indentation and placement for consistency across multiple input and type definitions.">
+      <option name="closed" value="true" />
+      <created>1722532629303</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1722532629303</updated>
+    </task>
+    <task id="LOCAL-00112" summary="chore: Update metadata for Devologic site structure&#10;&#10;- Added a period to the description for consistency. &#10;- Updated image URLs and alt text to reflect the current branding of Devologic, ensuring all references are accurate and aligned with the company's visual identity.">
+      <option name="closed" value="true" />
+      <created>1722533510943</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1722533510943</updated>
+    </task>
+    <task id="LOCAL-00113" summary="chore: Remove console.log statements from contact form&#10;&#10;- This commit removes several console.log statements scattered throughout the contact form's client and server scripts. &#10;- The removal is aimed at cleaning up the code and improving performance by eliminating unnecessary logging.">
+      <option name="closed" value="true" />
+      <created>1722534515687</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1722534515687</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,9 +720,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: Add Node.js to jsLibraryMappings and exclude .vercel folder" />
-    <MESSAGE value="chore: Add Node.js to jsLibraryMappings and exclude .vercel folder&#10;&#10;An update was made to include the &quot;Node.js Core&quot; predefined library in the JavaScriptLibraryMappings. In addition, the &quot;.vercel&quot; folder is now excluded in the devologic.iml. This prevents unnecessary loading of the .vercel folder contents and allows the use of Node.js core in the project." />
-    <MESSAGE value="chore: remove commented-out CSS styling&#10;&#10;- The commented-out CSS styling related to the body's background gradient in the [[lang]] route's style.css file has been removed.&#10;- This is to maintain the cleanliness of the code and to avoid potential confusion in future development." />
     <MESSAGE value="refactor: formatting&#10;&#10;- Updated the project formatting for code consistency across multiple files including tsconfig.json, routes, favicon configurations, and client setup.&#10;- This involves adjustments for tabs, spacing, and line breaks.&#10;- This will enhance overall readability and maintainability of the codebase." />
     <MESSAGE value="chore: update dependencies and remove comments in error.svelte file&#10;&#10;- Updated the package.json and pnpm-lock.yaml files with new dependencies. &#10;- Also, unnecessary comments are removed from the error.svelte file. &#10;- The reordering of script commands in package.json for better readability. Introduced changes in the versions of dependencies will help to keep the project updated and efficient." />
     <MESSAGE value="chore: Remove about, blog, blogpost and contact page" />
@@ -740,6 +742,9 @@
     <MESSAGE value="fix: Update clip-path identifiers in DevologicIconHorizontalDark.svelte&#10;&#10;- The clip-path identifiers in src/lib/logos/DevologicIconHorizontalDark.svelte have been updated. &#10;- This change ensures proper referencing of these elements throughout the SVG code, promoting correct rendering and visual alignment." />
     <MESSAGE value="chore: Update devDependencies version in package.json&#10;&#10;- This commit updates several development dependencies in package.json. &#10;- Various packages such as `@sveltejs/adapter-cloudflare`, `@sveltejs/kit`, and `typescript` among others have been upgraded to newer versions. &#10;- This ensures we're using the latest functionality and security patches from these packages." />
     <MESSAGE value="chore: eslint 9" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: eslint 9" />
+    <MESSAGE value="fix: Refactor GraphQL schema, reformatting comments &#10;&#10;- Consolidate comment formatting to enhance schema readability and maintainability. &#10;- Adjusted comment indentation and placement for consistency across multiple input and type definitions." />
+    <MESSAGE value="chore: Update metadata for Devologic site structure&#10;&#10;- Added a period to the description for consistency. &#10;- Updated image URLs and alt text to reflect the current branding of Devologic, ensuring all references are accurate and aligned with the company's visual identity." />
+    <MESSAGE value="chore: Remove console.log statements from contact form&#10;&#10;- This commit removes several console.log statements scattered throughout the contact form's client and server scripts. &#10;- The removal is aimed at cleaning up the code and improving performance by eliminating unnecessary logging." />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: Remove console.log statements from contact form&#10;&#10;- This commit removes several console.log statements scattered throughout the contact form's client and server scripts. &#10;- The removal is aimed at cleaning up the code and improving performance by eliminating unnecessary logging." />
   </component>
 </project>

@@ -32,7 +32,7 @@
 			description: meta.description,
 			images: [
 				{
-					url: 'https://devologic.digital/logos/devologic-icon-horizontal-light.svg',
+					url: 'https://devologic.digital/logos/1200x675.png',
 					alt: 'Devologic logo',
 					width: 1388,
 					height: 414,
@@ -43,7 +43,7 @@
 			cardType: 'summary_large_image',
 			title: meta.title,
 			description: meta.description,
-			image: 'https://devologic.digital/logos/devologic-icon-horizontal-light.svg',
+			image: 'https://devologic.digital/logos/1200x675.png',
 			imageAlt: 'Devologic logo',
 			site: meta.url,
 		},

@@ -34,8 +34,8 @@
 				{
 					url: 'https://devologic.digital/logos/1200x675.png',
 					alt: 'Devologic logo',
-					width: 1388,
-					height: 414,
+					width: 1200,
+					height: 675,
 				},
 			],
 		},
@@ -74,6 +74,6 @@
 		'@type': 'Organization',
 		name: 'Devologic',
 		url: 'https://devologic.digital',
-		logo: 'https://devologic.digital/logos/devologic-icon-vertical-light.svg',
+		logo: 'https://devologic.digital/logos/1200x675.png',
 	}}
 />

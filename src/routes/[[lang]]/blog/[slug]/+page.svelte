@@ -1,11 +1,20 @@
 <script lang="ts">
 	import type { PageData } from './$houdini';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 
 	export let data: PageData;
 
 	$: ({ BlogPost } = data);
 	$: ({ blogPosts } = $BlogPost.data ?? {});
 </script>
+
+<MetaTags description={blogPosts[0].intro} keywords={[blogPosts[0].tag]}
+					openGraph={{ title:blogPosts[0].mainHeading, type: 'article', images: [{
+					url: blogPosts[0].heroImage?.url,
+					alt: blogPosts[0].heroImage?.alt
+						}]
+					}}
+					title={blogPosts[0].mainHeading} />
 
 {#if blogPosts}
 	<div class="bg-white px-6 py-32 lg:px-8">
@@ -43,3 +52,26 @@
 		</div>
 	</div>
 {/if}
+
+<JsonLd
+	output="body"
+	schema={{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: blogPosts[0].mainHeading,
+		image: blogPosts[0].heroImage?.url,
+		author: {
+			'@type': 'Organization',
+			name: 'Devologic'
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: 'Devologic',
+			logo: {
+				'@type': 'ImageObject',
+				url: 'https://devologic.digital/logos/1200x675.png',
+			}
+		},
+		datePublished: '2024-01-14'
+	}}
+/>

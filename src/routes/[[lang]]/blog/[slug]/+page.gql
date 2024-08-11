@@ -1,6 +1,7 @@
 query BlogPost($slug: String, $locales: [Locale!]!) {
 	blogPosts(where: { url_contains: $slug }, locales: $locales) {
 		id
+		createdAt
 		name
 		tag
 		heroImage {

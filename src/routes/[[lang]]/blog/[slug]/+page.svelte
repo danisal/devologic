@@ -8,7 +8,7 @@
 	$: ({ blogPosts } = $BlogPost.data ?? {});
 </script>
 
-<MetaTags description={blogPosts[0].intro} keywords={[blogPosts[0].tag]}
+<MetaTags description={blogPosts[0].intro} keywords={blogPosts[0].tag}
 					openGraph={{ title:blogPosts[0].mainHeading, type: 'article', images: [{
 					url: blogPosts[0].heroImage?.url,
 					alt: blogPosts[0].heroImage?.alt
@@ -72,6 +72,6 @@
 				url: 'https://devologic.digital/logos/1200x675.png',
 			}
 		},
-		datePublished: '2024-01-14'
+		datePublished: blogPosts[0].createdAt
 	}}
 />

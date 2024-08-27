@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$houdini';
-	import { JsonLd, MetaTags } from 'svelte-meta-tags';
+	import { JsonLd } from 'svelte-meta-tags';
 
 	export let data: PageData;
 
@@ -10,9 +10,6 @@
 </script>
 
 {#if post}
-	<MetaTags description={post.intro} keywords={post.tag}
-						openGraph={{ title:post.mainHeading, type: 'article', images: [{ url: post.heroImage?.url, alt: post.heroImage?.alt }] }}
-						title={post.mainHeading} />
 	<div class="bg-white px-6 py-32 lg:px-8">
 		<div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
 			<p class="text-base font-semibold leading-7 text-east-bay-600">{post.tag}</p>

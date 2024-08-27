@@ -65,6 +65,9 @@ importers:
       lucide-svelte:
         specifier: ^0.436.0
         version: 0.436.0(svelte@4.2.19)
+      merge-anything:
+        specifier: ^6.0.2
+        version: 6.0.2
       postcss:
         specifier: ^8.4.41
         version: 8.4.41
@@ -1706,6 +1709,10 @@ packages:
     resolution: {integrity: sha512-PJqgEHiWZvMpaFZ3uTc8kHPM4+4ADTlDniuQL7cU/UDA0Ql7F70yGfHph3cLNe+c9toaigv+DFzTJKhc2CtO6A==}
     engines: {node: '>= 0.4'}
 
+  is-what@5.0.2:
+    resolution: {integrity: sha512-vI7Ui0qzNQ2ClDZd0bC7uqRk3T1imbX5cZODmVlqqdqiwmSIUX3CNSiRgFjFMJ987sVCMSa7xZeEDtpJduPg4A==}
+    engines: {node: '>=18'}
+
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
@@ -1804,6 +1811,10 @@ packages:
   memfs@3.5.3:
     resolution: {integrity: sha512-UERzLsxzllchadvbPs5aolHh65ISpKpM+ccLbOJ8/vvpBKmAWf+la7dXFy7Mr0ySHbdHrFv5kGFCUHHe6GFEmw==}
     engines: {node: '>= 4.0.0'}
+
+  merge-anything@6.0.2:
+    resolution: {integrity: sha512-U8x6DL/YVudOcf82B6hd8GFg+6gF6hEHYwzqdo67GrH6vnDZ5YBq6BYX3hHWyCnG3CcqJDB1a9tj9fzMI3RL9Q==}
+    engines: {node: '>=18'}
 
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
@@ -4355,6 +4366,8 @@ snapshots:
       gopd: 1.0.1
       has-tostringtag: 1.0.0
 
+  is-what@5.0.2: {}
+
   isexe@2.0.0: {}
 
   jiti@1.21.0: {}
@@ -4437,6 +4450,10 @@ snapshots:
   memfs@3.5.3:
     dependencies:
       fs-monkey: 1.0.5
+
+  merge-anything@6.0.2:
+    dependencies:
+      is-what: 5.0.2
 
   merge-stream@2.0.0: {}
 

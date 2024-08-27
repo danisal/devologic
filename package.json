@@ -31,6 +31,7 @@
 		"houdini": "^1.2.56",
 		"houdini-svelte": "^1.2.56",
 		"lucide-svelte": "^0.436.0",
+		"merge-anything": "^6.0.2",
 		"postcss": "^8.4.41",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.6",

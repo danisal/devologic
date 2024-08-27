@@ -4,6 +4,8 @@
 	import Header from '$lib/components/Header.svelte';
 	import type { LayoutData } from './$houdini';
 	import { JsonLd, MetaTags, type MetaTagsProps } from 'svelte-meta-tags';
+	import { page } from '$app/stores';
+	import { merge } from 'merge-anything';
 
 	export let data: LayoutData;
 
@@ -15,7 +17,7 @@
 	};
 
 	// SEO
-	$: metaTags = {
+	$: metaTags = merge({
 		title: meta.title,
 		titleTemplate: '%s | Digital Agency',
 		description: meta.description,
@@ -49,7 +51,7 @@
 		},
 		keywords: ['web design', ' web development', ' marketing', ' marketing strategy', ' seo'],
 		robots: 'index,follow',
-	} satisfies MetaTagsProps;
+	}, { ...$page.data.pageMetaTags }) satisfies MetaTagsProps;
 </script>
 
 <MetaTags {...metaTags} />

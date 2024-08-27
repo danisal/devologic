@@ -12,7 +12,6 @@ export const _BlogPostVariables: BlogPostVariables = async ({ params, parent, ur
 };
 
 export function _houdini_afterLoad({ data, event }: AfterLoadEvent) {
-	console.log(event.url.href);
 	return {
 		pageMetaTags: {
 			description: data.BlogPost.blogPosts[0].intro,

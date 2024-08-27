@@ -5,32 +5,28 @@
 	export let data: PageData;
 
 	$: ({ BlogPost } = data);
-	$: ({ blogPosts } = $BlogPost.data ?? {});
+
+	$: post = $BlogPost.data?.blogPosts[0];
 </script>
 
-<MetaTags description={blogPosts[0].intro} keywords={blogPosts[0].tag}
-					openGraph={{ title:blogPosts[0].mainHeading, type: 'article', images: [{
-					url: blogPosts[0].heroImage?.url,
-					alt: blogPosts[0].heroImage?.alt
-						}]
-					}}
-					title={blogPosts[0].mainHeading} />
-
-{#if blogPosts}
+{#if post}
+	<MetaTags description={post.intro} keywords={post.tag}
+						openGraph={{ title:post.mainHeading, type: 'article', images: [{ url: post.heroImage?.url, alt: post.heroImage?.alt }] }}
+						title={post.mainHeading} />
 	<div class="bg-white px-6 py-32 lg:px-8">
 		<div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-			<p class="text-base font-semibold leading-7 text-east-bay-600">{blogPosts[0].tag}</p>
+			<p class="text-base font-semibold leading-7 text-east-bay-600">{post.tag}</p>
 			<h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-				{blogPosts[0].mainHeading}
+				{post.mainHeading}
 			</h1>
 			<p class="mt-6 text-xl leading-8">
-				{blogPosts[0].intro}
+				{post.intro}
 			</p>
 			<figure class="mt-16">
 				<img
 					class="aspect-video rounded-xl bg-gray-50 object-cover"
-					src={blogPosts[0].heroImage?.url}
-					alt={blogPosts[0].heroImage?.alt}
+					src={post.heroImage?.url}
+					alt={post.heroImage?.alt}
 				/>
 				<figcaption class="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
 					<svg
@@ -45,21 +41,20 @@
 							clip-rule="evenodd"
 						/>
 					</svg>
-					{blogPosts[0].heroImage?.metadata.credit}
+					{post.heroImage?.metadata.credit}
 				</figcaption>
 			</figure>
-			<div class="prose mt-16 max-w-2xl">{@html blogPosts[0].content.html}</div>
+			<div class="prose mt-16 max-w-2xl">{@html post.content.html}</div>
 		</div>
 	</div>
-{/if}
 
-<JsonLd
-	output="body"
-	schema={{
+	<JsonLd
+		output="body"
+		schema={{
 		'@context': 'https://schema.org',
 		'@type': 'Article',
-		headline: blogPosts[0].mainHeading,
-		image: blogPosts[0].heroImage?.url,
+		headline: post.mainHeading,
+		image: post.heroImage?.url,
 		author: {
 			'@type': 'Organization',
 			name: 'Devologic'
@@ -72,6 +67,7 @@
 				url: 'https://devologic.digital/logos/1200x675.png',
 			}
 		},
-		datePublished: blogPosts[0].createdAt
+		datePublished: post.createdAt
 	}}
-/>
+	/>
+{/if}

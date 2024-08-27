@@ -1,4 +1,3 @@
-// import adapter from '@sveltejs/adapter-cloudflare';
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import path from 'path';

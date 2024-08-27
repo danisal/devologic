@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4c7aa9b-45d6-4dfd-86d8-03acb4286869" name="Changes" comment="refactor: blog post data structure&#10;&#10;- Replaced multiple instances of 'blogPosts[0]' with 'post' for cleaner and more maintainable code.&#10;- This change simplifies data access and enhances the readability of the blog post rendering logic.">
+    <list default="true" id="e4c7aa9b-45d6-4dfd-86d8-03acb4286869" name="Changes" comment="chore: Add IDE configuration files for Prettier and project settings&#10;&#10;- This commit introduces the Prettier configuration file and a comprehensive project setting file for better development environment management. &#10;- It ensures that code formatting and project-specific settings are automatically handled, enhancing consistency across the development team.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/[[lang]]/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/[[lang]]/+layout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/[[lang]]/blog/[slug]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/[[lang]]/blog/[slug]/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/[[lang]]/blog/[slug]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/[[lang]]/blog/[slug]/+page.ts" afterDir="false" />
@@ -108,9 +111,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724777578320</updated>
-      <workItem from="1724777580245" duration="5554000" />
+      <workItem from="1724777580245" duration="6738000" />
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="chore: Add IDE configuration files for Prettier and project settings&#10;&#10;- This commit introduces the Prettier configuration file and a comprehensive project setting file for better development environment management. &#10;- It ensures that code formatting and project-specific settings are automatically handled, enhancing consistency across the development team.">
+      <option name="closed" value="true" />
+      <created>1724785506178</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724785506179</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +147,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactor blog post data structure&#10;&#10;Replaced multiple instances of 'blogPosts[0]' with 'post' for cleaner and more maintainable code. This change simplifies data access and enhances readability of the blog post rendering logic." />
     <MESSAGE value="refactor: blog post data structure&#10;&#10;- Replaced multiple instances of 'blogPosts[0]' with 'post' for cleaner and more maintainable code.&#10;- This change simplifies data access and enhances the readability of the blog post rendering logic." />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: blog post data structure&#10;&#10;- Replaced multiple instances of 'blogPosts[0]' with 'post' for cleaner and more maintainable code.&#10;- This change simplifies data access and enhances the readability of the blog post rendering logic." />
+    <MESSAGE value="chore: Add IDE configuration files for Prettier and project settings&#10;&#10;- This commit introduces the Prettier configuration file and a comprehensive project setting file for better development environment management. &#10;- It ensures that code formatting and project-specific settings are automatically handled, enhancing consistency across the development team." />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: Add IDE configuration files for Prettier and project settings&#10;&#10;- This commit introduces the Prettier configuration file and a comprehensive project setting file for better development environment management. &#10;- It ensures that code formatting and project-specific settings are automatically handled, enhancing consistency across the development team." />
   </component>
 </project>

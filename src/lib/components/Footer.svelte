@@ -26,22 +26,22 @@
 
 	const socialItems: SocialItem[] = [
 		{
-			href: 'https://facebook.com',
+			href: 'https://www.facebook.com/profile.php?id=61564550776790',
 			icon: Facebook,
 			name: 'Facebook',
 		},
+		// {
+		// 	href: 'https://instagram.com',
+		// 	icon: Instagram,
+		// 	name: 'Instagram',
+		// },
+		// {
+		// 	href: 'https://twitter.com',
+		// 	icon: Twitter,
+		// 	name: 'Twitter',
+		// },
 		{
-			href: 'https://instagram.com',
-			icon: Instagram,
-			name: 'Instagram',
-		},
-		{
-			href: 'https://twitter.com',
-			icon: Twitter,
-			name: 'Twitter',
-		},
-		{
-			href: 'https://linkedin.com',
+			href: 'https://www.linkedin.com/company/devologic',
 			icon: Linkedin,
 			name: 'LinkedIn',
 		},
@@ -60,14 +60,14 @@
 				<p class="text-sm leading-6 text-gray-300">
 					{sentence}
 				</p>
-				<!--				<div class="flex space-x-6">-->
-				<!--					{#each socialItems as socialItem}-->
-				<!--						<a href={socialItem.href} class="text-gray-500 hover:text-gray-400">-->
-				<!--							<span class="sr-only">{socialItem.name}</span>-->
-				<!--							<svelte:component this={socialItem.icon} strokeWidth="1.5" />-->
-				<!--						</a>-->
-				<!--					{/each}-->
-				<!--				</div>-->
+				<div class="flex space-x-6">
+					{#each socialItems as socialItem}
+						<a href={socialItem.href} class="text-gray-500 hover:text-gray-400">
+							<span class="sr-only">{socialItem.name}</span>
+							<svelte:component this={socialItem.icon} strokeWidth="1.5" />
+						</a>
+					{/each}
+				</div>
 			</div>
 			<div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
 				<div class="md:grid md:grid-cols-2 md:gap-8">
